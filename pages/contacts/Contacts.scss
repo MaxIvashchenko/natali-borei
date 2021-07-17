@@ -1,0 +1,52 @@
+.Contacts {
+    margin: 2% auto;
+    max-width: 1200px;
+    color: $brown;
+    font: 20px $basicFont;
+
+    @media only screen and (max-width: 768px) {
+        text-align: center;
+    }
+
+    .data-contacts {
+        // height: 400px;
+        // background-color: darksalmon;
+        padding: 30px;
+        margin: 20px;
+        @media only screen and (max-width: 768px) {
+            padding: 10px;
+        }
+        .line {
+            border-top: 1px solid $brown;
+            opacity: 0.3;
+        }
+
+        .socLink {
+            opacity: 0.9;
+
+            i {
+                font-size: 40px;
+                color: #7a5940;
+                padding: 20px;
+            }
+        }
+    }
+
+    /* form */
+
+    .form {
+        padding: 15px;
+        margin: 20px;
+        h3 {
+            text-align: center;
+        }
+        .btn {
+            background-color: $gold;
+            border-color: $gold;
+        }
+        .btn:active {
+            background-color: $brown;
+            border-color: $brown;
+        }
+    }
+}

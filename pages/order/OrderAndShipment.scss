@@ -1,0 +1,26 @@
+.Order {
+    margin: 2% auto;
+    color: $brown;
+    font: 20px $basicFont;
+    padding: 30px;
+
+    h3 {
+        padding: 20px 0;
+    }
+
+    .line {
+        border-top: 1px solid $brown;
+        opacity: 0.3;
+    }
+    .tabs {
+        
+        p {
+
+            border-left: 1px solid rgb(222, 226, 230);
+            border-right: 1px solid rgb(222, 226, 230);
+            border-bottom: 1px solid rgb(222, 226, 230);
+            
+            padding: 20px;
+        }
+    }
+}

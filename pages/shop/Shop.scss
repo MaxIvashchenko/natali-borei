@@ -1,0 +1,235 @@
+.Shop {
+    max-width: 1200px;
+    padding: 20px 0;
+    .nav-shop {
+        // padding-left: 30px;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        button:focus {
+            outline: none;
+        }
+
+        @media only screen and (max-width: 768px) {
+            text-align: center;
+
+            display: block;
+            .category-name {
+                margin: 5px;
+            }
+        }
+
+        .category-name {
+            padding: 20px 10px;
+            border: none;
+            // width: 100%;
+        }
+
+        .category-name {
+            div {
+                text-align: left;
+            }
+            transition: all 0.5s ease-out;
+
+            color: black;
+            font: 26px "Cormorant Garamond";
+            text-align: center;
+        }
+
+        .category-name:hover {
+            text-decoration: none;
+            color: #b7914c;
+            // border-bottom: 1px solid;
+            // margin-top: 10px;
+            opacity: 0.7;
+            // -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+            // transition: opacity 0.35s, transform 0.35s;
+            // -webkit-transform: scale(0, 1);
+            // transform: scale(0, 1);
+            cursor: pointer;
+            transition: all 0.5s ease-out;
+        }
+
+        .category-name:focus {
+            color: #7a5940;
+            // border-bottom: 1px solid;
+            text-decoration: none;
+        }
+
+        .category-active {
+            color: #7a5940;
+            border-bottom: 1px solid;
+            text-decoration: none;
+        }
+    }
+
+    .chooseCategory {
+        text-align: center;
+        p {
+            color: #7a5940;
+            text-transform: capitalize;
+            font: 28px "Cormorant Garamond";
+            margin: 100px 0;
+        }
+    }
+
+    /*---------- new shop item card ---------------*/
+
+    .items {
+        padding: 0;
+        text-decoration: none;
+
+        .item-card {
+            background: rgb(255, 255, 253);
+            height: 90%;
+            max-width: 90%;
+            // padding: 2px;
+            // border-radius: 30px;
+            margin: 20px auto;
+            // box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+            z-index: 0;
+            position: relative;
+            -webkit-transition: all 0.2s ease-out;
+            transition: all 0.2s ease-out;
+
+            overflow: hidden;
+        }
+    }
+
+    .item-card:hover {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+        box-shadow: 0px 7px 7px rgba(124, 102, 40, 0.6);
+    }
+
+    .line {
+        border-color: rgba(183, 145, 76, 0.3);
+        width: 100%;
+        size: 16px;
+    }
+
+    .card_img {
+        img {
+            width: 100%;
+        }
+    }
+
+    .item-name {
+        font-size: 25px;
+        color: #7a5940;
+        // margin-bottom: 10px;
+        padding: 20px 10px;
+    }
+
+    .content {
+        text-align: center;
+        font-family: "Cormorant Garamond";
+        // padding: 4px;
+
+        .priceStatus {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 25px;
+            color: #7a5940;
+
+            li {
+                list-style-type: none;
+                font-size: 25px;
+            }
+            .item-status {
+                font-weight: bolder;
+                // text-transform: uppercase;
+                text-align: left;
+                padding: 0;
+            }
+
+            .item-price {
+                // font-size: 38px;
+                padding: 0;
+                text-align: right;
+            }
+
+            .sold {
+                color: rgb(155, 49, 49);
+            }
+
+            .available {
+                color: rgb(30, 78, 30);
+            }
+        }
+    }
+
+    /* ------мигание кнопки------ */
+
+    @keyframes anime {
+        0% {
+            color: black;
+            opacity: 100%;
+        }
+        50% {
+            color: white;
+            opacity: 100%;
+        }
+        100% {
+            color: black;
+            opacity: 100%;
+        }
+    }
+
+    .carousel-control-prev i,
+    .carousel-control-next i {
+        animation: anime infinite 1s linear;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        margin-left: -15px;
+        outline: black;
+        height: 70%;
+        font-size: 115px;
+        color: black;
+        font-weight: 900;
+        background-image: none;
+        animation: anime infinite 4s linear;
+    }
+
+    .carousel-control-next-icon:after {
+        content: "\203A";
+    }
+
+    .carousel-control-prev-icon:after {
+        content: "\2039";
+    }
+    .filter-selected {
+        background-color: #e4e3c3;
+        transition: all 0.5s ease-out;
+    }
+    .unselected,
+    .filter {
+        background-color: #ffffff;
+        transition: all 0.5s ease-out;
+    }
+
+    .settings-filter {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        ul {
+            padding: 0;
+        }
+    }
+
+    .settings-filter .nav-link {
+        cursor: pointer;
+    }
+    .nav-link,
+    .nav-link:focus,
+    .nav-link:active {
+        border: none;
+        outline: none;
+    }
+
+    .noFilter {
+        height: 70px;
+        width: 100%;
+    }
+}

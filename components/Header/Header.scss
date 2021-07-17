@@ -1,0 +1,61 @@
+// @import '../../styles/style.scss';
+
+.Header {
+    border-bottom: 7px solid $gold-green;
+    width: "100%";
+
+    #navbarScroll {
+        // justify-content: center;
+
+        @media only screen and (max-width: 575px) {
+            justify-content: end;
+        }
+    }
+    .nav-item {
+        padding: 0 10px;
+        text-align: center;
+        width: "80px";
+    }
+
+    .nav-item a {
+        font: 24px "Cormorant Garamond";
+        padding: 0;
+    }
+
+    .brand-centered {
+        position: absolute;
+        left: 45%;
+        top: 20;
+
+        @media only screen and (max-width: 575px) {
+            top: 10px;
+            left: 40%;
+        }
+        .shortLogo {
+            width: 70px;
+            padding: 5;
+            box-shadow: 1px grey;
+            transition: all 0.5s ease-out;
+        }
+        .shortLogo:hover {
+            transform: scale(1.2);
+            transition: all 0.5s ease-out;
+
+            @media only screen and (max-width: 575px) {
+                transform: none;
+                transition: none;
+            }
+        }
+    }
+
+    .navbar-collapse {
+        // padding: 15px 10%;
+    }
+
+    .navbar-toggler {
+        margin: 10px 0;
+        padding: 8px;
+    }
+
+    
+}

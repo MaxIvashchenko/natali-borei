@@ -1,0 +1,56 @@
+.NotFound {
+    padding: 0% 10% 10%;
+    font-family: $basicFont;
+    text-align: center;
+    
+
+    p {
+        text-align: center;
+        font-size: 60px;
+        margin: 0;
+        color: $brown;
+    }
+    .text {
+        font-size: 30px;
+        padding: 40px 0;
+        color: $gold-green;
+
+    }
+    .number {
+        font-size: 300px;
+        line-height: normal;
+        @media only screen and (max-width: 768px) {
+            font-size: 200px;
+        }
+    }
+    .homeBtn {
+        margin: 0 auto;
+        background: $gold-green;
+        min-width: 160px;
+        width: 20%;
+        padding: 30px 10px;
+        text-align: center;
+        border-radius: 10px;
+        transition-duration: 1s;
+        border: 1px solid #fff;
+        box-sizing: border-box;
+
+        p {
+            font-size: 130%;
+            color: white;
+        }
+    }
+    .homeBtn:hover {
+        background: #fff;
+        box-sizing: border-box;
+        border: 1px solid $gold-green;
+
+        p {
+            color: $gold-green;
+        }
+    }
+    .homeBtn:active,
+    .homeBtn:focus {
+        outline: none;
+    } 
+}
