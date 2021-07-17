@@ -7,8 +7,6 @@ import NavItem from './NavItem'
 import useWindowSize from "../../hooks/useWindowSize"
 
 
-
-
 export default function Header({ mainPage }) {
     const { t, i18n } = useTranslation('common');
     const { width } = useWindowSize();
@@ -35,7 +33,7 @@ export default function Header({ mainPage }) {
                     )
                 }
                 <Navbar.Toggle aria-controls="navbarScroll" className="m-2"/>
-                <Navbar.Collapse id="navbarScroll" className="py-4 px-xs-2" style={{ textAlign: "center",  }}>
+                <Navbar.Collapse id="navbarScroll" className="py-xs-4 px-xs-2" style={{ textAlign: "center",  }}>
                     <Nav
                         className=" my-2 my-lg-0"
                         style={{
@@ -58,12 +56,12 @@ export default function Header({ mainPage }) {
                         <NavItem href="/order" text={t('header.orderShip')} />
                         <NavItem href="/contacts" text={t('header.contacts')} />
 
-                        {!mobWidth &&
+                        {/* {!mobWidth &&
                             <NavDropdown title={t(`header.${i18n.language}`)} style={{margin: 'auto'}} id="navbarScrollingDropdown">
                                 <Button style={{ color: "rgba(0,0,0,.5)", margin: 0 }} onClick={() => i18n.changeLanguage('ru')} variant="link">{t('header.ru')}</Button>
                                 <Button style={{ color: "rgba(0,0,0,.5)", padding: 0 }} onClick={() => i18n.changeLanguage('en')} variant="link">{t('header.en')}</Button>
                             </NavDropdown>
-                        }
+                        } */}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

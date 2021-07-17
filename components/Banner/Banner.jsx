@@ -1,13 +1,10 @@
-import React from 'react'
-import bigLogo from './Sait_NataliBorei.png'
 import Ztext from 'react-ztext'
 import Image from 'next/image'
-
-
+import bigLogo from './Sait_NataliBorei.png'
 
 export default function Banner() {
     return (
-        <div className="bigScr">
+        <div className="Banner">
             <Ztext
                 depth='1rem'
                 direction='both'
