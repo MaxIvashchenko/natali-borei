@@ -4,46 +4,59 @@
     }
 
     .categoryShop {
-        a {
-            div {
-                height: 300px;
-                position: relative; // background: #fffadf;
-                transition: all 1s ease-out;
-                z-index: 1;
-                border: 1px solid rgba(177, 177, 177, 0.3);
-                overflow: hidden;
+        .cover {
+            height: 300px;
+            position: relative; // background: #fffadf;
+            transition: all 1s ease-out;
+            z-index: 1;
+            // border: 1px solid rgba(177, 177, 177, 0.3);
+            overflow: hidden;
+            cursor: pointer;
+        }
+        h3 {
+            position: absolute;
+            top: 40%;
+
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-family: $basicFont;
+            font-size: 30px;
+            color: rgb(80, 51, 13);
+            transition: all 1s ease-out;
+
+        }
+        img {
+            width: 160px;
+            height: 80px;
+        }
+        .stick1 {
+            position: absolute;
+            top: 14%;
+            left: 27%;
+            transform: rotate(190deg) scale(1);
+            transition: all 1s ease-out;
+        }
+        .stick2 {
+            position: absolute;
+            top: 55%;
+            right: 26%;
+            transform: rotate(10deg) scale(1);
+            transition: all 1s ease-out;
+        }
+
+        .cover:hover {
+            .stick1 {
+                transform: rotate(180deg) scale(0.9);
+                left: 18%;
+            }
+            .stick2 {
+                transform: rotate(00deg) scale(0.9);
+                right: 17%;
             }
             h3 {
-                font-family: $basicFont;
-                font-size: 40px;
-                color: rgb(80, 51, 13);
-            }
-            .stick1 {
-                position: absolute;
-                top: 20%;
-                transform: rotate(190deg);
-                width: 100px;
-                height: 100%;
-                opacity: 1;
-                transition: all 0.8s ease-out;
-            }
-            .stick2 {
-                position: absolute;
-                top: 42%;
-                width: 100px;
-                transform: rotate(20deg);
-                opacity: 1;
-                transition: all 0.8s ease-out;
-            }
-        }
-        a div:hover{
-            .stick1 {
-                transform: rotate(200deg) scale(1.1);
-                top: 15%;
+            font-size: 40px;
 
-            }
-            .stick2 {
-                opacity: 0;
             }
         }
 
@@ -53,7 +66,9 @@
             // width: 100%;
             background-color: antiquewhite;
             .stick1 {
-                right: 50%;
+                img {
+                    right: 50%;
+                }
             }
             .stick2 {
                 right: 25%;
@@ -62,8 +77,8 @@
                 position: absolute;
                 top: -20px;
                 left: -330px;
-                // width: 100px !important;
-                // height: 100px;
+                width: 40%;
+                height: 100%;
                 transition: all 0.8s ease-out;
                 opacity: 0;
             }
@@ -133,16 +148,17 @@
         }
 
         .rings {
-            position: relative;
+            // position: relative;
             height: 300px;
             margin: 10px 5px;
             z-index: 1;
-            overflow: hidden;
+            // overflow: hidden;
             .cover {
                 position: absolute;
                 top: -200px;
                 left: 0;
-                width: 230px;
+                width: 90%;
+                // height: 55%;
                 transition: all 0.5s ease-out;
                 opacity: 0;
             }
@@ -179,7 +195,7 @@
             z-index: 1;
 
             .cover {
-               position: absolute;
+                position: absolute;
                 bottom: -140px;
                 left: 30px;
                 width: 70%;
@@ -296,7 +312,6 @@
             height: 300px;
             z-index: 1;
             margin: 10px 5px;
-
 
             .cover {
                 position: absolute;
