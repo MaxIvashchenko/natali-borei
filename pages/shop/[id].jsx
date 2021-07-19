@@ -1,25 +1,26 @@
 import React, { useState } from 'react'
 import { useTranslation } from "react-i18next";
 import { Animated } from 'react-animated-css'
-
-import { useHistory } from 'react-router-dom'
-import backImg from '../../../images/back.svg'
-import FewItems from './FewItems'
-import NotFound from '../../Common/NotFound'
-
-export default function Item(props) {
+import { useRouter } from 'next/router'
+// import { useHistory } from 'react-router-dom'
+import backImg from '../../images/back.svg'
+import FewItems from './ShowItem/FewItems'
+// import NotFound from '../../Common/NotFound'
+import items from '../../data'
+export default function Item() {
     const { t, i18n } = useTranslation('common');
+    const router = useRouter();
+    const { id } = router.query
     const lang = i18n.language;
-    const history = useHistory();
     const [numOfImg, setnumOfImg] = useState(0)
-    if (!props.location.state) return <NotFound />
-    const item = props.location.state.item
+    // if (!props.location.state) return <NotFound />
+    const item = items.find(item => item.id === id)
 
     return (
         <Animated animationInDuration={1000} animationIn="fadeIn" className="ShowItem">
             <div className="container-fluid">
-                <button className="backImg" onClick={()=>history.goBack()}>
-                    <img src={backImg} alt="back-icon" />
+                <button className="backImg" onClick={()=>router.back()}>
+                    {/* <img src={backImg} alt="back-icon" /> */}
                 </button>
                 {item.variants ? <FewItems numOfImg={numOfImg} setnumOfImg={setnumOfImg} item={item} /> :
                     <>
@@ -51,19 +52,19 @@ export default function Item(props) {
                             </div>
 
                             <div className="col-12 col-md-6 imageBlock">
-                                <img
+                                {/* <img
                                     src={require('../../../images/' + item.images[numOfImg] + '')}
                                     alt={item.name + "-photo-" + 1}
-                                />
+                                /> */}
                                 <div className="imageRow">
                                     {item.images.map((image, i) => {
 
                                         return (
                                             <button onClick={() => setnumOfImg(i)} key={"imageInROw " + i}>
-                                                <img className={i === numOfImg ? "activeImg" : "none"}
+                                                {/* <img className={i === numOfImg ? "activeImg" : "none"}
                                                     src={require('../../../images/' + image + '')}
                                                     alt={item.en.name + "-photo-" + i}
-                                                />
+                                                /> */}
                                             </button>
                                         )
                                     })}

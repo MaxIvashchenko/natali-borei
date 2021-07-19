@@ -1,6 +1,7 @@
 import React from 'react'
-import Link from 'next/link'
-
+import { useRouter } from 'next/router'
+import { connect } from 'react-redux';
+import { setTitle } from '../../redux/actions/titleActions'
 import { useTranslation } from "react-i18next";
 import Banner from '../Banner/Banner';
 import { Animated } from 'react-animated-css'
@@ -13,19 +14,27 @@ import lavBrooch from '../../images/main/lavBrooch_title.png'
 import ring from '../../images/main/rings_title.png'
 import stick from '../../images/stick.png'
 import Image from 'next/image'
+import titleToUrl from "../../helper/helper"
 
 const categories = [
     { name: 'brooch', sizeClass: 'col-md-6', imgSrc: brooch, text: 'Brooch', width: 46 },
     { name: 'bracelets', sizeClass: 'col-md-6', imgSrc: bracelet, text: 'Bracelets', width: 60 },
     { name: 'rings', sizeClass: 'col-md-3', imgSrc: ring, text: 'Rings', width: 60 },
-    { name: 'lavBrooch', sizeClass: 'col-md-6', imgSrc: lavBrooch, text: 'Lavalierbrooch', width: 100 },
+    { name: 'lavBrooch', sizeClass: 'col-md-6', imgSrc: lavBrooch, text: 'Lavalier brooch', width: 100 },
     { name: 'bags', sizeClass: 'col-md-3', imgSrc: bag, text: 'Bags', width: 100 },
     { name: 'pendant', sizeClass: 'col-md-6', imgSrc: pendant, text: 'Pendant', width: 100 },
     { name: 'necklace', sizeClass: 'col-md-6', imgSrc: necklace, text: 'Necklace', width: 100 },
 ]
 
-function Home() {
+function Home({ setTitle }) {
     const [t] = useTranslation('common');
+    const router = useRouter()
+
+    const handleClick = (value) => {
+        const title = titleToUrl(value);
+        setTitle(title)
+        router.push('shop')
+    }
 
     return (
         <Animated className="Home">
@@ -37,17 +46,17 @@ function Home() {
                         const { text, sizeClass, name, imgSrc } = category;
 
                         return (
-                            <Link key={i} href={`/shop/${text.toLowerCase()}`} passHref>
-                                <div key={i} className={'col-12 ' + sizeClass + " cover"}>
-                                    <h3>{t(`categories.${name}`)}</h3>
-                                    <div className="stick1">
-                                        <Image src={stick} alt='srick' />
-                                    </div>
-                                    <div className="stick2">
-                                        <Image src={stick} alt='srick' />
-                                    </div>
+
+                            <button onClick={() => handleClick(text)} key={i} className={'col-12 ' + sizeClass + " cover"}>
+                                <h3>{t(`categories.${name}`)}</h3>
+                                <div className="stick1">
+                                    <Image src={stick} alt='srick' />
                                 </div>
-                            </Link>
+                                <div className="stick2">
+                                    <Image src={stick} alt='srick' />
+                                </div>
+                            </button>
+
                         )
                     })}
 
@@ -58,4 +67,9 @@ function Home() {
     )
 }
 
-export default Home
+
+const mapDispatchToProps = {
+    setTitle
+};
+
+export default connect(null, mapDispatchToProps)(Home);

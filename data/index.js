@@ -1,4 +1,4 @@
-export const items = [
+const items = [
 	{
 		title: "Lavalier brooch",
 		id: "LB001",
@@ -556,3 +556,5 @@ export const items = [
 		available: "available"
 	}
 ]
+
+export default items

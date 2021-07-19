@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
-import { useParams } from "react-router-dom";
+import { useSelector } from 'react-redux'
+
 import Toolbar from './Toolbar/Toolbar';
 import ItemList from './ItemList/ItemList';
 import FilterSettings from './Toolbar/FilterSettings';
 import { Animated } from 'react-animated-css'
 import titleToUrl from "../../helper/helper";
 
-export default function Shop({ items, filters }) {
+import items from '../../data'
+
+export default function Shop() {
     const [selectedAvailable, setSelectedAvailable] = useState('all');
     const [selectedPrice, setSelectedPrice] = useState('');
-    const { title } = useParams();
+    const title = useSelector(({ title }) => title)
+
     const selected = title;
     const isExistCategory = titleToUrl(title) === selected;
 
@@ -36,7 +40,7 @@ export default function Shop({ items, filters }) {
             <section className="container-fluid Shop">
                 <div className="row">
                     <aside className="col-12 col-md-3 nav-shop">
-                        <Toolbar filters={filters} />
+                        <Toolbar />
                     </aside>
 
                     <div className="col-12 col-md-9">

@@ -43,7 +43,7 @@ export default function Header({ mainPage }) {
                         navbarScroll
                     >
                         <NavItem href="/about" text={t('header.about')} />
-                        <NavItem href="/shop/Necklace" text={t('header.shop')} />
+                        <NavItem href="/shop" text={t('header.shop')} />
                         <NavItem href="/collections" text={t('header.collections')} />
                         {!mobWidth &&
                             <Navbar.Brand className="" href={mainPage}>

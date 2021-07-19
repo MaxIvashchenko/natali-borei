@@ -1,7 +1,8 @@
 import React from 'react'
 import { useTranslation } from "react-i18next";
 import CardImage from './CardImage';
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
+
 import titleToUrl from "../../../helper/helper"
 
 export default function ItemList({ items }) {
@@ -11,11 +12,11 @@ export default function ItemList({ items }) {
     const arrayMin = (arr) => arr.reduce((p, v) => (p.price < v.price ? p : v));
 
     return items.map(function (item, i) {
-        const path = `/shop/${item.title}/${item.en.name}`
+        const path = `/shop/${item.id}`
 
         const showItem = () => {
 
-            const price =item.variants && arrayMin(item.variants).price
+            const price = item.variants && arrayMin(item.variants).price
             const colors = item.variants && item.variants.map((variant, i) => <div key={variant.color + '-' + i} className={variant.color}></div>)
             const isAvailable = item.variants && item.variants.some(a => a.available === 'available')
             const status = isAvailable ? "available" : "sold";
@@ -53,13 +54,18 @@ export default function ItemList({ items }) {
 
 
         return (
-            <Link to={{ pathname: titleToUrl(path), state: { item } }}
-                className="items container col-6 col-sm-6 col-lg-4" key={i}>
-                <div className="item-card">
-                    <div className="content row">
-                        {showItem()}
+            <Link href={{ pathname: titleToUrl(path), state: { item } }}
+                passHref
+                key={i}>
+                <div className="items container col-6 col-sm-6 col-lg-4">
+                    <div className="item-card">
+                        <div className="content row">
+                            {showItem()}
+                        </div>
                     </div>
+
                 </div>
+
             </Link>
         )
     })

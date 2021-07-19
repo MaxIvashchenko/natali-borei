@@ -1,3 +1,3 @@
-export default function titleToUrl(text) {
-    return text.toLowerCase().split(' ').join('');
-}
+const titleToUrl = text => text.toLowerCase().split(' ').join('');
+
+export default titleToUrl;
