@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 // import { Link, useParams } from "react-router-dom";
 import Link from 'next/link';
 import { useDispatch,useSelector } from 'react-redux'
-import { setTitle } from '../../../redux/actions/titleActions'
+import { setTitle } from '../../../store/title/action'
 
 
 import { Animated } from 'react-animated-css'

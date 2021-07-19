@@ -1,10 +1,11 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import { connect } from 'react-redux';
-import { setTitle } from '../../redux/actions/titleActions'
+import {  useDispatch } from 'react-redux';
+
+import  {setTitle} from '../../store/title/action'
 import { useTranslation } from "react-i18next";
 import Banner from '../Banner/Banner';
-import { Animated } from 'react-animated-css'
+import { Animated } from 'react-animated-css';
 import bracelet from '../../images/main/bracelets_title.png'
 import necklace from '../../images/main/necklace_title.png'
 import pendant from '../../images/main/pendant_title.png'
@@ -13,8 +14,8 @@ import brooch from '../../images/main/brooch_title.png'
 import lavBrooch from '../../images/main/lavBrooch_title.png'
 import ring from '../../images/main/rings_title.png'
 import stick from '../../images/stick.png'
-import Image from 'next/image'
-import titleToUrl from "../../helper/helper"
+import Image from 'next/image';
+import titleToUrl from "../../helper/helper";
 
 const categories = [
     { name: 'brooch', sizeClass: 'col-md-6', imgSrc: brooch, text: 'Brooch', width: 46 },
@@ -26,14 +27,15 @@ const categories = [
     { name: 'necklace', sizeClass: 'col-md-6', imgSrc: necklace, text: 'Necklace', width: 100 },
 ]
 
-function Home({ setTitle }) {
+function Home() {
     const [t] = useTranslation('common');
     const router = useRouter()
+    const dispatch = useDispatch();
 
     const handleClick = (value) => {
         const title = titleToUrl(value);
-        setTitle(title)
-        router.push('shop')
+        dispatch(setTitle(title));
+        router.push('shop');
     }
 
     return (
@@ -46,7 +48,6 @@ function Home({ setTitle }) {
                         const { text, sizeClass, name, imgSrc } = category;
 
                         return (
-
                             <button onClick={() => handleClick(text)} key={i} className={'col-12 ' + sizeClass + " cover"}>
                                 <h3>{t(`categories.${name}`)}</h3>
                                 <div className="stick1">
@@ -56,7 +57,6 @@ function Home({ setTitle }) {
                                     <Image src={stick} alt='srick' />
                                 </div>
                             </button>
-
                         )
                     })}
 
@@ -67,9 +67,4 @@ function Home({ setTitle }) {
     )
 }
 
-
-const mapDispatchToProps = {
-    setTitle
-};
-
-export default connect(null, mapDispatchToProps)(Home);
+export default Home;
