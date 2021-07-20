@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Animated } from 'react-animated-css'
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
+import Image from 'next/image';
 
 // import { useHistory } from 'react-router-dom'
 import backImg from '../../images/back.svg'
@@ -23,7 +24,7 @@ export default function Item() {
         <Animated animationInDuration={1000} animationIn="fadeIn" className="ShowItem">
             <div className="container-fluid">
                 <button className="backImg" onClick={()=>router.back()}>
-                    {/* <img src={backImg} alt="back-icon" /> */}
+                    <Image src={backImg} alt="back-icon" />
                 </button>
                 {item.variants ? <FewItems numOfImg={numOfImg} setnumOfImg={setnumOfImg} item={item} /> :
                     <>
@@ -55,19 +56,19 @@ export default function Item() {
                             </div>
 
                             <div className="col-12 col-md-6 imageBlock">
-                                {/* <img
-                                    src={require('../../../images/' + item.images[numOfImg] + '')}
+                                <Image
+                                    src={require('../../images/' + item.images[numOfImg] + '')}
                                     alt={item.name + "-photo-" + 1}
-                                /> */}
+                                />
                                 <div className="imageRow">
                                     {item.images.map((image, i) => {
 
                                         return (
                                             <button onClick={() => setnumOfImg(i)} key={"imageInROw " + i}>
-                                                {/* <img className={i === numOfImg ? "activeImg" : "none"}
-                                                    src={require('../../../images/' + image + '')}
+                                                <Image className={i === numOfImg ? "activeImg" : "none"}
+                                                    src={require('../../images/' + image + '')}
                                                     alt={item.en.name + "-photo-" + i}
-                                                /> */}
+                                                />
                                             </button>
                                         )
                                     })}

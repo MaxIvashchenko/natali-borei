@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from "react-i18next";
+import Image from 'next/image';
 
 export default function FewItems({ numOfImg, setnumOfImg, item }) {
     const { t, i18n } = useTranslation('common');
@@ -58,18 +59,18 @@ export default function FewItems({ numOfImg, setnumOfImg, item }) {
 
 
                 <div className="col-12 col-md-6 imageBlock">
-                    {/* <img
+                    <Image
                         src={require('../../../images/' + item.variants[activeItem].images[numOfImg] + '')}
                         alt={item.en.name + "-photo-" + 1}
-                    /> */}
+                    />
                     <div className="imageRow">
                         {item.variants[activeItem].images.map((image, i) => {
                             return (
                                 <button onClick={() => setnumOfImg(i)} key={"imageInROw " + i}>
-                                    {/* <img className={i === numOfImg ? "activeImg" : "none"}
+                                    <Image className={i === numOfImg ? "activeImg" : "none"}
                                         src={require('../../../images/' + image + '')}
                                         alt={item.en.name + "-photo-" + i}
-                                    /> */}
+                                    />
                                 </button>
                             )
                         })}
