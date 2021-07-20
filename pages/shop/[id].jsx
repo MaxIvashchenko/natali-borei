@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useTranslation } from "react-i18next";
 import { Animated } from 'react-animated-css'
 import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
+
 // import { useHistory } from 'react-router-dom'
 import backImg from '../../images/back.svg'
 import FewItems from './ShowItem/FewItems'
@@ -10,11 +12,12 @@ import items from '../../data'
 export default function Item() {
     const { t, i18n } = useTranslation('common');
     const router = useRouter();
-    const { id } = router.query
+    const { id } = router.query;
     const lang = i18n.language;
     const [numOfImg, setnumOfImg] = useState(0)
-    // if (!props.location.state) return <NotFound />
-    const item = items.find(item => item.id === id)
+    const item = useSelector(({ currentItem }) => currentItem)
+
+
 
     return (
         <Animated animationInDuration={1000} animationIn="fadeIn" className="ShowItem">

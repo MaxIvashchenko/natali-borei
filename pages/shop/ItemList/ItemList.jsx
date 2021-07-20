@@ -2,11 +2,12 @@ import React from 'react'
 import { useTranslation } from "react-i18next";
 import CardImage from './CardImage';
 import Link from 'next/link'
-
-import titleToUrl from "../../../helper/helper"
+import { useDispatch } from 'react-redux';
+import { setItem } from '../../../store/currentItem/action'
 
 export default function ItemList({ items }) {
     const { t, i18n } = useTranslation('common');
+    const dispatch = useDispatch();
     const lang = i18n.language;
 
     const arrayMin = (arr) => arr.reduce((p, v) => (p.price < v.price ? p : v));
@@ -54,10 +55,10 @@ export default function ItemList({ items }) {
 
 
         return (
-            <Link href={{ pathname: titleToUrl(path), state: { item } }}
+            <Link href={ path }
                 passHref
                 key={i}>
-                <div className="items container col-6 col-sm-6 col-lg-4">
+                <div onClick={()=>dispatch(setItem(item)) } className="items container col-6 col-sm-6 col-lg-4">
                     <div className="item-card">
                         <div className="content row">
                             {showItem()}
@@ -65,7 +66,6 @@ export default function ItemList({ items }) {
                     </div>
 
                 </div>
-
             </Link>
         )
     })
