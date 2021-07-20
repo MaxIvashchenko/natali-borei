@@ -2,7 +2,8 @@ import { useTranslation } from "react-i18next";
 import shortLogo from '../../images/shortLogo.png'
 import Image from 'next/image'
 import { Button, NavDropdown, Navbar, Nav } from 'react-bootstrap';
-
+import { useDispatch } from 'react-redux';
+import { setLang} from '../../store/language/action'
 import NavItem from './NavItem'
 import useWindowSize from "../../hooks/useWindowSize"
 
@@ -10,6 +11,7 @@ import useWindowSize from "../../hooks/useWindowSize"
 export default function Header({ mainPage }) {
     const { t, i18n } = useTranslation('common');
     const { width } = useWindowSize();
+    const dispatch = useDispatch();
 
     const mobWidth = width < 992;
 
@@ -20,8 +22,8 @@ export default function Header({ mainPage }) {
                     (
                         <>
                             <div style={{ position: "absolute", top: 25, left: 0, padding: "0px 5px", zIndex: 999 }}>
-                                <Button style={{ color: "rgba(0,0,0,.5)", margin: 0 }} onClick={() => i18n.changeLanguage('ru')} variant="link">{t('header.ru')}</Button>
-                                <Button style={{ color: "rgba(0,0,0,.5)", padding: 0 }} onClick={() => i18n.changeLanguage('en')} variant="link">{t('header.en')}</Button>
+                                <Button style={{ color: "rgba(0,0,0,.5)", margin: 0 }} onClick={() => dispatch(setLang('ru'))} variant="link">{t('header.ru')}</Button>
+                                <Button style={{ color: "rgba(0,0,0,.5)", padding: 0 }} onClick={() => dispatch(setLang('en'))} variant="link">{t('header.en')}</Button>
                             </div>
                             <div className="brand-centered">
                                 <Navbar.Brand href={mainPage}>
@@ -32,21 +34,25 @@ export default function Header({ mainPage }) {
                         </>
                     )
                 }
-                <Navbar.Toggle aria-controls="navbarScroll" className="m-2"/>
-                <Navbar.Collapse id="navbarScroll" className="py-xs-4 px-xs-2" style={{ textAlign: "center",  }}>
+                <Navbar.Toggle aria-controls="navbarScroll" className="m-2" />
+                <Navbar.Collapse id="navbarScroll" className="py-4 px-xs-2" style={{ textAlign: "center", }}>
                     <Nav
                         className=" my-2 my-lg-0"
                         style={{
-                            maxHeight: '100px',
+                            // maxHeight: '100px',
                             margin: '0 auto'
                         }}
-                        navbarScroll
+                    // navbarScroll
                     >
                         <NavItem href="/about" text={t('header.about')} />
                         <NavItem href="/shop" text={t('header.shop')} />
                         <NavItem href="/collections" text={t('header.collections')} />
+                        <div style={{ width: 200 }} />
+
                         {!mobWidth &&
-                            <Navbar.Brand className="" href={mainPage}>
+
+                            <Navbar.Brand className="brand-centered" href={mainPage}>
+
                                 <Image width={80} height={70} className="shortLogo" src={shortLogo} alt="small logo" />
 
                             </Navbar.Brand>
@@ -56,12 +62,12 @@ export default function Header({ mainPage }) {
                         <NavItem href="/order" text={t('header.orderShip')} />
                         <NavItem href="/contacts" text={t('header.contacts')} />
 
-                        {/* {!mobWidth &&
-                            <NavDropdown title={t(`header.${i18n.language}`)} style={{margin: 'auto'}} id="navbarScrollingDropdown">
-                                <Button style={{ color: "rgba(0,0,0,.5)", margin: 0 }} onClick={() => i18n.changeLanguage('ru')} variant="link">{t('header.ru')}</Button>
-                                <Button style={{ color: "rgba(0,0,0,.5)", padding: 0 }} onClick={() => i18n.changeLanguage('en')} variant="link">{t('header.en')}</Button>
-                            </NavDropdown>
-                        } */}
+                        {!mobWidth &&
+                            <NavDropdown title={t(`header.${i18n.language}`)} style={{ margin: 'auto' }} id="navbarScrollingDropdown">
+                                     <Button style={{ color: "rgba(0,0,0,.5)", margin: 0 }} onClick={() => dispatch(setLang('ru'))} variant="link">{t('header.ru')}</Button>
+                                <Button style={{ color: "rgba(0,0,0,.5)", padding: 0 }} onClick={() => dispatch(setLang('en'))} variant="link">{t('header.en')}</Button>
+                        </NavDropdown>
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
