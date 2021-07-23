@@ -3,6 +3,7 @@
 .Header {
     border-bottom: 7px solid $gold-green;
     width: "100%";
+    font: 24px "Cormorant Garamond";
 
     #navbarScroll {
         // justify-content: center;
@@ -12,14 +13,9 @@
         }
     }
     .nav-item {
-        padding: 0 10px;
+        padding: 10px;
         text-align: center;
         width: "80px";
-    }
-
-    .nav-item a {
-        font: 24px "Cormorant Garamond";
-        padding: 0;
     }
 
     .brand-centered {
@@ -48,14 +44,8 @@
         }
     }
 
-    .navbar-collapse {
-        // padding: 15px 10%;
-    }
-
     .navbar-toggler {
         margin: 10px 0;
         padding: 8px;
     }
-
-    
 }

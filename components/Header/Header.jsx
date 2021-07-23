@@ -3,28 +3,29 @@ import shortLogo from '../../images/shortLogo.png'
 import Image from 'next/image'
 import { Button, NavDropdown, Navbar, Nav } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { setLang} from '../../store/language/action'
+import { setLang } from '../../store/language/action'
 import NavItem from './NavItem'
 import useWindowSize from "../../hooks/useWindowSize"
-
+import LanguageDropdown from '../LanguageDropdown/LanguageDropdown'
 
 export default function Header({ mainPage }) {
     const { t, i18n } = useTranslation('common');
     const { width } = useWindowSize();
     const dispatch = useDispatch();
+    const lang = i18n.language;
+
 
     const mobWidth = width < 992;
-
     return (
         <>
-            <Navbar bg="light" expand="lg" className={`Header justify-content-end`}>
+            <Navbar collapseOnSelect bg="light" expand="lg" className={`Header justify-content-end`}>
                 {mobWidth &&
                     (
                         <>
-                            <div style={{ position: "absolute", top: 25, left: 0, padding: "0px 5px", zIndex: 999 }}>
-                                <Button style={{ color: "rgba(0,0,0,.5)", margin: 0 }} onClick={() => dispatch(setLang('ru'))} variant="link">{t('header.ru')}</Button>
-                                <Button style={{ color: "rgba(0,0,0,.5)", padding: 0 }} onClick={() => dispatch(setLang('en'))} variant="link">{t('header.en')}</Button>
-                            </div>
+                            {/* <div style={{ position: "absolute", top: 25, left: 0, padding: "0px 5px", zIndex: 999 }}> */}
+                            <LanguageDropdown />
+
+                            {/* </div> */}
                             <div className="brand-centered">
                                 <Navbar.Brand href={mainPage}>
                                     <Image width={70} height={70} className="shortLogo" src={shortLogo} alt="small logo" />
@@ -63,10 +64,18 @@ export default function Header({ mainPage }) {
                         <NavItem href="/contacts" text={t('header.contacts')} />
 
                         {!mobWidth &&
-                            <NavDropdown title={t(`header.${i18n.language}`)} style={{ margin: 'auto' }} id="navbarScrollingDropdown">
-                                     <Button style={{ color: "rgba(0,0,0,.5)", margin: 0 }} onClick={() => dispatch(setLang('ru'))} variant="link">{t('header.ru')}</Button>
-                                <Button style={{ color: "rgba(0,0,0,.5)", padding: 0 }} onClick={() => dispatch(setLang('en'))} variant="link">{t('header.en')}</Button>
-                        </NavDropdown>
+
+                            <Nav.Link>
+                                <LanguageDropdown />
+                            </Nav.Link>
+                            // <NavDropdown alignLeft className="langDropdown" title={icon} id="basic-nav-dropdown">
+                            //     <NavDropdown.Item>
+                            //     <Button style={{ color: "rgba(0,0,0,.5)", margin: 0 }} onClick={() => dispatch(setLang('ru'))} variant="link">{t('header.ru')}</Button>
+
+                            //     </NavDropdown.Item>
+                            //     <NavDropdown.Item>
+                            //     </NavDropdown.Item>
+                            // </NavDropdown>
                         }
                     </Nav>
                 </Navbar.Collapse>

@@ -105,6 +105,7 @@ $breakpoints: (
 ) !default;
 
 @import "./components/Home/Home.scss";
+@import "./components/LanguageDropdown/LanguageDropdown.scss";
 @import "./components/Banner/Banner.scss";
 @import "./components/Header/Header.scss";
 @import "./pages/Collections/Collections.scss";
