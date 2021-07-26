@@ -352,3 +352,19 @@
         }
     }
 }
+
+.InfoLine {
+    background-color:  $gold-green;
+    text-align: center;
+    cursor: default;
+    div {
+        display: flex;
+        justify-content: center;
+        p {
+            font-family: $basicFont;
+            margin: 0;
+            padding: 5px 10px;
+            color: azure;
+        }
+    }
+}

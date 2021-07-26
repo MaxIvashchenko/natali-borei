@@ -16,6 +16,7 @@ import ring from '../../images/main/rings_title.png'
 import stick from '../../images/stick.png'
 import Image from 'next/image';
 import titleToUrl from "../../helper/helper";
+import InfoLine from './InfoLine';
 
 const categories = [
     { name: 'brooch', sizeClass: 'col-md-6', imgSrc: brooch, text: 'Brooch', width: 46 },
@@ -41,6 +42,7 @@ function Home() {
     return (
         <Animated className="Home">
             <Banner />
+            <InfoLine />
             <div className="container">
                 <div className="row categoryShop">
 

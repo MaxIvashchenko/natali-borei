@@ -24,6 +24,7 @@ const items = [
 	},
 	{
 		title: "Lavalier brooch",
+		collection: "Molecula",
 		id: "LB002",
 		ru: {
 			name: "Подвеска Молекула",
@@ -92,6 +93,7 @@ const items = [
 	{
 		id: "LB005",
 		title: "Necklace",
+		collection: "Molecula",
 		ru: {
 			name: "Кулон Молекула",
 			description: "Кулон, как каркас уникальна и неповторима, рождая что-то новое. Потоки жемчуга переливаются в пятидесяти серых оттенках. Изделие изготовлено в технике вышивки и плетения бусинами.",
@@ -156,6 +158,7 @@ const items = [
 	{
 		id: "LB008",
 		title: "Lavalier brooch",
+		collection: "Aquaworld",
 		ru: {
 			name: "Aquaworld",
 			description: "Подвеска изготовлена в технике вышивки, плетения бисером и сутажной вышивки.",
@@ -200,6 +203,7 @@ const items = [
 	{
 		id: "LB010",
 		title: "Lavalier brooch",
+		collection: "Aquaworld",
 		ru: {
 			name: "Aquaworld small",
 			description: "Подвеска изготовлена в технике вышивки, плетения бисером и сутажной вышивки.",
@@ -221,6 +225,7 @@ const items = [
 	},
 	{
 		title: "Pendant",
+		collection: "Edelweiss",
 		ru: {
 			name: "Эделвейс",
 			description: "Коллекция “Flowers come to life from stones”. Reaching to the stars through the thorns, cherishing delicate dreams and looking for the right way to achieve the hope the flowers come to life from stones. The lavaliere is made by technique of multilayer beads wickerwork and beads embroidery.",
