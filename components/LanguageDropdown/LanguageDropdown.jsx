@@ -11,25 +11,29 @@ function LanguageDropdown(props) {
     const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false)
     const lang = i18n.language;
-    const im = require(`./../../images/lang/${lang}.png`);
-    const icon = <Image src={im} width={30} height={30} />
+    const url = require(`./../../images/lang/${lang}.png`);
 
     const changeLang = () => {
         setIsOpen(false)
         dispatch(setLang('ru'))
     }
+
+    const clickHandler = () => lang === 'ru' ? dispatch(setLang('en')) : dispatch(setLang('ru'))
+
+
     return (
         <div className="LanguageDropdown">
-            <Button variant="link" onClick={() => setIsOpen(state => !state)}>
-                <Image src={im} width={30} height={30} />
+            {/* <Button variant="link" onClick={() => setIsOpen(state => !state)}> */}
+            <Button variant="link" onClick={clickHandler}>
+                <Image src={url} width={30} height={30} alt="language icon" />
             </Button>
 
-            {isOpen ? <div className="dropdown">
+            {/* {isOpen ? <div className="dropdown">
                 <Button style={{ color: "rgba(0,0,0,.5)", margin: 0 }} onClick={changeLang} variant="link">{t('header.ru')}</Button>
                 <Button style={{ color: "rgba(0,0,0,.5)", padding: 0 }} onClick={() => dispatch(setLang('en'))} variant="link">{t('header.en')}</Button>
 
             </div>
-                : <div />}
+                : <div />} */}
         </div>
     )
 }
