@@ -1,10 +1,18 @@
 .Collections {
-    font: 28px "Cormorant Garamond";
+    font: 28px $basicFont;
     height: 450px;
     text-align: center;
+
 
     h1 {
         margin: 150px 0;
         color: $brown;
+    }
+
+    .collection {
+        background-color: bisque;
+
+        margin: 10px 0;
+        // height: 400px;
     }
 }

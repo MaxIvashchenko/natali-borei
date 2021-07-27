@@ -13,6 +13,7 @@ import Layout from '../components/Layout';
 import '../styles/style.scss'
 
 
+
 function MyApp({ Component, pageProps }) {
   const store = useStore((state) => state);
   const lng = useSelector(({ language }) => language)
@@ -29,6 +30,7 @@ function MyApp({ Component, pageProps }) {
       },
     },
   });
+
 
   return (
     <I18nextProvider i18n={i18next}>

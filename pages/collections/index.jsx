@@ -1,9 +1,22 @@
 import React from 'react'
+import data from '../../data'
+
+
+const collections = ["Edelweiss", "Aquaworld", "Molecula"]
 
 export default function Collections() {
     return (
-        <div className="Collections">
-            <h1>Page under construction</h1>
-        </div>
+        <section className="container Collections">
+            <div className="row">
+
+                {collections.map(collection => {
+                    return (
+                        <div key={collection} className="col-12 collection">
+                            <h1>{collection}</h1>
+                        </div>
+                    )
+                })}
+            </div>
+        </section>
     )
 }

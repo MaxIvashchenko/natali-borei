@@ -13,7 +13,7 @@ export default function Layout({ children }) {
         <div className='layout'>
             <Header mainPage={mainPage} />
             {children}
-            <Footer mainPage={mainPage} />
+            {/* <Footer mainPage={mainPage} /> */}
         </div>
     );
 }
