@@ -2,15 +2,9 @@ $gold-green: #b1a671;
 $brown: #7a5940;
 $gold: hsl(39, 43%, 51%);
 
-#root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+$basicFont: "Cormorant Garamond";
 
-    .Layout {
-        flex-grow: 1;
-    }
-}
+
 
 .variants {
     padding: 10px;
@@ -71,8 +65,6 @@ $gold: hsl(39, 43%, 51%);
         background: rgb(9, 116, 17);
     }
 }
-
-$basicFont: "Cormorant Garamond";
 
 @import "./components/Home/Home.scss";
 @import "./components/LanguageDropdown/LanguageDropdown.scss";

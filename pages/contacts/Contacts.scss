@@ -5,6 +5,7 @@
     max-width: 1200px;
     color: $brown;
     font: 20px $basicFont;
+    flex-grow: 1;
 
     @include xs-max {
         text-align: center;

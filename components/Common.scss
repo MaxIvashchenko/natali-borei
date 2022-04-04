@@ -1,5 +1,11 @@
 @import "../styles/mixins.scss";
 
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 .NotFound {
     padding: 0% 10% 10%;
     font-family: $basicFont;
@@ -10,19 +16,19 @@
         font-size: 60px;
         margin: 0;
         color: $brown;
-    }
+    };
     .text {
         font-size: 30px;
         padding: 40px 0;
         color: $gold-green;
-    }
+    };
     .number {
         font-size: 300px;
         line-height: normal;
         @include xs-max {
             font-size: 200px;
-        }
-    }
+        };
+    };
     .homeBtn {
         margin: 0 auto;
         background: $gold-green;
@@ -38,8 +44,8 @@
         p {
             font-size: 130%;
             color: white;
-        }
-    }
+        };
+    };
     .homeBtn:hover {
         background: #fff;
         box-sizing: border-box;
@@ -47,10 +53,10 @@
 
         p {
             color: $gold-green;
-        }
-    }
+        };
+    };
     .homeBtn:active,
     .homeBtn:focus {
         outline: none;
-    }
-}
+    };
+};

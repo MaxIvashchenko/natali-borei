@@ -10,9 +10,7 @@ import common_en from "assets/translations/en/common.json";
 import { useSelector } from 'react-redux'
 
 import Layout from 'components/Layout';
-import 'styles/style.scss'
-
-
+import 'styles/styles.scss'
 
 function MyApp({ Component, pageProps }) {
   const store = useStore((state) => state);
