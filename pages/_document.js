@@ -7,7 +7,7 @@ export default class MyDocument extends Document {
         <Head>
           <title>Natali Borei</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" href="../images/shortLogo.png" />
+          <link rel="icon" href="../assets/images/shortLogo.png" />
           <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Fira+Sans|Herr+Von+Muellerhoff"
             rel="stylesheet" />
 

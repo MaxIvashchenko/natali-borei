@@ -1,16 +1,14 @@
-import { useEffect } from 'react'
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
+import { Header } from './Header';
+import { Footer } from './Footer';
 
-export default function Layout({ children }) {
-    const mainPage = '/'
+const mainPage = '/'
 
-    return (
-        <div className='layout'>
-            <Header mainPage={mainPage} />
-            {children}
-            <Footer mainPage={mainPage} />
-        </div>
-    );
-}
+const Layout = ({ children }) => (
+    <div className='layout'>
+        <Header mainPage={mainPage} />
+        {children}
+        <Footer mainPage={mainPage} />
+    </div>
+);
 
+export default Layout;

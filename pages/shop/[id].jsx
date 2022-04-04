@@ -4,12 +4,8 @@ import { Animated } from 'react-animated-css'
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import Image from 'next/image';
-
-// import { useHistory } from 'react-router-dom'
 import backImg from '../../assets/images/back.svg'
 import FewItems from './ShowItem/FewItems'
-// import NotFound from '../../Common/NotFound'
-import items from '../../assets/data'
 export default function Item() {
     const { t, i18n } = useTranslation('common');
     const router = useRouter();
