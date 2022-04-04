@@ -6,32 +6,32 @@
     font: 24px "Cormorant Garamond";
 
     #navbarScroll {
-        // justify-content: center;
-
         @include mobile-max {
             justify-content: end;
-        }
-    }
+        };
+    };
     .nav-item {
         padding: 10px;
         text-align: center;
         width: "80px";
-    }
+    };
 
     .brand-centered {
         position: absolute;
-        left: 47%;
+        left: 46%;
         top: 10px;
 
         @include mobile-max {
             top: 10px;
             left: 40%;
-        }
+        };
+
         .shortLogo {
             width: 70px;
             padding: 5;
             box-shadow: 1px grey;
             transition: all 0.5s ease-out;
+
             &:hover {
                 transform: scale(1.2);
                 transition: all 0.5s ease-out;
@@ -39,13 +39,13 @@
                 @include mobile-max {
                     transform: none;
                     transition: none;
-                }
-            }
-        }
-    }
+                };
+            };
+        };
+    };
 
     .navbar-toggler {
         margin: 10px 0;
         padding: 8px;
-    }
-}
+    };
+};
