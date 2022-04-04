@@ -5,9 +5,9 @@ import Toolbar from './Toolbar/Toolbar';
 import ItemList from './ItemList/ItemList';
 import FilterSettings from './Toolbar/FilterSettings';
 import { Animated } from 'react-animated-css'
-import titleToUrl from "../../helper/helper";
+import titleToUrl from "helper";
 
-import items from '../../data'
+import items from 'data'
 
 export default function Shop() {
     const [selectedAvailable, setSelectedAvailable] = useState('all');

@@ -1,14 +1,15 @@
-@import "../../styles/mixins.scss";
+@import "styles/mixins.scss";
 
 .LanguageDropdown {
     position: absolute;
     width: 40px;
     right: 20px;
+
     button {
         padding: 0;
         width: 40px;
         height: 30px;
-    }
+    };
 
     .dropdown {
         z-index: 10;
@@ -26,8 +27,9 @@
         button {
             font-size: 20px;
             text-decoration: none;
-        }
-    }
+        };
+    };
+
     .dropdown::after {
         content: "";
         position: absolute;
@@ -40,7 +42,7 @@
 
         border-bottom: 10px solid $gold;
         clear: both;
-    }
+    };
 
     @include sm-max {
         top: 20px;
@@ -48,10 +50,10 @@
         .dropdown {
             left: 0px;
             right: auto;
-        }
+        };
         .dropdown::after {
             right: 0px;
             left: 7px;
-        }
-    }
-}
+        };
+    };
+};

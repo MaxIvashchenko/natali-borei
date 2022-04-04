@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
-import shortLogo from '../../assets/images/shortLogo.png'
+import shortLogo from 'assets/images/shortLogo.png'
 import Image from 'next/image'
 import { Button, NavDropdown, Navbar, Nav } from 'react-bootstrap';
 import NavItem from './NavItem'
-import useWindowSize from "../../hooks/useWindowSize"
-import LanguageDropdown from '../LanguageDropdown/LanguageDropdown'
+import useWindowSize from "hooks/useWindowSize"
+import { LanguageDropdown } from 'components/LanguageDropdown'
 
 export default function Header({ mainPage }) {
   const { t } = useTranslation('common');

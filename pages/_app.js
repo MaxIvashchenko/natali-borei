@@ -1,16 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { PersistGate } from 'redux-persist/integration/react';
 import { useStore } from 'react-redux'
-import { wrapper } from "../store"
+import { wrapper } from "store"
 
 import { I18nextProvider } from "react-i18next";
 import i18next from "i18next";
-import common_ru from "../assets/translations/ru/common.json";
-import common_en from "../assets/translations/en/common.json";
+import common_ru from "assets/translations/ru/common.json";
+import common_en from "assets/translations/en/common.json";
 import { useSelector } from 'react-redux'
 
-import Layout from '../components/Layout';
-import '../styles/style.scss'
+import Layout from 'components/Layout';
+import 'styles/style.scss'
 
 
 

@@ -1,6 +1,4 @@
 import React from 'react'
-import data from '../../data'
-
 
 const collections = ["Edelweiss", "Aquaworld", "Molecula"]
 
@@ -8,7 +6,6 @@ export default function Collections() {
     return (
         <section className="container Collections">
             <div className="row">
-
                 {collections.map(collection => {
                     return (
                         <div key={collection} className="col-12 collection">

@@ -1,17 +1,14 @@
 import React from 'react'
 import Image from 'next/image';
 
-import fast from '../../assets/images/icons/fast.svg';
-import diamond from '../../assets/images/icons/diamond.svg';
-import hand from '../../assets/images/icons/hand.svg';
-
+import fast from 'assets/images/icons/fast.svg';
+import diamond from 'assets/images/icons/diamond.svg';
+import hand from 'assets/images/icons/hand.svg';
 
 const infoText = [
     { text: 'Worldwide shipping', icon: fast },
     { text: 'Unique designed', icon: diamond },
-    { text: 'Handmade only', icon: hand },
-
-
+    { text: 'Handmade only', icon: hand }
 ]
 
 export default function InfoLine() {
@@ -27,4 +24,4 @@ export default function InfoLine() {
 
         </div>
     )
-}
+};

@@ -1,25 +1,23 @@
-import { useState } from 'react'
-import PropTypes from 'prop-types'
+import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { setLang } from '../../store/language/action'
+import { setLang } from 'store/language/action'
 import { useTranslation } from "react-i18next";
-import Image from 'next/image'
+import Image from 'next/image';
 
 function LanguageDropdown(props) {
-    const { t, i18n } = useTranslation('common');
+    const { i18n } = useTranslation('common');
     const dispatch = useDispatch();
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
     const lang = i18n.language;
-    const url = require(`./../../assets/images/lang/${lang}.png`);
+    const url = require(`assets/images/lang/${lang}.png`);
 
     const changeLang = () => {
         setIsOpen(false)
         dispatch(setLang('ru'))
     }
 
-    const clickHandler = () => lang === 'ru' ? dispatch(setLang('en')) : dispatch(setLang('ru'))
-
+    const clickHandler = () => lang === 'ru' ? dispatch(setLang('en')) : dispatch(setLang('ru'));
 
     return (
         <div className="LanguageDropdown">
@@ -36,11 +34,7 @@ function LanguageDropdown(props) {
                 : <div />} */}
         </div>
     )
-}
+};
 
-LanguageDropdown.propTypes = {
-
-}
-
-export default LanguageDropdown
+export default LanguageDropdown;
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Row, Col, Nav } from 'react-bootstrap';
 import { useTranslation } from "react-i18next";
 // import SocialLink from '../Common/SocialLink'
-// import { socLink } from "../../infoData/contacts"
+// import { socLink } from "infoData/contacts"
 
 export default function OrderAndShipment() {
     const { t } = useTranslation('common');

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import CardImage from './CardImage';
 import Link from 'next/link'
 import { useDispatch } from 'react-redux';
-import { setItem } from '../../../store/currentItem/action'
+import { setItem } from 'store/currentItem/action'
 
 export default function ItemList({ items }) {
     const { t, i18n } = useTranslation('common');

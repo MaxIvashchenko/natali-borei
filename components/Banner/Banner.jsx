@@ -1,7 +1,7 @@
 import Ztext from 'react-ztext'
 import Image from 'next/image'
 import bigLogo from './Sait_NataliBorei.png'
-import useWindowSize from "../../hooks/useWindowSize"
+import useWindowSize from "hooks/useWindowSize"
 
 const Banner = () => (
     <div className="Banner">

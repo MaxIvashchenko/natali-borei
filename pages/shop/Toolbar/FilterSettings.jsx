@@ -2,7 +2,6 @@ import React from 'react'
 import { useTranslation } from "react-i18next";
 import { Animated } from 'react-animated-css'
 
-
 export default function FilterSettings({ filterShowAvailable, filterSortPrice, selectedAvailable, selectedPrice }) {
     const { t } = useTranslation('common');
 

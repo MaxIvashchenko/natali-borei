@@ -13,6 +13,6 @@ export default function CardImage({ images, name }) {
 
     return <Image
         className="card_img"
-        src={require('../../../assets/images/' + images[0] + '')}
+        src={require('assets/images/' + images[0] + '')}
         alt={name + "-photo"} />
 }

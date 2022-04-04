@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
-import shortLogo from '../../assets/images/shortLogo.png'
+import shortLogo from 'assets/images/shortLogo.png'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { email, adress, phone } from "../../data/contacts";
+import { email, adress, phone } from "data/contacts";
 
 const links = {
     facebook: "https://www.facebook.com/Nataly.la.perla/",

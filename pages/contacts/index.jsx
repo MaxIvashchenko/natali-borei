@@ -2,8 +2,8 @@ import React from 'react'
 import { useTranslation } from "react-i18next";
 import FormToSend from './FormToSend'
 import { Container, Row, Col } from 'react-bootstrap';
-import { phone, email, adress, socLink } from '../../data/contacts'
-import { SocialLink } from "../../components"
+import { phone, email, adress, socLink } from 'data/contacts'
+import { SocialLink } from "components"
 
 export default function Contacts() {
     const { t } = useTranslation('common');

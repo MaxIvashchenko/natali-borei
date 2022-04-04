@@ -4,7 +4,7 @@ import { Animated } from 'react-animated-css'
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import Image from 'next/image';
-import backImg from '../../assets/images/back.svg'
+import backImg from 'assets/images/back.svg'
 import FewItems from './ShowItem/FewItems'
 export default function Item() {
     const { t, i18n } = useTranslation('common');
@@ -53,7 +53,7 @@ export default function Item() {
 
                             <div className="col-12 col-md-6 imageBlock">
                                 <Image
-                                    src={require('../../assets/images/' + item.images[numOfImg] + '')}
+                                    src={require('assets/images/' + item.images[numOfImg] + '')}
                                     alt={item.name + "-photo-" + 1}
                                 />
                                 <div className="imageRow">
@@ -62,7 +62,7 @@ export default function Item() {
                                         return (
                                             <button onClick={() => setnumOfImg(i)} key={"imageInROw " + i}>
                                                 <Image className={i === numOfImg ? "activeImg" : "none"}
-                                                    src={require('../../assets/images/' + image + '')}
+                                                    src={require('assets/images/' + image + '')}
                                                     alt={item.en.name + "-photo-" + i}
                                                 />
                                             </button>
