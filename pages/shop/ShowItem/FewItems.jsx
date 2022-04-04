@@ -60,7 +60,7 @@ export default function FewItems({ numOfImg, setnumOfImg, item }) {
 
                 <div className="col-12 col-md-6 imageBlock">
                     <Image
-                        src={require('../../../images/' + item.variants[activeItem].images[numOfImg] + '')}
+                        src={require('../../../assets/images/' + item.variants[activeItem].images[numOfImg] + '')}
                         alt={item.en.name + "-photo-" + 1}
                     />
                     <div className="imageRow">
@@ -68,7 +68,7 @@ export default function FewItems({ numOfImg, setnumOfImg, item }) {
                             return (
                                 <button onClick={() => setnumOfImg(i)} key={"imageInROw " + i}>
                                     <Image className={i === numOfImg ? "activeImg" : "none"}
-                                        src={require('../../../images/' + image + '')}
+                                        src={require('../../../assets/images/' + image + '')}
                                         alt={item.en.name + "-photo-" + i}
                                     />
                                 </button>

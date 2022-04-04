@@ -1,9 +1,9 @@
 import React from 'react'
 import Image from 'next/image';
 
-import fast from '../../images/icons/fast.svg';
-import diamond from '../../images/icons/diamond.svg';
-import hand from '../../images/icons/hand.svg';
+import fast from '../../assets/images/icons/fast.svg';
+import diamond from '../../assets/images/icons/diamond.svg';
+import hand from '../../assets/images/icons/hand.svg';
 
 
 const infoText = [

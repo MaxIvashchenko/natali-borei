@@ -37,5 +37,17 @@
   "devDependencies": {
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxIvashchenko/natali-borei.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxIvashchenko/natali-borei/issues"
+  },
+  "homepage": "https://github.com/MaxIvashchenko/natali-borei#readme"
 }

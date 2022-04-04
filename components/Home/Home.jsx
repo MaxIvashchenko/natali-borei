@@ -6,14 +6,14 @@ import  {setTitle} from '../../store/title/action'
 import { useTranslation } from "react-i18next";
 import Banner from '../Banner/Banner';
 import { Animated } from 'react-animated-css';
-import bracelet from '../../images/main/bracelets_title.png'
-import necklace from '../../images/main/necklace_title.png'
-import pendant from '../../images/main/pendant_title.png'
-import bag from '../../images/main/bags_title.png'
-import brooch from '../../images/main/brooch_title.png'
-import lavBrooch from '../../images/main/lavBrooch_title.png'
-import ring from '../../images/main/rings_title.png'
-import stick from '../../images/stick.png'
+import bracelet from '../../assets/images/main/bracelets_title.png'
+import necklace from '../../assets/images/main/necklace_title.png'
+import pendant from '../../assets/images/main/pendant_title.png'
+import bag from '../../assets/images/main/bags_title.png'
+import brooch from '../../assets/images/main/brooch_title.png'
+import lavBrooch from '../../assets/images/main/lavBrooch_title.png'
+import ring from '../../assets/images/main/rings_title.png'
+import stick from '../../assets/images/stick.png'
 import Image from 'next/image';
 import titleToUrl from "../../helper/helper";
 import InfoLine from './InfoLine';

@@ -11,7 +11,7 @@ function LanguageDropdown(props) {
     const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false)
     const lang = i18n.language;
-    const url = require(`./../../images/lang/${lang}.png`);
+    const url = require(`./../../assets/images/lang/${lang}.png`);
 
     const changeLang = () => {
         setIsOpen(false)

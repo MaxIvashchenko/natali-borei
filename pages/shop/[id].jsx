@@ -6,10 +6,10 @@ import { useSelector } from 'react-redux'
 import Image from 'next/image';
 
 // import { useHistory } from 'react-router-dom'
-import backImg from '../../images/back.svg'
+import backImg from '../../assets/images/back.svg'
 import FewItems from './ShowItem/FewItems'
 // import NotFound from '../../Common/NotFound'
-import items from '../../data'
+import items from '../../assets/data'
 export default function Item() {
     const { t, i18n } = useTranslation('common');
     const router = useRouter();
@@ -57,7 +57,7 @@ export default function Item() {
 
                             <div className="col-12 col-md-6 imageBlock">
                                 <Image
-                                    src={require('../../images/' + item.images[numOfImg] + '')}
+                                    src={require('../../assets/images/' + item.images[numOfImg] + '')}
                                     alt={item.name + "-photo-" + 1}
                                 />
                                 <div className="imageRow">
@@ -66,7 +66,7 @@ export default function Item() {
                                         return (
                                             <button onClick={() => setnumOfImg(i)} key={"imageInROw " + i}>
                                                 <Image className={i === numOfImg ? "activeImg" : "none"}
-                                                    src={require('../../images/' + image + '')}
+                                                    src={require('../../assets/images/' + image + '')}
                                                     alt={item.en.name + "-photo-" + i}
                                                 />
                                             </button>
