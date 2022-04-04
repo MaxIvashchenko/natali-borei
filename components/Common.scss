@@ -1,8 +1,9 @@
+@import "../styles/mixins.scss";
+
 .NotFound {
     padding: 0% 10% 10%;
     font-family: $basicFont;
     text-align: center;
-    
 
     p {
         text-align: center;
@@ -14,12 +15,11 @@
         font-size: 30px;
         padding: 40px 0;
         color: $gold-green;
-
     }
     .number {
         font-size: 300px;
         line-height: normal;
-        @media only screen and (max-width: 768px) {
+        @include xs-max {
             font-size: 200px;
         }
     }
@@ -52,5 +52,5 @@
     .homeBtn:active,
     .homeBtn:focus {
         outline: none;
-    } 
+    }
 }

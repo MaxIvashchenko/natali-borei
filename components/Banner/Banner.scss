@@ -1,3 +1,5 @@
+@import '../../styles/mixins.scss';
+
 .Banner {
     background: grey url("./wallpaper.jpg") no-repeat;
     background-size: auto 100%;
@@ -15,7 +17,7 @@
         margin: 0;
     }
 
-    @media only screen and (max-width: 575px) {
+    @include mobile-max {
         background: rgba(255, 255, 255, 0.5);
         img {
             width: 240px;

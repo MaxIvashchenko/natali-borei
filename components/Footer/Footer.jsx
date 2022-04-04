@@ -55,7 +55,7 @@ export default function Footer({ mainPage }) {
                         <a href={links.instagram}><i className="fab fa-instagram instagram-bg"></i></a>
                     </div>
                     <div className="col-12 mb-1">
-                        <p>Natali Borei © 2015 - 2020</p>
+                        <p>Natali Borei © 2015 - 2022</p>
                     </div>
                 </div>
             </section>

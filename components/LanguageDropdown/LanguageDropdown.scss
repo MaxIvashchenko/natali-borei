@@ -1,3 +1,5 @@
+@import "../../styles/mixins.scss";
+
 .LanguageDropdown {
     position: absolute;
     width: 40px;
@@ -40,7 +42,7 @@
         clear: both;
     }
 
-    @media only screen and (max-width: 992px) {
+    @include sm-max {
         top: 20px;
         left: 20px;
         .dropdown {

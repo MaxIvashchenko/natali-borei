@@ -1,4 +1,4 @@
-// @import '../../styles/style.scss';
+@import "../../styles/mixins.scss";
 
 .Header {
     border-bottom: 7px solid $gold-green;
@@ -8,7 +8,7 @@
     #navbarScroll {
         // justify-content: center;
 
-        @media only screen and (max-width: 575px) {
+        @include mobile-max {
             justify-content: end;
         }
     }
@@ -23,7 +23,7 @@
         left: 47%;
         top: 10px;
 
-        @media only screen and (max-width: 575px) {
+        @include mobile-max {
             top: 10px;
             left: 40%;
         }
@@ -32,14 +32,14 @@
             padding: 5;
             box-shadow: 1px grey;
             transition: all 0.5s ease-out;
-        }
-        .shortLogo:hover {
-            transform: scale(1.2);
-            transition: all 0.5s ease-out;
+            &:hover {
+                transform: scale(1.2);
+                transition: all 0.5s ease-out;
 
-            @media only screen and (max-width: 575px) {
-                transform: none;
-                transition: none;
+                @include mobile-max {
+                    transform: none;
+                    transition: none;
+                }
             }
         }
     }

@@ -7,6 +7,7 @@ import { SocialLink } from "../../components"
 
 export default function Contacts() {
     const { t } = useTranslation('common');
+    const { telegram, viber, whatsapp } = socLink;
     return (
         <>
             <section className="container-fluid Contacts">
@@ -34,9 +35,9 @@ export default function Contacts() {
                                 <Col xs={12} md={12} >
                                     <div className="socLink">
                                         <h3>{t('contacts.messengers')}</h3>
-                                        <SocialLink title={socLink.telegram.title} link={socLink.telegram.link} />
-                                        <SocialLink title={socLink.viber.title} link={socLink.viber.link} />
-                                        <SocialLink title={socLink.whatsapp.title} link={socLink.whatsapp.link} />
+                                        <SocialLink title={telegram.title} link={telegram.link} />
+                                        <SocialLink title={viber.title} link={viber.link} />
+                                        <SocialLink title={whatsapp.title} link={whatsapp.link} />
                                     </div>
                                 </Col>
 

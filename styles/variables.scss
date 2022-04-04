@@ -1,0 +1,21 @@
+// Media
+$screen-mobile: 575px;
+$screen-xs-max: 767px;
+$screen-sm-min: 768px;
+$screen-sm-max: 991px;
+// $screen-md-min: 992px;
+// $screen-md-max: 1199px;
+// $screen-lg-min: 1200px;
+// $screen-lg-middle: 1366px;
+// $screen-lg-max: 1400px;
+// $screen-lg: 1441px;
+
+// Common
+$colorGold: #b99765;
+$modalMaskBg: rgba(0, 0, 0, 0.75);
+$modalMaskGrey: rgba(50, 50, 50, 0.82);
+
+:export {
+  modalMaskBg: $modalMaskBg;
+  modalMaskGrey: $modalMaskGrey;
+}

@@ -72,37 +72,7 @@ $gold: hsl(39, 43%, 51%);
     }
 }
 
-@media only screen and (max-width: 768px) {
-}
-
 $basicFont: "Cormorant Garamond";
-
-$breakpoints: (
-    "medium-landscape": (
-        orientation: landscape,
-    ),
-    "extra-small": (
-        max-width: 575px,
-    ),
-    "small": (
-        max-width: 767px,
-    ),
-    "medium": (
-        max-width: 992px,
-    ),
-    "medium-large": (
-        max-width: 1024px,
-    ),
-    "min-large": (
-        max-width: 1200px,
-    ),
-    "extra-large": (
-        max-width: 1450px,
-    ),
-    "large": (
-        min-width: 1200px,
-    ),
-) !default;
 
 @import "./components/Home/Home.scss";
 @import "./components/LanguageDropdown/LanguageDropdown.scss";

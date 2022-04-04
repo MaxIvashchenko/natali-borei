@@ -1,10 +1,12 @@
+@import "../../styles/mixins.scss";
+
 .Contacts {
     margin: 2% auto;
     max-width: 1200px;
     color: $brown;
     font: 20px $basicFont;
 
-    @media only screen and (max-width: 768px) {
+    @include xs-max {
         text-align: center;
     }
 
@@ -13,7 +15,7 @@
         // background-color: darksalmon;
         padding: 30px;
         margin: 20px;
-        @media only screen and (max-width: 768px) {
+        @include xs-max {
             padding: 10px;
         }
         .line {
