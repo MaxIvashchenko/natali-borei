@@ -77,7 +77,8 @@
             "available": "Available",
             "sold": "Sold",
             "from": "from",
-            "dimension": "cm."
+            "dimension": "cm.",
+            "outOfStock": "Out of stock"
         },
         "showItem": {
             "chooseColor": "Choose color:",

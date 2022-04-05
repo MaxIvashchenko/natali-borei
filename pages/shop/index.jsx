@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+import { useTranslation } from "react-i18next";
+import { Animated } from 'react-animated-css'
 
 import Toolbar from './Toolbar/Toolbar';
 import ItemList from './ItemList/ItemList';
 import FilterSettings from './Toolbar/FilterSettings';
-import { Animated } from 'react-animated-css'
 import titleToUrl from "helper";
 
 import items from 'data'
@@ -13,9 +14,10 @@ export default function Shop() {
     const [selectedAvailable, setSelectedAvailable] = useState('all');
     const [selectedPrice, setSelectedPrice] = useState('');
     const title = useSelector(({ title }) => title)
+    const { t } = useTranslation('common');
 
     const selected = title;
-    const isExistCategory = titleToUrl(title) === selected;
+    // const isExistCategory = titleToUrl(title) === selected;
 
     const sortByPrice = (a, b) => {
         switch (selectedPrice) {
@@ -34,6 +36,18 @@ export default function Shop() {
         .filter(filterBySelection)
         .filter(filterByAvailability)
         .sort(sortByPrice);
+
+    const renderItems = () => {
+        if (showItems.length < 1) {
+            return (
+                <div className="col-12 chooseCategory">
+                    <p>{t('shop.filter.outOfStock')}</p>
+                </div>
+            );
+        };
+
+        return <ItemList items={showItems} />;
+    };
 
     return (
         <>
@@ -55,11 +69,7 @@ export default function Shop() {
                             <Animated className="noFilter" animationIn="bounceInRight" animationOut="fadeOut" />
                         }
                         <div className="row">
-                            {isExistCategory ? <ItemList items={showItems} /> :
-                                <div className="col-12 chooseCategory">
-                                    <p>choose your category</p>
-                                </div>
-                            }
+                            {renderItems()}
                         </div>
                     </div>
                 </div>
