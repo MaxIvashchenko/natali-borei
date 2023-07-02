@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, IconButton, Modal as MuiModal } from '@mui/material';
 import { styled } from '@mui/material/styles';
+
 import { IconComponent } from '../IconComponent';
 
 const ModalWrapper = styled(Box, {

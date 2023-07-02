@@ -7,7 +7,7 @@ const AppWrapper = styled(Box)({
   justifyContent: 'space-between',
   overflowX: 'hidden',
   background: '#fff',
-  minHeight: '100vh',
+  minHeight: '100vh'
 });
 
 const ContentWrapper = styled(Box)({
@@ -18,7 +18,6 @@ const ContentWrapper = styled(Box)({
   width: '100%',
   height: '100%',
   paddingTop: 88
-
 });
 
 const LayoutWrapper = styled(Box)({

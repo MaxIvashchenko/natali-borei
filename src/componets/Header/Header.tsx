@@ -24,6 +24,7 @@ const Header = () => {
   const isMobile = useMobile();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -36,12 +37,9 @@ const Header = () => {
   const showMobileMenu = () => {
     if (router.route === paths.main) {
       return (
-        // TODO return after menu items added
-        // <MuiIconButton sx={{ p: 2 }} onClick={handleClick}>
-        //   <IconComponent name='menu' />
-        // </MuiIconButton>
-
-        <Box sx={{ p: 4 }} />
+        <MuiIconButton sx={{ p: 2 }} onClick={handleClick}>
+          <IconComponent name='menu' />
+        </MuiIconButton>
       );
     }
   };
@@ -80,7 +78,6 @@ const Header = () => {
       <PaddingWrapper>
         {isMobile ? (
           <>
-
             {showMobileMenu()}
             <Menu
               id='links-menu'

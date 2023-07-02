@@ -64,7 +64,7 @@ const IconButton = styled(MuiIconButton)(({ theme }) => ({
         width: 125,
         height: 125,
         transition: 'all 0.2s ease-out'
-      },
+      }
     }
   },
   [theme.breakpoints.down('md')]: {
@@ -83,7 +83,7 @@ const IconButton = styled(MuiIconButton)(({ theme }) => ({
         transition: 'none',
         width: 90,
         height: 90
-      },
+      }
     }
   }
 }));

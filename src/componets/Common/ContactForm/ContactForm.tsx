@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Button, TextField, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-
 import { IRequestFormState } from '@src/types';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -18,19 +17,15 @@ const Form = styled('form')(({ theme }) => ({
   }
 }));
 
-interface ContactFormProps {
-  modalHandler: () => void;
-}
-
 const initialValues: IRequestFormState = {
   name: '',
   email: '',
   phone: '',
   message: ''
 };
-
-const ContactForm = ({ modalHandler }: ContactFormProps) => {
-  const [isLoading, setLoading] = useState<boolean>(false);
+const isLoading = false;
+const ContactForm = () => {
+  // const [isLoading, setLoading] = useState<boolean>(false);
 
   const formik = useFormik({
     initialValues,
@@ -47,9 +42,7 @@ const ContactForm = ({ modalHandler }: ContactFormProps) => {
         .max(20, 'Не больше 20 символов'),
       message: Yup.string().min(9, 'Не меньше 9 символов')
     }),
-    onSubmit: async (values) => {
-
-    }
+    onSubmit: async () => {}
   });
 
   return (

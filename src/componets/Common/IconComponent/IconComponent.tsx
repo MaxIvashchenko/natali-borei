@@ -1,13 +1,8 @@
 import { ElementType } from 'react';
 
 import arrow from 'public/icons/arrow.svg';
-
-
-
 import close from 'public/icons/close.svg';
 import cube from 'public/icons/cube.svg';
-
-
 import email from 'public/icons/email.svg';
 import error from 'public/icons/error.svg';
 import facebook from 'public/icons/facebook.svg';
@@ -15,7 +10,6 @@ import file from 'public/icons/file.svg';
 import finance from 'public/icons/finance.svg';
 import group from 'public/icons/group.svg';
 import home from 'public/icons/home.svg';
-import menu from 'public/icons/menu.svg';
 import image from 'public/icons/image.svg';
 import instagram from 'public/icons/instagram.svg';
 import lesson from 'public/icons/lesson.svg';
@@ -24,6 +18,7 @@ import loop from 'public/icons/loop.svg';
 import man from 'public/icons/man.svg';
 import marketing from 'public/icons/marketing.svg';
 import megaphone from 'public/icons/megaphone.svg';
+import menu from 'public/icons/menu.svg';
 import notVisible from 'public/icons/notVisible.svg';
 import paper from 'public/icons/paper.svg';
 import planning from 'public/icons/planning.svg';
@@ -47,46 +42,46 @@ import youtube from 'public/icons/youtube.svg';
 import logo from 'public/logo.svg';
 
 type IconTypes = {
-  'logo': ElementType;
-  'cube': ElementType;
-  'stats': ElementType;
-  'planning': ElementType;
-  'scaleup': ElementType;
-  'marketing': ElementType;
-  'arrow': ElementType;
-  'telegram': ElementType;
-  'facebook': ElementType;
-  'telephone': ElementType;
-  'close': ElementType;
-  'visible': ElementType;
-  'notVisible': ElementType;
-  'salon': ElementType;
-  'restaurant': ElementType;
-  'image': ElementType;
-  'triangle': ElementType;
-  'menu': ElementType;
-  'man': ElementType;
-  'loop': ElementType;
-  'shuttle': ElementType;
-  'suitcase': ElementType;
-  'youtube': ElementType;
-  'instagram': ElementType;
-  'email': ElementType;
-  'user': ElementType;
-  'loader': ElementType;
-  'repeat': ElementType;
-  'group': ElementType;
-  'settings': ElementType;
-  'right': ElementType;
-  'finance': ElementType;
-  'paper': ElementType;
-  'megaphone': ElementType;
-  'text': ElementType;
-  'lesson': ElementType;
-  'file': ElementType;
-  'home': ElementType;
-  'error': ElementType;
-  'success': ElementType;
+  logo: ElementType;
+  cube: ElementType;
+  stats: ElementType;
+  planning: ElementType;
+  scaleup: ElementType;
+  marketing: ElementType;
+  arrow: ElementType;
+  telegram: ElementType;
+  facebook: ElementType;
+  telephone: ElementType;
+  close: ElementType;
+  visible: ElementType;
+  notVisible: ElementType;
+  salon: ElementType;
+  restaurant: ElementType;
+  image: ElementType;
+  triangle: ElementType;
+  menu: ElementType;
+  man: ElementType;
+  loop: ElementType;
+  shuttle: ElementType;
+  suitcase: ElementType;
+  youtube: ElementType;
+  instagram: ElementType;
+  email: ElementType;
+  user: ElementType;
+  loader: ElementType;
+  repeat: ElementType;
+  group: ElementType;
+  settings: ElementType;
+  right: ElementType;
+  finance: ElementType;
+  paper: ElementType;
+  megaphone: ElementType;
+  text: ElementType;
+  lesson: ElementType;
+  file: ElementType;
+  home: ElementType;
+  error: ElementType;
+  success: ElementType;
 };
 
 const iconTypes: IconTypes = {

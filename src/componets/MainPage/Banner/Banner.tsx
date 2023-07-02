@@ -1,9 +1,10 @@
 import Ztext from 'react-ztext';
 import Image from 'next/image';
-import { imgLoader } from '@src/utils';
-import { useWindowSize } from '@src/hooks';
-import { MainPage } from 'blocks'
 import { IMAGES } from '@src/constants';
+import { useWindowSize } from '@src/hooks';
+import { imgLoader } from '@src/utils';
+
+import { MainPage } from 'blocks';
 
 const { Banner: StyledBanner } = MainPage;
 
@@ -26,7 +27,9 @@ const Banner = () => (
         eventRotation='10deg'
         fade={false}
         layers={1}
-        perspective='500px' eventDirection={''} children={
+        perspective='500px'
+        eventDirection={''}
+        children={
           <Image
             src={IMAGES.FULL_LOGO}
             width={440}

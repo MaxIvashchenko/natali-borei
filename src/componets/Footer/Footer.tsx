@@ -1,12 +1,9 @@
-import { useRouter } from 'next/router';
 import { Typography } from '@mui/material';
-import { email, paths, phoneNumber } from '@src/constants';
+import { email, phoneNumber } from '@src/constants';
 import {
   redirectToEmail,
   redirectToInstagram,
-  redirectToPhone,
-  redirectToTelegramChannel,
-  redirectToYoutube
+  redirectToTelegramChannel
 } from '@src/utils';
 
 import { Footer as FooterBlocks } from 'blocks';
@@ -34,12 +31,7 @@ const footerContent: { name: string; onClick: () => void }[] = [
 ];
 
 const Footer = () => {
-  const router = useRouter();
-
-  const hideFooter =
-    router.route === paths.signIn ||
-    router.route === paths.verifyRequest ||
-    router.route === paths.authError;
+  const hideFooter = false;
 
   if (hideFooter) return <></>;
 

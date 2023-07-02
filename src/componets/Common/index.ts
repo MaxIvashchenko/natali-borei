@@ -5,6 +5,5 @@ export { IconComponent } from './IconComponent';
 export { InputWrapper } from './InputWrapper';
 export { Loader } from './Loader';
 export { Modal } from './Modal';
-
 export { Snackbar } from './Snackbar';
 export { ToTopButton } from './ToTopButton';

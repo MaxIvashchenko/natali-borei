@@ -8,6 +8,7 @@ export const telegramPrivateLink = '';
 
 export const telegramChannel = 'tg://resolve?domain=natali_borei';
 
-export const instagram = 'https://instagram.com/natali_borei_jewelry?igshid=MzRlODBiNWFlZA==';
+export const instagram =
+  'https://instagram.com/natali_borei_jewelry?igshid=MzRlODBiNWFlZA==';
 
 export const youtube = '';
