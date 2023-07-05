@@ -35,7 +35,7 @@ const ToTopButton = () => {
           }
         }}
       >
-        <IconComponent width={32} height={32} fill='#fff' name='downArrow' />
+        {/* <IconComponent width={32} height={32} fill='#fff' name='downArrow' /> */}
       </IconButton>
     </Link>
   ) : (

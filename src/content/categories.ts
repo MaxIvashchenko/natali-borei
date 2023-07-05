@@ -1,6 +1,5 @@
+import { CATEGORIES_IMAGES } from '@src/constants';
 import { ICategories } from '@src/types';
-
-import { CATEGORIES_IMAGES } from './images';
 
 export const CATEGORIES: ICategories[] = [
   {

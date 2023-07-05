@@ -2,6 +2,20 @@ import { Box, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { GLOBAL_COLORS, IMAGES } from '@src/constants';
 
+const PageContainer = styled(Box)(({ theme }) => ({
+  padding: '32px 48px',
+
+  [theme.breakpoints.up('lg')]: {
+    padding: '32px 64px'
+  },
+  [theme.breakpoints.down('md')]: {
+    padding: '24px 32px'
+  },
+  [theme.breakpoints.down('sm')]: {
+    padding: '8px'
+  }
+}));
+
 const Banner = styled(Box)(({ theme }) => ({
   background: `grey url(${IMAGES.BANNER_BACKGROUND}) no-repeat`,
   backgroundSize: 'auto 100%',
@@ -91,6 +105,7 @@ const CategoryButton = styled(Button)({
 });
 
 const MainPageBlock = {
+  PageContainer,
   Banner,
   OuterLoopWrapper,
   InnerLoopWrapper,

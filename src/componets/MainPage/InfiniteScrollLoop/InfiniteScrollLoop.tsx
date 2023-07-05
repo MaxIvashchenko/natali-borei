@@ -3,7 +3,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Box, Typography } from '@mui/material';
 import { MainPage } from '@src/blocks';
-import { CATEGORIES, paths } from '@src/constants';
+import { paths } from '@src/constants';
+import { CATEGORIES } from '@src/content';
 import { ICategories } from '@src/types';
 import { imgLoader } from '@src/utils';
 

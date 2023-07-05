@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 
 const useWindowSize = () => {
-  const [windowSize, setWindowSize] = useState(false);
+  const [windowSize, setWindowSize] = useState(0);
 
   useEffect(() => {
-    // only execute all the code below in client side
     if (typeof window !== 'undefined') {
       function handleResize() {
-        setWindowSize(window.innerWidth < 992);
+        setWindowSize(window.innerWidth);
       }
 
       window.addEventListener('resize', handleResize);
