@@ -1,7 +1,7 @@
 import { CATEGORIES_IMAGES } from '@src/constants';
-import { ICategories } from '@src/types';
+import { ICategory } from '@src/types';
 
-export const CATEGORIES: ICategories[] = [
+export const CATEGORIES: ICategory[] = [
   {
     tag: 'brooch',
     imgSrc: CATEGORIES_IMAGES.brooch,

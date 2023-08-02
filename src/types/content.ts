@@ -7,7 +7,7 @@ export type TAG =
   | 'pendant'
   | 'necklace';
 
-export interface ICategories {
+export interface ICategory {
   tag: TAG;
   imgSrc: string;
   label: string;

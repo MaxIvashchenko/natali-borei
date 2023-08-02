@@ -5,10 +5,10 @@ import { Box, Typography } from '@mui/material';
 import { MainPage } from '@src/blocks';
 import { paths } from '@src/constants';
 import { CATEGORIES } from '@src/content';
-import { ICategories } from '@src/types';
+import { ICategory } from '@src/types';
 import { imgLoader } from '@src/utils';
 
-const renderRows = (clickHandler: (category: ICategories) => () => void) =>
+const renderRows = (clickHandler: (category: ICategory) => () => void) =>
   CATEGORIES.map((item) => (
     <MainPage.CategoryButton
       key={item.tag}
@@ -60,7 +60,7 @@ const InfiniteScrollLoop = ({
   }, [setWidth, backupWidth]);
 
   const redirectHandler = useCallback(
-    ({ tag }: ICategories) =>
+    ({ tag }: ICategory) =>
       () =>
         router.push({
           pathname: paths.shop,
