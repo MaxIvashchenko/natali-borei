@@ -662,8 +662,8 @@ const items: ShopItem[] = [
     dimensions: '7-7',
     price: 120,
     images: [
-      path + '/brooch/Silkmoth__1.jpg',
-      path + '/brooch/Silkmoth__2.jpg'
+      path + '/brooch/SilkmothWhite__1.jpg',
+      path + '/brooch/SilkmothWhite__2.jpg'
     ],
     available: false
   },
@@ -688,8 +688,8 @@ const items: ShopItem[] = [
     dimensions: '7-7',
     price: 120,
     images: [
-      path + '/brooch/Silkmoth__1.jpg',
-      path + '/brooch/Silkmoth__2.jpg'
+      path + '/brooch/SilkmothBlack__1.jpg',
+      path + '/brooch/SilkmothBlack__2.jpg'
     ],
     available: false
   },
@@ -737,7 +737,7 @@ const items: ShopItem[] = [
     },
     dimensions: '6-6',
     price: 130,
-    images: [path + '/brooch/Medal__1.jpg'],
+    images: [path + '/brooch/MedalBlue__1.jpg'],
     available: true
   },
   {
@@ -761,10 +761,9 @@ const items: ShopItem[] = [
     dimensions: '7-7',
     price: 110,
     images: [
-      'items/Brooch/MedalSilver/Medal__1.jpg',
-      'items/Brooch/MedalSilver/Medal__2.jpg',
-      'items/Brooch/MedalSilver/Medal__3.jpg',
-      'items/Brooch/MedalSilver/Medal__4.gif'
+      path + '/brooch/MedalSilver__1.jpg',
+      path + '/brooch/MedalSilver__2.jpg',
+      path + '/brooch/MedalSilver__3.jpg'
     ],
     available: true
   },
@@ -786,18 +785,11 @@ const items: ShopItem[] = [
       material:
         'The article consists of crystals and pearls Swarovski, Japanese gold coated beads.'
     },
-    mainImage: [
-      'items/Brooch/MedalPink/MedalPink__1.jpg',
-      'items/Brooch/MedalBlue/Medal__1.jpg',
-      'items/Brooch/MedalSilver/Medal__1.jpg',
-      'items/Brooch/MedalPurple/Medal__1.jpg'
-    ],
     dimensions: '7-7',
     price: 110,
-    images: ['items/Brooch/MedalPurple/Medal__1.jpg'],
+    images: [path + '/brooch/MedalPurple__1.jpg'],
     available: true
   },
-
   {
     id: 'BR009',
     title: 'Brooch',
