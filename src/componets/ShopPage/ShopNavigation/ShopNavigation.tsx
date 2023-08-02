@@ -28,7 +28,7 @@ const ToolBar = styled(Box)(({ theme }) => ({
 }));
 
 const ToolButton = styled(Button)<{ active: number }>(({ theme, active }) => ({
-  padding: '16px 0',
+  padding: '0 0 16px',
   minWidth: 0,
   fontSize: 20,
   color: active ? GLOBAL_COLORS.gold : 'grey',
@@ -55,7 +55,7 @@ const ToolButton = styled(Button)<{ active: number }>(({ theme, active }) => ({
   },
   [theme.breakpoints.down('sm')]: {
     fontSize: 16,
-    padding: '8px 0'
+    padding: '0 0 8px'
   }
 }));
 

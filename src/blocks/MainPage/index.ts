@@ -21,12 +21,12 @@ const Banner = styled(Box)(({ theme }) => ({
   backgroundSize: 'auto 100%',
   backgroundColor: 'white',
   textAlign: 'center',
+  padding: '8% 0 8%',
 
   '& img': {
     padding: '30px 0 30px'
   },
   '& p': {
-    padding: '0 0 5%',
     fontSize: 24,
     fontFamily: 'Cormorant Garamond',
     color: '#8e6342',

@@ -9,6 +9,7 @@ declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     withIcon: true;
     dark: true;
+    wrapper: true;
   }
 }
 
@@ -117,34 +118,17 @@ const MuiButton: MuiButtonType = {
         lineHeight: '20px',
         color: theme.palette.grey[100],
 
-        // [theme.breakpoints.down('sm')]: {
-        //   minWidth: 48,
-        //   width: 48,
-        //   height: 48,
-        //   padding: 0,
-        //   fontSize: 0
-        // },
-
         '&:hover': {
           background: theme.palette.grey[400]
         }
       })
     },
     {
-      props: { variant: 'dark' },
-      style: ({ theme }) => ({
-        // padding: '12px 24px',
-        fontWeight: 400,
-        fontSize: 14,
-        // lineHeight: '20px',
-        background: theme.palette.primary.light,
-        color: theme.palette.common.black,
-
-        '&:hover': {
-          background: theme.palette.grey[400],
-          color: theme.palette.common.white
-        }
-      })
+      props: { variant: 'wrapper' },
+      style: {
+        display: 'block',
+        padding: 0
+      }
     }
   ]
 };

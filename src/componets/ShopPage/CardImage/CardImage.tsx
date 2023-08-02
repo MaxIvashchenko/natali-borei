@@ -18,28 +18,26 @@ const CardImage = ({ image, name }: CardImageProps) => {
     if (imageRef?.current) {
       setHeight(imageRef?.current?.clientWidth);
     }
-  }, [size]);
+  }, [imageRef?.current?.clientWidth, size]);
 
   return (
     <Box
-      style={{
+      sx={{
         position: 'relative',
         height
       }}
     >
-      {image && (
-        <Image
-          ref={imageRef}
-          loader={imgLoader}
-          src={image}
-          alt={name + '-photo'}
-          fill
-          style={{ objectFit: 'cover' }}
-          sizes='(max-width: 768px) 100vw,
+      <Image
+        ref={imageRef}
+        loader={imgLoader}
+        src={image}
+        alt={name + '-photo'}
+        fill
+        style={{ objectFit: 'cover' }}
+        sizes='(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw'
-        />
-      )}
+      />
     </Box>
   );
 };

@@ -17,7 +17,8 @@ const ContentWrapper = styled(Box)({
   margin: '0 auto',
   width: '100%',
   height: '100%',
-  paddingTop: 88
+  paddingTop: 88,
+  maxWidth: 1920
 });
 
 const LayoutWrapper = styled(Box)({

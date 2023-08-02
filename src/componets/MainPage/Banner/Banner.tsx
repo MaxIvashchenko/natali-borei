@@ -1,7 +1,7 @@
 import Ztext from 'react-ztext';
 import Image from 'next/image';
 import { IMAGES } from '@src/constants';
-import { useWindowSize } from '@src/hooks';
+import { useMobile } from '@src/hooks';
 import { imgLoader } from '@src/utils';
 
 import { MainPage } from 'blocks';
@@ -10,7 +10,7 @@ const { Banner: StyledBanner } = MainPage;
 
 const Banner = () => (
   <StyledBanner>
-    {useWindowSize() ? (
+    {useMobile() ? (
       <Image
         src={IMAGES.FULL_LOGO}
         width={400}
@@ -29,17 +29,16 @@ const Banner = () => (
         layers={1}
         perspective='500px'
         eventDirection={''}
-        children={
-          <Image
-            src={IMAGES.FULL_LOGO}
-            width={440}
-            height={112}
-            loader={imgLoader}
-            quality={100}
-            alt='big logo'
-          />
-        }
-      />
+      >
+        <Image
+          src={IMAGES.FULL_LOGO}
+          width={440}
+          height={112}
+          loader={imgLoader}
+          quality={100}
+          alt='big logo'
+        />
+      </Ztext>
     )}
     <p>Beaded Jewelry & Accessories</p>
   </StyledBanner>

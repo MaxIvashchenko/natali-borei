@@ -1,11 +1,14 @@
 import React, { useCallback, useMemo } from 'react';
 import { useRouter } from 'next/router';
-import { Box, Grid, Typography } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
 import { MainPage } from '@src/blocks';
+import { ShopPage as ShopPageBlock } from '@src/blocks';
 import { CardImage, ShopNavigation } from '@src/componets';
 import { paths } from '@src/constants';
 import { CATEGORIES, data } from '@src/content';
 import _get from 'lodash/get';
+
+const { NavContainer } = ShopPageBlock;
 
 const ShopPage = () => {
   const router = useRouter();
@@ -21,40 +24,31 @@ const ShopPage = () => {
   return (
     <MainPage.PageContainer>
       <Grid container>
-        <Grid
-          item
-          md={2}
-          sx={{
-            overflowX: 'scroll',
-            margin: '0 auto',
-            '&::-webkit-scrollbar': {
-              display: 'none'
-            }
-          }}
-        >
+        <NavContainer item xs={12} md={2}>
           <ShopNavigation />
-        </Grid>
-        <Grid item md={10}>
-          <Grid container spacing={2}>
+        </NavContainer>
+        <Grid item xs={12} md={10}>
+          <Grid
+            container
+            sx={{ justifyContent: { xs: 'center', md: 'flex-start' } }}
+            rowSpacing={{ xs: 1, sm: 3, md: 4 }}
+            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+          >
             {list.map((item) => (
-              <Grid item xs={2} sm={2} md={4} xl={3} key={item.id}>
-                <Box
-                  // px={4}
-                  mb={2}
+              <Grid item xs={6} sm={6} md={4} lg={3} xl={3} key={item.id}>
+                <Button
+                  variant='wrapper'
                   onClick={onCardDetails(item?.id)}
+                  fullWidth
                 >
                   <CardImage
-                    image={
-                      item.variants
-                        ? _get(item, 'mainImage[0]', '')
-                        : _get(item, 'images[0]', '')
-                    }
+                    image={_get(item, 'images[0]', '')}
                     name={item.ru.name}
                   />
                   <Typography pt={2} textAlign='center' variant='h3'>
                     {item.ru.name}
                   </Typography>
-                </Box>
+                </Button>
               </Grid>
             ))}
           </Grid>
