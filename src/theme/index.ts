@@ -10,7 +10,7 @@ const theme: Theme = createTheme({
     MuiTypography
   },
   typography: {
-    fontFamily: ['Maven Pro', 'sans-serif'].join(',')
+    fontFamily: ['Cormorant Garamond', 'sans-serif'].join(',')
   }
 });
 

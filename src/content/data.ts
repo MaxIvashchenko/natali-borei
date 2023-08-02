@@ -1,5 +1,7 @@
 import { ShopItem } from '@src/types';
-
+const STORAGE_URL = process.env.STORAGE_URL;
+const path = STORAGE_URL + '/public/common/items';
+// public/common/items/lavBrooch/LotusKeepSilent__3.jpg
 const items: ShopItem[] = [
   {
     title: 'Lavalier brooch',
@@ -7,9 +9,9 @@ const items: ShopItem[] = [
     id: 'LB001',
     price: 180,
     images: [
-      'items/Lavalierbrooch/LotusKeepSilent/LotusKeepSilent__2.jpg',
-      'items/Lavalierbrooch/LotusKeepSilent/LotusKeepSilent__1.jpg',
-      'items/Lavalierbrooch/LotusKeepSilent/LotusKeepSilent__3.jpg'
+      path + '/lavBrooch/LotusKeepSilent__2.jpg',
+      path + 'lavBrooch/LotusKeepSilent__1.jpg',
+      path + 'lavBrooch/LotusKeepSilent__3.jpg'
     ],
     ru: {
       name: 'Лотос',
@@ -24,9 +26,8 @@ const items: ShopItem[] = [
       material:
         'Consists of crystals and pearls Swarovski, Japanese beads, leather binders.'
     },
-
     dimensions: '7-8',
-    available: 'available'
+    available: true
   },
   {
     title: 'Lavalier brooch',
@@ -50,10 +51,10 @@ const items: ShopItem[] = [
     dimensions: '6-7',
     price: 90,
     images: [
-      'items/Lavalierbrooch/pendantMolecula/Molecula__1.jpg',
-      'items/Lavalierbrooch/pendantMolecula/Molecula__2.jpg'
+      path + '/lavBrooch/Molecula__1.jpg',
+      path + '/lavBrooch/Molecula__2.jpg'
     ],
-    available: 'sold'
+    available: false
   },
   {
     id: 'LB003',
@@ -76,11 +77,11 @@ const items: ShopItem[] = [
     dimensions: '9-10',
     price: 150,
     images: [
-      'items/Lavalierbrooch/Silkmoth/Silkmoth__1.jpg',
-      'items/Lavalierbrooch/Silkmoth/Silkmoth__2.jpg',
-      'items/Lavalierbrooch/Silkmoth/Silkmoth__3.jpg'
+      path + '/lavBrooch/Silkmoth__1.jpg',
+      path + '/lavBrooch/Silkmoth__2.jpg',
+      path + '/lavBrooch/Silkmoth__3.jpg'
     ],
-    available: 'sold'
+    available: false
   },
   {
     id: 'LB004',
@@ -102,11 +103,11 @@ const items: ShopItem[] = [
     dimensions: '8-9',
     price: 200,
     images: [
-      'items/Lavalierbrooch/MandrakeFlower/MandrakeFlower__1.jpg',
-      'items/Lavalierbrooch/MandrakeFlower/MandrakeFlower__2.jpg',
-      'items/Lavalierbrooch/MandrakeFlower/MandrakeFlower__3.jpg'
+      path + '/pendant/MandrakeFlower__1.jpg',
+      path + '/pendant/MandrakeFlower__2.jpg',
+      path + '/pendant/MandrakeFlower__3.jpg'
     ],
-    available: 'available'
+    available: true
   },
   {
     id: 'LB005',
@@ -130,10 +131,10 @@ const items: ShopItem[] = [
     dimensions: '8/17',
     price: 250,
     images: [
-      'items/Lavalierbrooch/lavalierMolecula/lavalierMolecula__1.jpg',
-      'items/Lavalierbrooch/lavalierMolecula/lavalierMolecula__2.jpg'
+      path + '/necklace/lavalierMolecula__1.jpg',
+      path + '/necklace/lavalierMolecula__2.jpg'
     ],
-    available: 'available'
+    available: true
   },
   {
     id: 'LB006',
@@ -156,10 +157,10 @@ const items: ShopItem[] = [
     dimensions: '18/4',
     price: 400,
     images: [
-      'items/Lavalierbrooch/TimelessWind/TimelessWind__1.jpg',
-      'items/Lavalierbrooch/TimelessWind/TimelessWind__2.jpg'
+      path + '/necklace/TimelessWind__1.jpg',
+      path + '/necklace/TimelessWind__2.jpg'
     ],
-    available: 'sold'
+    available: false
   },
   {
     id: 'LB007',
@@ -182,11 +183,11 @@ const items: ShopItem[] = [
     dimensions: '18/4',
     price: 400,
     images: [
-      'items/Lavalierbrooch/Splashes/Splashes__1.jpg',
-      'items/Lavalierbrooch/Splashes/Splashes__2.jpg',
-      'items/Lavalierbrooch/Splashes/Splashes__3.jpg'
+      path + '/necklace/Splashes__1.jpg',
+      path + '/necklace/Splashes__2.jpg',
+      path + '/necklace/Splashes__3.jpg'
     ],
-    available: 'sold'
+    available: false
   },
   {
     id: 'LB008',
@@ -210,10 +211,10 @@ const items: ShopItem[] = [
     dimensions: '7-9',
     price: 190,
     images: [
-      'items/Lavalierbrooch/Aquaworld1/Aquaworld__1.jpg',
-      'items/Lavalierbrooch/Aquaworld1/Aquaworld__2.jpg'
+      path + '/lavBrooch/Aquaworld__1.jpg',
+      path + '/lavBrooch/Aquaworld__2.jpg'
     ],
-    available: 'available'
+    available: true
   },
   {
     id: 'LB009',
@@ -235,8 +236,8 @@ const items: ShopItem[] = [
     },
     dimensions: '15/15',
     price: 500,
-    images: ['items/Lavalierbrooch/Butterfly/Butterfly__1.jpg'],
-    available: 'available'
+    images: [path + '/necklace/Butterfly__1.jpg'],
+    available: true
   },
   {
     id: 'LB010',
@@ -260,15 +261,16 @@ const items: ShopItem[] = [
     dimensions: '9-5',
     price: 170,
     images: [
-      'items/Lavalierbrooch/AquaworldSmall/AquaworldSmall__1.jpg',
-      'items/Lavalierbrooch/AquaworldSmall/AquaworldSmall__2.jpg'
+      path + '/lavBrooch/AquaworldSmall__1.jpg',
+      path + '/lavBrooch/AquaworldSmall__2.jpg'
     ],
-    available: 'available'
+    available: true
   },
   {
-    title: 'Pendant',
-    tag: 'pendant',
-    collection: 'Edelweiss',
+    id: 'LB011',
+    tag: 'lavBrooch',
+    title: 'Lavalier brooch',
+    collection: '',
     ru: {
       name: 'Эделвейс',
       description:
@@ -283,34 +285,40 @@ const items: ShopItem[] = [
       material:
         'Natural stone, Swarovski components, Japanese beads and chain work and French sequins.'
     },
-    mainImage: [
-      'items/Lavalierbrooch/Edelweiss/Edelweiss__1.jpg',
-      'items/Lavalierbrooch/EdelweissPurple/Edelweiss__1.jpg'
+    dimensions: '9-9',
+    price: 220,
+    images: [
+      path + '/lavBrooch/Edelweiss__1.jpg',
+      path + '/lavBrooch/Edelweiss__2.jpg'
     ],
-    variants: [
-      {
-        color: 'gold',
-        id: 'LB011',
-        dimensions: '9-9',
-        price: 220,
-        images: [
-          'items/Lavalierbrooch/Edelweiss/Edelweiss__1.jpg',
-          'items/Lavalierbrooch/Edelweiss/Edelweiss__2.jpg'
-        ],
-        available: 'available'
-      },
-      {
-        color: 'goldPlum',
-        id: 'LB012',
-        dimensions: '10-10',
-        price: 260,
-        images: [
-          'items/Lavalierbrooch/EdelweissPurple/Edelweiss__1.jpg',
-          'items/Lavalierbrooch/EdelweissPurple/Edelweiss__2.jpg'
-        ],
-        available: 'available'
-      }
-    ]
+    available: true
+  },
+  {
+    id: 'LB012',
+    title: 'Pendant',
+    tag: 'pendant',
+    collection: 'Edelweiss',
+    ru: {
+      name: 'Эделвейс',
+      description:
+        'Коллекция “Flowers come to life from stones”. Reaching to the stars through the thorns, cherishing delicate dreams and looking for the right way to achieve the hope the flowers come to life from stones. The lavaliere is made by technique of multilayer beads wickerwork and beads embroidery.',
+      material:
+        'Натуральный камень, компоненты Swarovski, Японский бисер and chain work and French sequins.'
+    },
+    en: {
+      name: 'Edelweiss Purple',
+      description:
+        'Collection “Flowers come to life from stones”. Reaching to the stars through the thorns, cherishing delicate dreams and looking for the right way to achieve the hope the flowers come to life from stones. The lavaliere is made by technique of multilayer beads wickerwork and beads embroidery.',
+      material:
+        'Natural stone, Swarovski components, Japanese beads and chain work and French sequins.'
+    },
+    dimensions: '10-10',
+    price: 260,
+    images: [
+      path + '/pendant/EdelweissPurple__1.jpg',
+      path + '/pendant/EdelweissPurple__2.jpg'
+    ],
+    available: true
   },
   {
     id: 'LB013',
@@ -333,11 +341,11 @@ const items: ShopItem[] = [
     dimensions: '10-11',
     price: 270,
     images: [
-      'items/Lavalierbrooch/SecretGarden/SecretGarden__1.jpg',
-      'items/Lavalierbrooch/SecretGarden/SecretGarden__2.jpg',
-      'items/Lavalierbrooch/SecretGarden/SecretGarden__3.jpg'
+      path + '/necklace/SecretGarden__1.jpg',
+      path + '/necklace/SecretGarden__2.jpg',
+      path + '/necklace/SecretGarden__3.jpg'
     ],
-    available: 'available'
+    available: true
   },
   {
     id: 'BR001',
@@ -359,12 +367,13 @@ const items: ShopItem[] = [
     dimensions: '6-9',
     price: 130,
     images: [
-      'items/Brooch/AtlassBeatle/AtlassBeatle__1.jpg',
-      'items/Brooch/AtlassBeatle/AtlassBeatle__2.jpg'
+      path + '/brooch/AtlassBeatle__1.jpg',
+      path + '/brooch/AtlassBeatle__2.jpg'
     ],
-    available: 'sold'
+    available: false
   },
   {
+    id: 'BR002',
     title: 'Brooch',
     tag: 'brooch',
     ru: {
@@ -380,60 +389,105 @@ const items: ShopItem[] = [
       material:
         'Crystals, strass chain, pearls Swarovski, Japanese gold coated beads, French sequins.'
     },
-    mainImage: [
-      'items/Brooch/BeetleParadi/BeetleParadi__1.jpg',
-      'items/Brooch/BeetleParadiBlue/BeetleParadiBlue__1.jpg',
-      'items/Brooch/BeetleParadiRed/BeetleParadiRed__1.jpg',
-      'items/Brooch/RoyalBlueBeetle/RoyalBlueBeetle__1.jpg',
-      'items/Brooch/LavenderBeetle/LavenderBeetle__1.jpg'
+    dimensions: '4-4,5 cm.',
+    price: 100,
+    images: [
+      path + '/brooch/BeetleParadi__1.jpg',
+      path + '/brooch/BeetleParadi__2.jpg'
     ],
-    variants: [
-      {
-        color: 'goldPlum',
-        id: 'BR002',
-        dimensions: '4-4,5 cm.',
-        price: 100,
-        images: [
-          'items/Brooch/BeetleParadi/BeetleParadi__1.jpg',
-          'items/Brooch/BeetleParadi/BeetleParadi__2.jpg'
-        ],
-        available: 'sold'
-      },
-      {
-        color: 'goldBlue',
-        id: 'BR013',
-        dimensions: '4-4,5 cm.',
-        price: 100,
-        images: ['items/Brooch/BeetleParadiBlue/BeetleParadiBlue__1.jpg'],
-        available: 'available'
-      },
-      {
-        color: 'goldRed',
-        id: 'BR014',
-        dimensions: '4-4,5 cm.',
-        price: 100,
-        images: ['items/Brooch/BeetleParadiRed/BeetleParadiRed__1.jpg'],
-        available: 'available'
-      },
-      {
-        color: 'darkBlue',
-        id: 'BR011',
-        dimensions: '4-4,5 cm.',
-        price: 100,
-        images: ['items/Brooch/RoyalBlueBeetle/RoyalBlueBeetle__1.jpg'],
-        available: 'available'
-      },
-      {
-        color: 'roseBrown',
-        id: 'BR017',
-        dimensions: '4-4,5 cm.',
-        price: 100,
-        images: ['items/Brooch/LavenderBeetle/LavenderBeetle__1.jpg'],
-        available: 'available'
-      }
-    ]
+    available: false
   },
   {
+    id: 'BR013',
+    title: 'Brooch',
+    tag: 'brooch',
+    ru: {
+      name: 'Жук Паради',
+      description: 'Изделие изготовлено в технике вышивки и плетения бусинами.',
+      material:
+        'Кристаллы, цепочка из страз, жемчуг Сваровски, бусины, покрытые японским золотом, французские пайетки.'
+    },
+    en: {
+      name: 'Beetle Paradi',
+      description:
+        'The article is made by technique of embroidery and beads wickerwork.',
+      material:
+        'Crystals, strass chain, pearls Swarovski, Japanese gold coated beads, French sequins.'
+    },
+    dimensions: '4-4,5 cm.',
+    price: 100,
+    images: [path + '/brooch/BeetleParadiBlue__1.jpg'],
+    available: true
+  },
+  {
+    id: 'BR014',
+    title: 'Brooch',
+    tag: 'brooch',
+    ru: {
+      name: 'Жук Паради',
+      description: 'Изделие изготовлено в технике вышивки и плетения бусинами.',
+      material:
+        'Кристаллы, цепочка из страз, жемчуг Сваровски, бусины, покрытые японским золотом, французские пайетки.'
+    },
+    en: {
+      name: 'Beetle Paradi',
+      description:
+        'The article is made by technique of embroidery and beads wickerwork.',
+      material:
+        'Crystals, strass chain, pearls Swarovski, Japanese gold coated beads, French sequins.'
+    },
+    dimensions: '4-4,5 cm.',
+    price: 100,
+    images: [path + '/brooch/BeetleParadiRed__1.jpg'],
+    available: true
+  },
+  {
+    id: 'BR011',
+    title: 'Brooch',
+    tag: 'brooch',
+    ru: {
+      name: 'Жук Паради',
+      description: 'Изделие изготовлено в технике вышивки и плетения бусинами.',
+      material:
+        'Кристаллы, цепочка из страз, жемчуг Сваровски, бусины, покрытые японским золотом, французские пайетки.'
+    },
+    en: {
+      name: 'Beetle Paradi',
+      description:
+        'The article is made by technique of embroidery and beads wickerwork.',
+      material:
+        'Crystals, strass chain, pearls Swarovski, Japanese gold coated beads, French sequins.'
+    },
+    dimensions: '4-4,5 cm.',
+    price: 100,
+    images: [path + '/brooch/RoyalBlueBeetle__1.jpg'],
+    available: true
+  },
+  {
+    id: 'BR017',
+    title: 'Brooch',
+    tag: 'brooch',
+    ru: {
+      name: 'Жук Паради',
+      description: 'Изделие изготовлено в технике вышивки и плетения бусинами.',
+      material:
+        'Кристаллы, цепочка из страз, жемчуг Сваровски, бусины, покрытые японским золотом, французские пайетки.'
+    },
+    en: {
+      name: 'Beetle Paradi',
+      description:
+        'The article is made by technique of embroidery and beads wickerwork.',
+      material:
+        'Crystals, strass chain, pearls Swarovski, Japanese gold coated beads, French sequins.'
+    },
+    dimensions: '4-4,5 cm.',
+    price: 100,
+    images: [path + '/brooch/LavenderBeetle__1.jpg'],
+    available: true
+  },
+
+  {
+    id: 'BR003',
     title: 'Brooch',
     tag: 'brooch',
     ru: {
@@ -450,47 +504,67 @@ const items: ShopItem[] = [
       material:
         'Swarovski elements, silk thread, Japanese beads, cannetille, French paillettes , raffia.'
     },
-    mainImage: [
-      'items/Brooch/Butterfly/Butterfly__1.jpg',
-      'items/Brooch/ButterflyPink/ButterflyPink__1.jpg',
-      'items/Brooch/ButterflyRosyBrown/ButterflyRosyBrown__1.jpg'
+    dimensions: '5-10',
+    price: 130,
+    images: [
+      path + '/brooch/Butterfly__1.jpg',
+      path + '/brooch/Butterfly__2.jpg'
     ],
-    variants: [
-      {
-        color: 'purple',
-        id: 'BR003',
-        dimensions: '5-10',
-        price: 130,
-        images: [
-          'items/Brooch/Butterfly/Butterfly__1.jpg',
-          'items/Brooch/Butterfly/Butterfly__2.jpg'
-        ],
-        available: 'sold'
-      },
-      {
-        color: 'pink',
-        id: 'BR018',
-        dimensions: '9-4,5',
-        price: 130,
-        images: [
-          'items/Brooch/ButterflyPink/ButterflyPink__1.jpg',
-          'items/Brooch/ButterflyPink/ButterflyPink__2.jpg'
-        ],
-        available: 'available'
-      },
-      {
-        color: 'roseBrown',
-        id: 'BR021',
-        dimensions: '9-4,5',
-        price: 130,
-        images: [
-          'items/Brooch/ButterflyRosyBrown/ButterflyRosyBrown__1.jpg',
-          'items/Brooch/ButterflyRosyBrown/ButterflyRosyBrown__2.jpg',
-          'items/Brooch/ButterflyRosyBrown/ButterflyRosyBrown__3.gif'
-        ],
-        available: 'available'
-      }
-    ]
+    available: false
+  },
+
+  {
+    id: 'BR018',
+    title: 'Brooch',
+    tag: 'brooch',
+    ru: {
+      name: 'Бабочка',
+      description:
+        'A romantic accessory article to keep a great mood going on. The brooch is made in various techniques of cotton thread embroidery, cannetille and beads.',
+      material:
+        'Элементы Сваровски, шелковая нить, японский бисер, каннетиль, французские пайетки, рафия.'
+    },
+    en: {
+      name: 'Butterfly',
+      description:
+        'A romantic accessory article to keep a great mood going on. The brooch is made in various techniques of cotton thread embroidery, cannetille and beads.',
+      material:
+        'Swarovski elements, silk thread, Japanese beads, cannetille, French paillettes , raffia.'
+    },
+    dimensions: '9-4,5',
+    price: 130,
+    images: [
+      path + '/brooch/ButterflyPink__1.jpg',
+      path + '/brooch/ButterflyPink__2.jpg'
+    ],
+    available: true
+  },
+  {
+    id: 'BR021',
+    title: 'Brooch',
+    tag: 'brooch',
+    ru: {
+      name: 'Бабочка',
+      description:
+        'A romantic accessory article to keep a great mood going on. The brooch is made in various techniques of cotton thread embroidery, cannetille and beads.',
+      material:
+        'Элементы Сваровски, шелковая нить, японский бисер, каннетиль, французские пайетки, рафия.'
+    },
+    en: {
+      name: 'Butterfly',
+      description:
+        'A romantic accessory article to keep a great mood going on. The brooch is made in various techniques of cotton thread embroidery, cannetille and beads.',
+      material:
+        'Swarovski elements, silk thread, Japanese beads, cannetille, French paillettes , raffia.'
+    },
+    dimensions: '9-4,5',
+    price: 130,
+    images: [
+      path + '/brooch/ButterflyRosyBrown__1.jpg',
+      path + '/brooch/ButterflyRosyBrown__2.jpg',
+      path + '/brooch/ButterflyRosyBrown__3.gif'
+    ],
+    available: true
   },
   {
     title: 'Brooch',
@@ -511,10 +585,10 @@ const items: ShopItem[] = [
     dimensions: '7-9',
     price: 130,
     images: [
-      'items/Brooch/Dragonfly/Dragonfly__1.jpg',
-      'items/Brooch/Dragonfly/Dragonfly__2.jpg'
+      path + '/brooch/Dragonfly__1.jpg',
+      path + '/brooch/Dragonfly__2.jpg'
     ],
-    available: 'available'
+    available: true
   },
   {
     title: 'Brooch',
@@ -533,37 +607,42 @@ const items: ShopItem[] = [
       material:
         'Crystals and pearls Swarovski, Japanese beads and French sequins.'
     },
-    mainImage: [
-      'items/Brooch/Fly/Fly__1.jpg',
-      'items/Brooch/FlyGreen/FlyGreen__1.jpg'
+    dimensions: '6-7',
+    price: 130,
+    images: [
+      path + '/brooch/Fly__1.jpg',
+      path + '/brooch/Fly__2.jpg',
+      path + '/brooch/Fly__3.jpg'
     ],
-    variants: [
-      {
-        color: 'gold',
-        id: 'BR005',
-        dimensions: '6-7',
-        price: 130,
-        images: [
-          'items/Brooch/Fly/Fly__1.jpg',
-          'items/Brooch/Fly/Fly__2.jpg',
-          'items/Brooch/Fly/Fly__3.jpg'
-        ],
-        available: 'available'
-      },
-      {
-        color: 'green',
-        id: 'BR016',
-        dimensions: '6-7',
-        price: 110,
-        images: [
-          'items/Brooch/FlyGreen/FlyGreen__2.jpg',
-          'items/Brooch/FlyGreen/FlyGreen__1.jpg'
-        ],
-        available: 'available'
-      }
-    ]
+    available: true
   },
   {
+    title: 'Brooch',
+    tag: 'brooch',
+    id: 'BR016',
+    ru: {
+      name: 'Муха',
+      description: 'Изделие изготовлено в технике вышивки и плетения бусинами.',
+      material:
+        'Кристаллы и жемчуг Сваровски, японский бисер и французские пайетки.'
+    },
+    en: {
+      name: 'Fly',
+      description:
+        'The article is made by technique of embroidery and beads wickerwork',
+      material:
+        'Crystals and pearls Swarovski, Japanese beads and French sequins.'
+    },
+    dimensions: '6-7',
+    price: 110,
+    images: [
+      path + '/brooch/FlyGreen__2.jpg',
+      path + '/brooch/FlyGreen__1.jpg'
+    ],
+    available: true
+  },
+  {
+    id: 'BR006',
     title: 'Brooch',
     tag: 'brooch',
     ru: {
@@ -580,36 +659,117 @@ const items: ShopItem[] = [
       material:
         'Crystals and pearls Swarovski, Japanese gold coated beads and French sequins, natural fur.'
     },
-    mainImage: [
-      'items/Brooch/SilkmothWhite/Silkmoth__1.jpg',
-      'items/Brooch/SilkmothBlack/Silkmoth__1.jpg'
+    dimensions: '7-7',
+    price: 120,
+    images: [
+      path + '/brooch/Silkmoth__1.jpg',
+      path + '/brooch/Silkmoth__2.jpg'
     ],
-    variants: [
-      {
-        color: 'silverWhite',
-        id: 'BR006',
-        dimensions: '7-7',
-        price: 120,
-        images: [
-          'items/Brooch/SilkmothWhite/Silkmoth__1.jpg',
-          'items/Brooch/SilkmothWhite/Silkmoth__2.jpg'
-        ],
-        available: 'sold'
-      },
-      {
-        color: 'darkBlue',
-        id: 'BR008',
-        dimensions: '7-7',
-        price: 120,
-        images: [
-          'items/Brooch/SilkmothBlack/Silkmoth__1.jpg',
-          'items/Brooch/SilkmothBlack/Silkmoth__2.jpg'
-        ],
-        available: 'sold'
-      }
-    ]
+    available: false
   },
   {
+    id: 'BR008',
+    title: 'Brooch',
+    tag: 'brooch',
+    ru: {
+      name: 'Шелкопряд',
+      description:
+        'The article is made by technique of beads wickerwork and needlework by luvinel hook. Wings are fixed by wire thread carcass.',
+      material:
+        'Кристаллы, жемчуг Сваровски, японские бусины с золотым напылением, французские пайетки и натуральный мех.'
+    },
+    en: {
+      name: 'Silkmoth',
+      description:
+        'The article is made by technique of beads wickerwork and needlework by luvinel hook. Wings are fixed by wire thread carcass.',
+      material:
+        'Crystals and pearls Swarovski, Japanese gold coated beads and French sequins, natural fur.'
+    },
+    dimensions: '7-7',
+    price: 120,
+    images: [
+      path + '/brooch/Silkmoth__1.jpg',
+      path + '/brooch/Silkmoth__2.jpg'
+    ],
+    available: false
+  },
+  {
+    id: 'BR007',
+    title: 'Brooch',
+    tag: 'brooch',
+    ru: {
+      name: 'Медаль',
+      description:
+        'Trend of fashion season. Once upon a time Coco Chanel brought the medal brooch into fashion as a memory of a beloved Russian nobleman. And ever since then the medal brooch had become a decoration for remarkable individuals.',
+      material:
+        'Кристаллы, жемчуг Сваровски и японские бусины, покрытые золотом.'
+    },
+    en: {
+      name: 'Medal',
+      description:
+        'Trend of fashion season. Once upon a time Coco Chanel brought the medal brooch into fashion as a memory of a beloved Russian nobleman. And ever since then the medal brooch had become a decoration for remarkable individuals.',
+      material:
+        'The article consists of crystals and pearls Swarovski, Japanese gold coated beads.'
+    },
+
+    dimensions: '6-6',
+    price: 130,
+    images: [path + '/brooch/MedalPink__1.jpg'],
+    available: false
+  },
+  {
+    id: 'BR010',
+    title: 'Brooch',
+    tag: 'brooch',
+    ru: {
+      name: 'Медаль',
+      description:
+        'Trend of fashion season. Once upon a time Coco Chanel brought the medal brooch into fashion as a memory of a beloved Russian nobleman. And ever since then the medal brooch had become a decoration for remarkable individuals.',
+      material:
+        'Кристаллы, жемчуг Сваровски и японские бусины, покрытые золотом.'
+    },
+    en: {
+      name: 'Medal',
+      description:
+        'Trend of fashion season. Once upon a time Coco Chanel brought the medal brooch into fashion as a memory of a beloved Russian nobleman. And ever since then the medal brooch had become a decoration for remarkable individuals.',
+      material:
+        'The article consists of crystals and pearls Swarovski, Japanese gold coated beads.'
+    },
+    dimensions: '6-6',
+    price: 130,
+    images: [path + '/brooch/Medal__1.jpg'],
+    available: true
+  },
+  {
+    id: 'BR019',
+    title: 'Brooch',
+    tag: 'brooch',
+    ru: {
+      name: 'Медаль',
+      description:
+        'Trend of fashion season. Once upon a time Coco Chanel brought the medal brooch into fashion as a memory of a beloved Russian nobleman. And ever since then the medal brooch had become a decoration for remarkable individuals.',
+      material:
+        'Кристаллы, жемчуг Сваровски и японские бусины, покрытые золотом.'
+    },
+    en: {
+      name: 'Medal',
+      description:
+        'Trend of fashion season. Once upon a time Coco Chanel brought the medal brooch into fashion as a memory of a beloved Russian nobleman. And ever since then the medal brooch had become a decoration for remarkable individuals.',
+      material:
+        'The article consists of crystals and pearls Swarovski, Japanese gold coated beads.'
+    },
+    dimensions: '7-7',
+    price: 110,
+    images: [
+      'items/Brooch/MedalSilver/Medal__1.jpg',
+      'items/Brooch/MedalSilver/Medal__2.jpg',
+      'items/Brooch/MedalSilver/Medal__3.jpg',
+      'items/Brooch/MedalSilver/Medal__4.gif'
+    ],
+    available: true
+  },
+  {
+    id: 'BR020',
     title: 'Brooch',
     tag: 'brooch',
     ru: {
@@ -632,47 +792,14 @@ const items: ShopItem[] = [
       'items/Brooch/MedalSilver/Medal__1.jpg',
       'items/Brooch/MedalPurple/Medal__1.jpg'
     ],
-    variants: [
-      {
-        color: 'pinkBlue',
-        id: 'BR007',
-        dimensions: '6-6',
-        price: 130,
-        images: ['items/Brooch/MedalPink/MedalPink__1.jpg'],
-        available: 'sold'
-      },
-      {
-        color: 'lightBlue',
-        id: 'BR010',
-        dimensions: '6-6',
-        price: 130,
-        images: ['items/Brooch/MedalBlue/Medal__1.jpg'],
-        available: 'available'
-      },
-      {
-        color: 'silverBlue',
-        id: 'BR019',
-        dimensions: '7-7',
-        price: 110,
-        images: [
-          'items/Brooch/MedalSilver/Medal__1.jpg',
-          'items/Brooch/MedalSilver/Medal__2.jpg',
-          'items/Brooch/MedalSilver/Medal__3.jpg',
-          'items/Brooch/MedalSilver/Medal__4.gif'
-        ],
-        available: 'available'
-      },
-      {
-        color: 'purple',
-        id: 'BR020',
-        dimensions: '7-7',
-        price: 110,
-        images: ['items/Brooch/MedalPurple/Medal__1.jpg'],
-        available: 'available'
-      }
-    ]
+    dimensions: '7-7',
+    price: 110,
+    images: ['items/Brooch/MedalPurple/Medal__1.jpg'],
+    available: true
   },
+
   {
+    id: 'BR009',
     title: 'Brooch',
     tag: 'brooch',
     ru: {
@@ -686,52 +813,77 @@ const items: ShopItem[] = [
         'The article is made by technique of embroidery and beads wickerwork.',
       material: 'Crystals, strass chain, pearls Swarovski, Japanese beads.'
     },
-    mainImage: [
-      'items/Brooch/RoyalRedBeetle/RoyalRedBeetle__1.jpg',
-      'items/Brooch/RoyalGreenBeetle/RoyalGreenBeetle__1.jpg',
-      'items/Brooch/RoyalGoldBeetle/RoyalGoldBeetle__1.jpg'
+    dimensions: '4-4,5',
+    price: 90,
+    images: [
+      path + '/brooch/RoyalRedBeetle__1.jpg',
+      path + '/brooch/RoyalRedBeetle__2.jpg'
     ],
-    variants: [
-      {
-        color: 'purple',
-        id: 'BR009',
-        dimensions: '4-4,5',
-        price: 90,
-        images: [
-          'items/Brooch/RoyalRedBeetle/RoyalRedBeetle__1.jpg',
-          'items/Brooch/RoyalRedBeetle/RoyalRedBeetle__2.jpg'
-        ],
-        available: 'available'
-      },
-      {
-        color: 'goldGreen',
-        id: 'BR015',
-        dimensions: '4-4',
-        price: 60,
-        images: ['items/Brooch/RoyalGreenBeetle/RoyalGreenBeetle__1.jpg'],
-        available: 'available'
-      },
-      {
-        color: 'gold',
-        id: 'BR022',
-        dimensions: '4-4',
-        price: 70,
-        images: [
-          'items/Brooch/RoyalGoldBeetle/RoyalGoldBeetle__1.jpg',
-          'items/Brooch/RoyalGoldBeetle/RoyalGoldBeetle__2.jpg',
-          'items/Brooch/RoyalGoldBeetle/RoyalGoldBeetle__3.gif'
-        ],
-        available: 'available'
-      },
-      {
-        color: 'purple',
-        id: 'BR023',
-        dimensions: '4,5-5',
-        price: 100,
-        images: ['items/Brooch/RoyalPurpureBeetle/RoyalPurpureBeetle__1.jpeg'],
-        available: 'available'
-      }
-    ]
+    available: true
+  },
+  {
+    id: 'BR015',
+    title: 'Brooch',
+    tag: 'brooch',
+    ru: {
+      name: 'Королевский Жук',
+      description: 'Изделие изготовлено в технике вышивки и плетения бусинами.',
+      material: 'Кристаллы, цепочка из страз, жемчуг Сваровски, японский бисер.'
+    },
+    en: {
+      name: 'Royal Beetle',
+      description:
+        'The article is made by technique of embroidery and beads wickerwork.',
+      material: 'Crystals, strass chain, pearls Swarovski, Japanese beads.'
+    },
+    dimensions: '4-4',
+    price: 60,
+    images: [path + '/brooch/RoyalGreenBeetle__1.jpg'],
+    available: true
+  },
+  {
+    id: 'BR022',
+    title: 'Brooch',
+    tag: 'brooch',
+    ru: {
+      name: 'Королевский Жук',
+      description: 'Изделие изготовлено в технике вышивки и плетения бусинами.',
+      material: 'Кристаллы, цепочка из страз, жемчуг Сваровски, японский бисер.'
+    },
+    en: {
+      name: 'Royal Beetle',
+      description:
+        'The article is made by technique of embroidery and beads wickerwork.',
+      material: 'Crystals, strass chain, pearls Swarovski, Japanese beads.'
+    },
+    dimensions: '4-4',
+    price: 70,
+    images: [
+      path + '/brooch/RoyalGoldBeetle__1.jpg',
+      path + '/brooch/RoyalGoldBeetle__2.jpg',
+      path + '/brooch/RoyalGoldBeetle__3.gif'
+    ],
+    available: true
+  },
+  {
+    id: 'BR023',
+    title: 'Brooch',
+    tag: 'brooch',
+    ru: {
+      name: 'Королевский Жук',
+      description: 'Изделие изготовлено в технике вышивки и плетения бусинами.',
+      material: 'Кристаллы, цепочка из страз, жемчуг Сваровски, японский бисер.'
+    },
+    en: {
+      name: 'Royal Beetle',
+      description:
+        'The article is made by technique of embroidery and beads wickerwork.',
+      material: 'Crystals, strass chain, pearls Swarovski, Japanese beads.'
+    },
+    dimensions: '4,5-5',
+    price: 100,
+    images: [path + '/brooch/RoyalPurpureBeetle__1.jpeg'],
+    available: true
   },
   {
     id: 'BR012',
@@ -751,8 +903,8 @@ const items: ShopItem[] = [
     },
     dimensions: '6-6',
     price: 120,
-    images: ['items/Brooch/Cicada/Cicada__1.jpg'],
-    available: 'available'
+    images: [path + '/brooch/Cicada__1.jpg'],
+    available: true
   },
   {
     id: 'RG001',
@@ -774,11 +926,8 @@ const items: ShopItem[] = [
     },
     dimensions: '6-7',
     price: 90,
-    images: [
-      'items/Ring/Molecula/Molecula__1.jpg',
-      'items/Ring/Molecula/Molecula__2.jpg'
-    ],
-    available: 'sold'
+    images: [path + '/rings/Molecula__1.jpg', path + '/rings/Molecula__2.jpg'],
+    available: false
   },
   {
     id: 'BA001',
@@ -801,10 +950,10 @@ const items: ShopItem[] = [
     dimensions: '19/5',
     price: 200,
     images: [
-      'items/Bracelets/Molecula/Molecula__1.jpg',
-      'items/Bracelets/Molecula/Molecula__2.jpg'
+      path + '/bracelets/Molecula__1.jpg',
+      path + '/bracelets/Molecula__2.jpg'
     ],
-    available: 'available'
+    available: true
   },
   {
     id: 'BA002',
@@ -826,8 +975,8 @@ const items: ShopItem[] = [
     },
     dimensions: '19/4',
     price: 120,
-    images: ['items/Bracelets/Butterfly/Butterfly__1.jpg'],
-    available: 'available'
+    images: [path + '/bracelets/Butterfly__1.jpg'],
+    available: true
   },
   {
     id: 'BA003',
@@ -849,8 +998,8 @@ const items: ShopItem[] = [
     },
     dimensions: '19/4',
     price: 120,
-    images: ['items/Bracelets/FairyOfTheNight/FairyOfTheNight.jpg'],
-    available: 'available'
+    images: [path + '/bracelets/FairyOfTheNight.jpg'],
+    available: true
   },
   {
     id: 'BG001',
@@ -872,8 +1021,8 @@ const items: ShopItem[] = [
     },
     dimensions: '17–22',
     price: 500,
-    images: ['items/Bags/IndianSummer/IndianSummer.jpg'],
-    available: 'available'
+    images: [path + '/bags/IndianSummer.jpg'],
+    available: true
   }
 ];
 

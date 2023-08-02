@@ -12,7 +12,17 @@ const ToolBar = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  borderRight: '1px solid grey',
+  position: 'fixed',
+
+  [theme.breakpoints.down('md')]: {
+    display: 'inline-flex',
+    position: 'inherit',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    overflow: 'scroll',
+    marginBottom: 16
+  },
 
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'row',
@@ -30,11 +40,32 @@ const ToolButton = styled(Button)<{ active: number }>(({ theme, active }) => ({
   fontSize: 20,
   color: active ? GLOBAL_COLORS.gold : 'grey',
   justifyContent: 'flex-start',
+  // whiteSpace: 'nowrap',
+  // clear: 'both',
+  // display: 'inline-block',
 
   '&:hover': {
     color: active ? GLOBAL_COLORS.gold : GLOBAL_COLORS.brown
   },
 
+  [theme.breakpoints.up('md')]: {
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      left: -16,
+      width: 8,
+      height: 8,
+      borderRadius: 8,
+      backgroundColor: active ? GLOBAL_COLORS.gold : null
+    }
+  },
+  [theme.breakpoints.down('md')]: {
+    justifyContent: 'center',
+    paddingRight: 16
+    // whiteSpace: 'nowrap',
+    // clear: 'both',
+    // display: 'inline-block',
+  },
   [theme.breakpoints.down('sm')]: {
     fontSize: 16,
     padding: '8px 0'
@@ -56,10 +87,15 @@ const ShopPage = () => {
 
   const list = useMemo(() => data.filter((item) => item.tag === tag), [tag]);
 
+  const onCardDetails = useCallback(
+    (id?: string) => () => router.push(paths.shop + '/' + id),
+    [router]
+  );
+
   return (
     <MainPage.PageContainer>
       <Grid container>
-        <Grid item md={3}>
+        <Grid item md={2} sx={{ width: '100%' }}>
           <ToolBar>
             {CATEGORIES.map((item) => (
               <ToolButton
@@ -74,14 +110,14 @@ const ShopPage = () => {
             ))}
           </ToolBar>
         </Grid>
-        <Grid item md={9}>
+        <Grid item md={10}>
           <Grid container spacing={2}>
             {list.map((item) => (
-              <Grid item md={4}>
+              <Grid item xs={2} sm={2} md={4} xl={3} key={item.id}>
                 <Box
-                  px={4}
+                  // px={4}
                   mb={2}
-                  // onClick={() => console.log(item.ru.name)}
+                  onClick={onCardDetails(item?.id)}
                 >
                   <CardImage
                     image={

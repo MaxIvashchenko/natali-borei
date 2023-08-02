@@ -31,7 +31,7 @@ const CardImage = ({ image, name }: CardImageProps) => {
         <Image
           ref={imageRef}
           loader={imgLoader}
-          src={require('public/' + image)}
+          src={image}
           alt={name + '-photo'}
           fill
           style={{ objectFit: 'cover' }}

@@ -25,7 +25,7 @@ type Variant = {
   dimensions: string;
   price: number;
   images: string[];
-  available: string;
+  available: boolean;
 };
 
 export interface ShopItem {
@@ -38,7 +38,7 @@ export interface ShopItem {
   ru: LangDetails;
   en: LangDetails;
   dimensions?: string;
-  available?: string;
+  available?: boolean;
   mainImage?: string[];
   variants?: Variant[];
 }
