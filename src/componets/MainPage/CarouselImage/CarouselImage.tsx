@@ -14,14 +14,13 @@ interface CarouselImageProps {
 const CarouselImage = ({ num }: CarouselImageProps) => {
   const width = useWindowSize();
   const src = path + `/carousel_${num}.jpg`;
-  const height = (width / 16) * 7;
+  const height = (width / 16) * 5;
 
   return (
     <Box
       sx={{
         position: 'relative',
         height
-        // height: 400,
       }}
     >
       <Image

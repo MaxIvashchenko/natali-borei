@@ -5,7 +5,8 @@ import {
   ContactForm,
   InfiniteScrollLoop,
   Loader,
-  Modal
+  Modal,
+  PopularItems
 } from '@src/componets';
 import { useLoaderContext } from '@src/hooks';
 
@@ -29,6 +30,7 @@ const Home = () => {
       <Carousel />
       <Banner />
       <InfiniteScrollLoop />
+      <PopularItems />
       {/* <InfoLine /> */}
 
       <Modal isOpen={isOpen} closeModal={modalHandler}>

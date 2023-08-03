@@ -19,26 +19,15 @@ type LangDetails = {
   material: string;
 };
 
-type Variant = {
-  color: string;
-  id: string;
-  dimensions: string;
-  price: number;
-  images: string[];
-  available: boolean;
-};
-
 export interface ShopItem {
   title: string;
   collection?: string;
   tag: TAG;
-  id?: string;
-  price?: number;
-  images?: string[];
+  id: string;
+  price: number;
+  images: string[];
   ru: LangDetails;
   en: LangDetails;
-  dimensions?: string;
-  available?: boolean;
-  mainImage?: string[];
-  variants?: Variant[];
+  dimensions: string;
+  available: boolean;
 }
