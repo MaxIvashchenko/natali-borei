@@ -3,8 +3,6 @@ import { Link } from 'react-scroll';
 import { Box, IconButton } from '@mui/material';
 import { useScroll } from '@src/hooks';
 
-import { IconComponent } from '../IconComponent';
-
 const ToTopButton = () => {
   const isScrolled = useScroll();
 

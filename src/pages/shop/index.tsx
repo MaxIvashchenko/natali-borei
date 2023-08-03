@@ -22,15 +22,15 @@ const ShopPage = () => {
   );
 
   return (
-    <MainPage.PageContainer>
-      <Grid container>
+    <MainPage.PageContainer sx={{ maxWidth: 1220, margin: '0 auto' }}>
+      <Grid container mb={2}>
         <NavContainer item xs={12} md={2}>
           <ShopNavigation />
         </NavContainer>
         <Grid item xs={12} md={10}>
           <Grid
             container
-            sx={{ justifyContent: { xs: 'center', md: 'flex-start' } }}
+            justifyContent='flex-start'
             rowSpacing={{ xs: 1, sm: 3, md: 4 }}
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           >

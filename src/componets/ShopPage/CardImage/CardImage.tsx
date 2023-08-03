@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Box } from '@mui/material';
+import { GLOBAL_COLORS } from '@src/constants';
 import { useWindowSize } from '@src/hooks';
 import { imgLoader } from '@src/utils';
 
@@ -24,7 +25,9 @@ const CardImage = ({ image, name }: CardImageProps) => {
     <Box
       sx={{
         position: 'relative',
-        height
+        height,
+
+        border: `1px solid ${GLOBAL_COLORS.gold}`
       }}
     >
       <Image

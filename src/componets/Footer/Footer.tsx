@@ -8,10 +8,11 @@ import {
 
 import { Footer as FooterBlocks } from 'blocks';
 import { IconComponent } from '../Common';
+import { IconTypes } from '@src/types';
 
 const { FooterWrapper, IconButton } = FooterBlocks;
 
-const footerContent: { name: string; onClick: () => void }[] = [
+const footerContent: { name: keyof IconTypes; onClick: () => void }[] = [
   {
     name: 'instagram',
     onClick: redirectToInstagram

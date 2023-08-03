@@ -30,7 +30,7 @@ const Home = () => {
       {/* <InfoLine /> */}
 
       <Modal isOpen={isOpen} closeModal={modalHandler}>
-        <ContactForm modalHandler={modalHandler} />
+        <ContactForm />
       </Modal>
     </>
   );

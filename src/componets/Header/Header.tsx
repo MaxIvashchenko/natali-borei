@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll/modules';
 import { useRouter } from 'next/router';
-import { Box, Button, IconButton as MuiIconButton, Menu } from '@mui/material';
+import {
+  Box,
+  Button,
+  IconButton as MuiIconButton,
+  Menu,
+  Stack
+} from '@mui/material';
 import { paths } from '@src/constants';
 import { useMobile, useScroll } from '@src/hooks';
 
 import { Header as HeadersBlocks } from 'blocks';
 import { IconComponent } from '../Common';
+import { FavoriteIcon, SearchInput } from './components';
 
-const { HeaderWrapper, PaddingWrapper, IconWrapper, IconButton } =
+const { HeaderWrapper, PaddingWrapper, IconWrapper, LogoButton } =
   HeadersBlocks;
 
 const headerList: { link: string; name: string }[] = [
@@ -116,15 +123,17 @@ const Header = () => {
         ) : (
           <>
             <Box sx={{ display: 'flex', minHeight: 56 }}>{showMenu()}</Box>
-            {/* <AccessToken /> */}
-            {/* <AuthenticationButton /> */}
+            <Stack direction='row'>
+              <SearchInput />
+              <FavoriteIcon />
+            </Stack>
           </>
         )}
       </PaddingWrapper>
       <IconWrapper>
-        <IconButton onClick={toMainPage}>
+        <LogoButton onClick={toMainPage}>
           <IconComponent fill='#404040' name='logo' width={100} height={100} />
-        </IconButton>
+        </LogoButton>
       </IconWrapper>
     </HeaderWrapper>
   );

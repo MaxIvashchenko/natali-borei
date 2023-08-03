@@ -72,7 +72,7 @@ const CookiesAlert = () => {
         <Stack direction='row'>
           <Box>
             Пользуясь нашим сайтом, вы соглашаетесь с тем, что
-            <Link style={{ marginLeft: 8 }} href={paths.legal}>
+            <Link style={{ marginLeft: 8 }} href={paths.main}>
               мы используем cookies
             </Link>
           </Box>

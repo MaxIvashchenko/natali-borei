@@ -18,6 +18,8 @@ const PaddingWrapper = styled(Box)(({ theme }) => ({
   justifyContent: 'space-between',
   alignItems: 'center',
   zIndex: 90,
+  minHeight: 72,
+
   [theme.breakpoints.up('lg')]: {
     padding: '16px 48px'
   },
@@ -47,7 +49,7 @@ const IconWrapper = styled(Box)(({ theme }) => ({
   }
 }));
 
-const IconButton = styled(MuiIconButton)(({ theme }) => ({
+const LogoButton = styled(MuiIconButton)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     position: 'absolute',
     zIndex: 91,
@@ -92,7 +94,7 @@ const Header = {
   HeaderWrapper,
   PaddingWrapper,
   IconWrapper,
-  IconButton
+  LogoButton
 };
 
 export default Header;
