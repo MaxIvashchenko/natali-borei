@@ -24,6 +24,7 @@ const CarouselImage = ({ num }: CarouselImageProps) => {
       }}
     >
       <Image
+        priority
         loader={imgLoader}
         src={src}
         alt={`carousel-photo-${num}`}

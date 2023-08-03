@@ -1,4 +1,5 @@
 import React, { useCallback, useLayoutEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Box, Typography } from '@mui/material';
@@ -8,33 +9,13 @@ import { CATEGORIES } from '@src/content';
 import { ICategory } from '@src/types';
 import { imgLoader } from '@src/utils';
 
-const renderRows = (clickHandler: (category: ICategory) => () => void) =>
-  CATEGORIES.map((item) => (
-    <MainPage.CategoryButton
-      key={item.tag}
-      variant='text'
-      onClick={clickHandler(item)}
-    >
-      <Box className='imgWrapper'>
-        <Image
-          src={item.imgSrc}
-          width={100}
-          height={100}
-          loader={imgLoader}
-          quality={50}
-          alt='category'
-        />
-      </Box>
-      <Typography mt={1}>{item.label}</Typography>
-    </MainPage.CategoryButton>
-  ));
-
 const InfiniteScrollLoop = ({
   backup = 1
 }: {
   backup?: number;
 }): JSX.Element => {
   const router = useRouter();
+  const { t } = useTranslation('common');
   const scrollRef = React.useRef<HTMLDivElement | null>(null);
   const [width, setWidth] = React.useState<number>(0);
 
@@ -69,6 +50,30 @@ const InfiniteScrollLoop = ({
     [router]
   );
 
+  const renderRows = useCallback(
+    (clickHandler: (category: ICategory) => () => void) =>
+      CATEGORIES.map((item) => (
+        <MainPage.CategoryButton
+          key={item.tag}
+          variant='text'
+          onClick={clickHandler(item)}
+        >
+          <Box className='imgWrapper'>
+            <Image
+              src={item.imgSrc}
+              width={100}
+              height={100}
+              loader={imgLoader}
+              quality={50}
+              alt='category'
+            />
+          </Box>
+          <Typography mt={1}>{t(`categories.${item.tag}`)}</Typography>
+        </MainPage.CategoryButton>
+      )),
+    [t]
+  );
+
   const HidedScrollList = useMemo(
     () =>
       Array.from(Array(backup).keys()).map((i) => (
@@ -76,7 +81,7 @@ const InfiniteScrollLoop = ({
           {renderRows(redirectHandler)}
         </MainPage.ListWrapper>
       )),
-    [backup, redirectHandler]
+    [backup, redirectHandler, renderRows]
   );
 
   return (

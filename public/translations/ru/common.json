@@ -1,0 +1,115 @@
+{
+  "header": {
+    "home": "На главную",
+    "about": "Об авторе",
+    "shop": "Магазин",
+    "collections": "Коллекции",
+    "orderShip": "Заказ и Доставка",
+    "contacts": "Контакты",
+    "en": "англ.",
+    "ru": "рус."
+  },
+  "categories": {
+    "brooch": "Брошь",
+    "bracelets": "Браслеты",
+    "rings": "Кольца",
+    "bags": "Сумки",
+    "lavBrooch": "Брошь-кулон",
+    "pendant": "Кулон",
+    "necklace": "Колье"
+  },
+  "main": {
+    "poularTitle": "Популярные модели",
+    "slogan": "Украшения и Аксессуары из бисера"
+  },
+  "footer": {
+    "contactUs": "Связаться с нами",
+    "adress": "Харьков, Украина",
+    "usefulLinks": "Навигация",
+    "phone": "Телефон:",
+    "email": "Почта:"
+  },
+  "order": {
+    "payment": "Оплата",
+    "delivery": "Доставка",
+    "forUkraine": "Для Украины",
+    "forCIS": "Для стран СНГ",
+    "forEurope": "Для Европы",
+    "": "",
+    "": "",
+    "": "",
+    "": ""
+  },
+  "contacts": {
+    "titleAdress": "Адресс:",
+    "titleEmail": "Написать Нам",
+    "messengers": "Мессенджеры:",
+    "topic": "Тема Письма:",
+    "topicPlaceholder": "Введите тему письма",
+    "name": "Имя:",
+    "namePlaceholder": "Введите свое имя",
+    "email": "Почта:",
+    "emailPlaceholder": "Введите свою почту",
+    "phone": "Мобильный телефон:",
+    "phonePlaceholder": "Введите свой телефон",
+    "message": "Сообщение:",
+    "messagePlaceholder": "Введите свое сообщение",
+    "submit": "Отправить",
+    "required": "Обязательно поле для ввода",
+    "moreChar": "Имя слишком короткое",
+    "lessChar": "Не больше 50 символов",
+    "phoneInvalid": "Некорректный номер телефона",
+    "emailInvalid": "Некорректный почтовый адресс",
+    "numberMore": "Не меньше 8 символов",
+    "numberLess": "Не больше 20 символов",
+    "messageMore": "Не меньше 9 символов",
+    "comment1": "Круглосуточный прием заявок online.",
+    "comment2": "C удовольствием ответим на все Ваши вопросы.",
+    "comment3": "Все украшения можно посмотреть в г. Харьков, Украина."
+  },
+  "common": {
+    "notFound": "Страница не найдена",
+    "text": "К сожалению, запрашиваемая Вами страница не найдена или устарела.",
+    "back": "На главную"
+  },
+  "shop": {
+    "filter": {
+      "all": "Все",
+      "instock": "В наличии",
+      "priceUp": "цена ↑",
+      "priceDown": "цена ↓",
+      "available": "Есть в наличии",
+      "sold": "Продано",
+      "from": "от",
+      "dimension": "см.",
+      "outOfStock": "Нет в наличии"
+    },
+    "showItem": {
+      "chooseColor": "Выберите цвет:",
+      "price": "Цена:",
+      "description": "Описание",
+      "material": "Материалы:",
+      "measurements": "Размер:"
+    }
+  },
+  "aboutAuthor": {
+    "autor": {
+      "title": "Об Авторе",
+      "text1": "Меня зовут Наталья. Я автор и создатель бренда 'Natali Borei'. Произведение искусства для меня - это чувство бытия, желание творчества, происходящего вне пространства и времени.",
+      "text2": "I call my artwork etudes as the stories narrated by beads because each article has its personal storyline and an idea that has been born as a result of a unique flow of creative inspiration.",
+      "text3": "This flow is alike to the wind – soft and self-governed. That is why, the brand title is Borei – northern wind that comes from mysterious and legendary Hyperborei bearing aurora borealis sparkles around the globe to bring the more light and fairy tale worldwide."
+    },
+    "materials": {
+      "title": "Материалы",
+      "text1": "Each beads story exists and lives on due to the unique design and implementation thereof. Technique combination of beads wickerwork, embroidery and needlework by luvinel hook makes an article to look as voluminous and eye-catching.",
+      "text2": "A beads story would sound bright because jewelry articles are made of LUX materials such as: crystals and pearls Swarovski, Japanese beads (as well as gold coated), French sequins, tinsel thread - all that makes an article to look like as jewelry artwork.",
+      "text3": "For the conception and the creative idea to come true the articles are often made of semi-precious stones and natural pearls."
+    }
+  },
+  "orderAndShipment": {
+    "title1": "Почтовые заказы и платежи:",
+    "toGetOrder": "Чтобы сделать заказ, вы можете связаться с нами по телефону + 38 095 324 0 777 или любым удобным для вас мессенджером (Telegram, Viber, WhatsApp)",
+    "shipment": "Доставка",
+    "shipmentDesc": "Доставка по всему миру после полной предоплаты."
+  }
+}

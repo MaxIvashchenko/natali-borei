@@ -1,0 +1,104 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "shop": "Shop",
+    "collections": "Collections",
+    "orderShip": "Order & Shipping",
+    "contacts": "Contacts",
+    "en": "en",
+    "ru": "ru"
+  },
+  "categories": {
+    "brooch": "Brooch",
+    "bracelets": "Bracelets",
+    "rings": "Rings",
+    "bags": "Bags",
+    "lavBrooch": "Lavalier brooch",
+    "pendant": "Pendant",
+    "necklace": "Necklace"
+  },
+  "main": {
+    "poularTitle": "Popular models",
+    "slogan": "Beaded Jewelry & Accessories"
+  },
+  "common": {
+    "notFound": "No Results Found",
+    "text": "The page you requested could not be found. Try to use the navigation above to locate the post.",
+    "back": "Back to Home"
+  },
+  "footer": {
+    "contactUs": "Contact us",
+    "adress": "Kharkov, Ukraine",
+    "usefulLinks": "Useful links",
+    "phone": "Phone:",
+    "email": "Email:"
+  },
+  "contacts": {
+    "titleAdress": "Adress:",
+    "titleEmail": "Email Us",
+    "messengers": "Messengers:",
+    "topic": "Topic:",
+    "topicPlaceholder": "Enter your topic",
+    "name": "Name:",
+    "namePlaceholder": "Enter your name",
+    "email": "Email:",
+    "emailPlaceholder": "Enter your email",
+    "phone": "Phone:",
+    "phonePlaceholder": "Enter your phone",
+    "message": "Message:",
+    "messagePlaceholder": "Enter your message",
+    "submit": "Submit",
+    "required": "Required",
+    "moreChar": "Name is too short",
+    "lessChar": "Must be 50 characters or less",
+    "phoneInvalid": "Phone number is not valid",
+    "emailInvalid": "Invalid email address",
+    "numberMore": "Must be 8 characters or more",
+    "numberLess": "Must be 20 characters or less",
+    "messageMore": "Must be 9 characters or more",
+    "comment1": "Accept orders 24/7",
+    "comment2": "We will be happy to answer any questions.",
+    "comment3": ""
+  },
+  "shop": {
+    "filter": {
+      "all": "All",
+      "instock": "in stock",
+      "priceUp": "price ↑",
+      "priceDown": "price ↓",
+      "available": "Available",
+      "sold": "Sold",
+      "from": "from",
+      "dimension": "cm.",
+      "outOfStock": "Out of stock"
+    },
+    "showItem": {
+      "chooseColor": "Choose color:",
+      "price": "Price:",
+      "description": "Description",
+      "material": "Material:",
+      "measurements": "Measurements:"
+    }
+  },
+  "aboutAuthor": {
+    "autor": {
+      "title": "About author",
+      "text1": "My name is Natalia. I am the author and creator of a jewelry brand titled Natali Borei. The artwork for me is a sense of being, a desire of creativity going on outside of space and time.",
+      "text2": "I call my artwork etudes as the stories narrated by beads because each article has its personal storyline and an idea that has been born as a result of a unique flow of creative inspiration.",
+      "text3": "This flow is alike to the wind – soft and self-governed. That is why, the brand title is Borei – northern wind that comes from mysterious and legendary Hyperborei bearing aurora borealis sparkles around the globe to bring the more light and fairy tale worldwide."
+    },
+    "materials": {
+      "title": "Materials",
+      "text1": "Each beads story exists and lives on due to the unique design and implementation thereof. Technique combination of beads wickerwork, embroidery and needlework by luvinel hook makes an article to look as voluminous and eye-catching.",
+      "text2": "A beads story would sound bright because jewelry articles are made of LUX materials such as: crystals and pearls Swarovski, Japanese beads (as well as gold coated), French sequins, tinsel thread - all that makes an article to look like as jewelry artwork.",
+      "text3": "For the conception and the creative idea to come true the articles are often made of semi-precious stones and natural pearls."
+    }
+  },
+  "orderAndShipment": {
+    "title1": "Mail orders and payments:",
+    "toGetOrder": "To make an order you can get in touch with us by phone + 38 095 324 0 777 or by any available messenger below (Telegram, Viber, WhatsApp)",
+    "shipment": "Shipment",
+    "shipmentDesc": "Shipment to any place throughout the world after 100% advance payment."
+  }
+}

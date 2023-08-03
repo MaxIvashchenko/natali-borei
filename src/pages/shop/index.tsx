@@ -35,7 +35,7 @@ const ShopPage = () => {
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           >
             {list.map((item) => (
-              <Grid item xs={6} sm={6} md={4} lg={3} xl={3} key={item.id}>
+              <Grid item xs={6} sm={4} md={4} lg={3} xl={3} key={item.id}>
                 <Button
                   variant='wrapper'
                   onClick={onCardDetails(item?.id)}

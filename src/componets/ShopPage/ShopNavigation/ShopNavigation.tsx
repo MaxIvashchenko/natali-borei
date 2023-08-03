@@ -1,4 +1,5 @@
 import React, { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
 import { Box, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -67,6 +68,7 @@ const ToolButton = styled(Button)<{ active: number }>(({ theme, active }) => ({
 
 const ShopNavigation = () => {
   const router = useRouter();
+  const { t } = useTranslation('common');
   const tag = _get(router, 'query.tag', CATEGORIES[0].tag);
 
   const toolTagChange = useCallback(
@@ -87,10 +89,10 @@ const ShopNavigation = () => {
         onClick={toolTagChange(item.tag)}
         active={Number(item.tag === tag)}
       >
-        {item.label}
+        {t(`categories.${item.tag}`)}
       </ToolButton>
     ),
-    [tag, toolTagChange]
+    [tag, toolTagChange, t]
   );
 
   return <ToolBar>{CATEGORIES.map(renderCategoryButton)}</ToolBar>;

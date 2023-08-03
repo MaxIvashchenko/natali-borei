@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
 import { Button, Grid, Typography } from '@mui/material';
 import { CardImage } from '@src/componets/ShopPage';
@@ -11,6 +12,7 @@ const popularIds: string[] = ['LB007', 'BR002', 'BR011', 'LB003'];
 
 const PopularItems = () => {
   const router = useRouter();
+  const { t } = useTranslation('common');
 
   const onCardDetails = useCallback(
     (id?: string) => () => router.push(paths.shop + '/' + id),
@@ -30,7 +32,7 @@ const PopularItems = () => {
     >
       <Grid item xs={12}>
         <Typography textAlign='center' variant='h3'>
-          Популярные модели
+          {t('main.poularTitle')}
         </Typography>
       </Grid>
       {items.map((item) => (
@@ -38,7 +40,7 @@ const PopularItems = () => {
           item
           xs={6}
           md={3}
-          key={`popular-${item.ru.name}`}
+          key={`popular-${item.ru.name}-${item.id}`}
           sx={{ p: { xs: 1, md: 3 } }}
         >
           <Button variant='wrapper' fullWidth onClick={onCardDetails(item.id)}>

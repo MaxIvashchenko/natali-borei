@@ -62,3 +62,5 @@ export type IconTypes = {
   favoriteFill: ElementType;
   globe: ElementType;
 };
+
+export type LangEnum = 'ru' | 'en' | 'pl';
