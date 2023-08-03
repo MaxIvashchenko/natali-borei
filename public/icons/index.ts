@@ -41,6 +41,7 @@ import user from './user.svg';
 import visible from './visible.svg';
 import youtube from './youtube.svg';
 import logo from './logo.svg';
+import globe from './globe.svg';
 
 import { IconTypes } from '@src/types';
 
@@ -87,7 +88,8 @@ const icons: IconTypes = {
   home,
   error,
   success,
-  search
+  search,
+  globe
 };
 
 export default icons;

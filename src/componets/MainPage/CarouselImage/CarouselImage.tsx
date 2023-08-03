@@ -14,7 +14,7 @@ interface CarouselImageProps {
 const CarouselImage = ({ num }: CarouselImageProps) => {
   const width = useWindowSize();
   const src = path + `/carousel_${num}.jpg`;
-  const height = (width / 16) * 5;
+  const height = width > 1920 ? (1920 / 16) * 5 : (width / 16) * 5;
 
   return (
     <Box

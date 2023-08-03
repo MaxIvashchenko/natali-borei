@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import {
   Box,
   Button,
+  Divider,
   IconButton as MuiIconButton,
   Menu,
   Stack
@@ -13,7 +14,7 @@ import { useMobile, useScroll } from '@src/hooks';
 
 import { Header as HeadersBlocks } from 'blocks';
 import { IconComponent } from '../Common';
-import { FavoriteIcon, SearchInput } from './components';
+import { FavoriteIcon, Language, SearchInput } from './components';
 
 const { HeaderWrapper, PaddingWrapper, IconWrapper, LogoButton } =
   HeadersBlocks;
@@ -125,7 +126,10 @@ const Header = () => {
             <Box sx={{ display: 'flex', minHeight: 56 }}>{showMenu()}</Box>
             <Stack direction='row'>
               <SearchInput />
+              <Divider orientation='vertical' variant='middle' flexItem />
               <FavoriteIcon />
+              <Divider orientation='vertical' variant='middle' flexItem />
+              <Language />
             </Stack>
           </>
         )}

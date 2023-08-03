@@ -60,4 +60,5 @@ export type IconTypes = {
   search: ElementType;
   favorite: ElementType;
   favoriteFill: ElementType;
+  globe: ElementType;
 };
