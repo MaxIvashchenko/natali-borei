@@ -1,4 +1,5 @@
 import { IconTypes } from '@src/types';
+
 import icons from 'public/icons';
 
 type IconComponentProps = {

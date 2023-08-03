@@ -1,5 +1,5 @@
-import { DefaultUser } from 'next-auth';
 import { ElementType } from 'react';
+import { DefaultUser } from 'next-auth';
 
 export interface IUserDetails extends DefaultUser {
   id: string;

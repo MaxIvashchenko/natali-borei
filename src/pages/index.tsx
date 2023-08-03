@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   Banner,
+  Carousel,
   ContactForm,
   InfiniteScrollLoop,
   Loader,
@@ -25,6 +26,7 @@ const Home = () => {
   return (
     <>
       {isLoading && <Loader isFullPage fill='#b99765' />}
+      <Carousel />
       <Banner />
       <InfiniteScrollLoop />
       {/* <InfoLine /> */}

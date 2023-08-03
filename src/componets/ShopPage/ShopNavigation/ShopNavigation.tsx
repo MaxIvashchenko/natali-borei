@@ -23,6 +23,7 @@ const ToolBar = styled(Box)(({ theme }) => ({
   },
 
   [theme.breakpoints.down('sm')]: {
+    marginTop: 16,
     marginBottom: 8
   }
 }));
@@ -33,6 +34,7 @@ const ToolButton = styled(Button)<{ active: number }>(({ theme, active }) => ({
   fontSize: 20,
   color: active ? GLOBAL_COLORS.gold : 'grey',
   justifyContent: 'flex-start',
+  borderRadius: 0,
 
   '&:hover': {
     color: active ? GLOBAL_COLORS.gold : GLOBAL_COLORS.brown
@@ -51,11 +53,15 @@ const ToolButton = styled(Button)<{ active: number }>(({ theme, active }) => ({
   },
   [theme.breakpoints.down('md')]: {
     marginRight: 16,
-    width: 'auto'
+    width: 'auto',
+    borderBottom: `2px solid ${active ? GLOBAL_COLORS.gold : null}`,
+    padding: '0 0 4px',
+    marginBottom: 4
   },
   [theme.breakpoints.down('sm')]: {
     fontSize: 16,
-    padding: '0 0 8px'
+    padding: '0 0 4px',
+    marginBottom: 4
   }
 }));
 

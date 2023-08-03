@@ -13,7 +13,8 @@ const SearchInput = () => {
   };
 
   const clearInput = () => setSearchValue('');
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value);
+  const onChange = (e: ChangeEvent<HTMLInputElement>) =>
+    setSearchValue(e.target.value);
 
   return (
     <Stack direction='row'>

@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material';
 import { email, phoneNumber } from '@src/constants';
+import { IconTypes } from '@src/types';
 import {
   redirectToEmail,
   redirectToInstagram,
@@ -8,7 +9,6 @@ import {
 
 import { Footer as FooterBlocks } from 'blocks';
 import { IconComponent } from '../Common';
-import { IconTypes } from '@src/types';
 
 const { FooterWrapper, IconButton } = FooterBlocks;
 

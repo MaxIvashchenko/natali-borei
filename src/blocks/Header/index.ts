@@ -1,5 +1,6 @@
 import { Box, IconButton as MuiIconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { GLOBAL_COLORS } from '@src/constants';
 
 const HeaderWrapper = styled(Box)<{ scrolled: number }>(({ scrolled }) => ({
   display: 'flex',
@@ -9,7 +10,9 @@ const HeaderWrapper = styled(Box)<{ scrolled: number }>(({ scrolled }) => ({
   zIndex: 10,
   position: 'fixed',
   transition: 'background 0.5s ease-out',
-  background: scrolled ? '#ffffffe6' : '#f5f7f8'
+  background: scrolled ? '#ffffffe6' : '#fff',
+  borderBottom: `4px solid ${GLOBAL_COLORS.gold}`,
+  boxSizing: 'border-box'
 }));
 
 const PaddingWrapper = styled(Box)(({ theme }) => ({
@@ -18,7 +21,7 @@ const PaddingWrapper = styled(Box)(({ theme }) => ({
   justifyContent: 'space-between',
   alignItems: 'center',
   zIndex: 90,
-  minHeight: 72,
+  minHeight: 88,
 
   [theme.breakpoints.up('lg')]: {
     padding: '16px 48px'

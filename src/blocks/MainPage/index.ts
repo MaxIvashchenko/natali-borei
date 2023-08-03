@@ -1,4 +1,4 @@
-import { Box, Button } from '@mui/material';
+import { Box, Button, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { GLOBAL_COLORS, IMAGES } from '@src/constants';
 
@@ -40,6 +40,7 @@ const Banner = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.down('md')]: {
     background: 'rgba(255, 255, 255, 0.5)',
+    padding: '4% 0 4%',
 
     '& img': {
       height: 120,
@@ -104,13 +105,30 @@ const CategoryButton = styled(Button)({
   }
 });
 
+const CarouselButton = styled(IconButton, {
+  shouldForwardProp: (prop) => prop !== 'position'
+})<{ position: string }>(({ theme, position }) => ({
+  position: 'absolute',
+  [position]: 30,
+  top: '45%',
+  backgroundColor: 'rgba(0,0,0,0.7)',
+  borderRadius: 8,
+
+  [theme.breakpoints.down('md')]: {
+    '&:focus, &:active': {
+      backgroundColor: 'rgba(0,0,0,0.7)'
+    }
+  }
+}));
+
 const MainPageBlock = {
   PageContainer,
   Banner,
   OuterLoopWrapper,
   InnerLoopWrapper,
   ListWrapper,
-  CategoryButton
+  CategoryButton,
+  CarouselButton
 };
 
 export default MainPageBlock;
