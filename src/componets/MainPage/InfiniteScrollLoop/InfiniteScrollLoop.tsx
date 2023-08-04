@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -6,6 +6,7 @@ import { Box, Typography } from '@mui/material';
 import { MainPage } from '@src/blocks';
 import { paths } from '@src/constants';
 import { CATEGORIES } from '@src/content';
+import { useMobile } from '@src/hooks';
 import { ICategory } from '@src/types';
 import { imgLoader } from '@src/utils';
 
@@ -15,10 +16,10 @@ const InfiniteScrollLoop = ({
   backup?: number;
 }): JSX.Element => {
   const router = useRouter();
+  const isMobile = useMobile();
   const { t } = useTranslation('common');
   const scrollRef = React.useRef<HTMLDivElement | null>(null);
-  const [width, setWidth] = React.useState<number>(0);
-
+  const width = (isMobile ? 94 : 140) * CATEGORIES.length;
   const backupWidth = width * backup;
 
   const handleScroll = useCallback(() => {
@@ -32,13 +33,6 @@ const InfiniteScrollLoop = ({
       }
     }
   }, [width, backupWidth]);
-
-  useLayoutEffect(() => {
-    if (scrollRef.current) {
-      setWidth(scrollRef.current.offsetWidth);
-      scrollRef.current.scrollLeft = backupWidth;
-    }
-  }, [setWidth, backupWidth]);
 
   const redirectHandler = useCallback(
     ({ tag }: ICategory) =>

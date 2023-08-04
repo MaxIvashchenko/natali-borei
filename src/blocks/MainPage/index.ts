@@ -87,11 +87,12 @@ const ListWrapper = styled(Box)({
   display: 'flex'
 });
 
-const CategoryButton = styled(Button)({
+const CategoryButton = styled(Button)(({ theme }) => ({
   padding: '20px 0',
   margin: 5,
   display: 'flex',
   flexDirection: 'column',
+  width: 130,
 
   '.imgWrapper': {
     borderRadius: '50%',
@@ -101,9 +102,28 @@ const CategoryButton = styled(Button)({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    overflow: 'hidden'
+    overflow: 'hidden',
+
+    '& img': {
+      width: 100,
+      height: 100
+    }
+  },
+  [theme.breakpoints.down('md')]: {
+    width: 84,
+    padding: '10px 0',
+    justifyContent: 'flex-start',
+
+    '.imgWrapper': {
+      width: 85,
+      height: 85,
+      '& img': {
+        width: 50,
+        height: 50
+      }
+    }
   }
-});
+}));
 
 const CarouselButton = styled(IconButton, {
   shouldForwardProp: (prop) => prop !== 'position'
