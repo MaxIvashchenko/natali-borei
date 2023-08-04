@@ -4,6 +4,7 @@ import { Box } from '@mui/material';
 import { MainPage as MainPageBlock } from '@src/blocks';
 import { IconComponent } from '@src/componets/Common';
 import { GLOBAL_STYLES } from '@src/constants';
+import { useMobile } from '@src/hooks';
 
 import { CarouselImage } from '../CarouselImage';
 
@@ -26,6 +27,7 @@ const settings = {
 
 const Carousel = () => {
   const slider = useRef<Slider>(null);
+  const isMobile = useMobile();
 
   const goNext = () => slider?.current?.slickNext();
 
@@ -35,7 +37,11 @@ const Carousel = () => {
     <Box sx={GLOBAL_STYLES.relative}>
       <Slider ref={slider} {...settings}>
         {[1, 2, 3, 4].map((key) => (
-          <CarouselImage num={key} key={`carousel-${key}`} />
+          <CarouselImage
+            isMobile={isMobile}
+            num={key}
+            key={`carousel-${key}`}
+          />
         ))}
       </Slider>
 

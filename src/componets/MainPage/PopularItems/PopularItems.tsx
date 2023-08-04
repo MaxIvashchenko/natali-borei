@@ -41,7 +41,7 @@ const PopularItems = () => {
           xs={6}
           md={3}
           key={`popular-${item.ru.name}-${item.id}`}
-          sx={{ p: { xs: 1, md: 3 } }}
+          sx={{ p: { xs: 1, sm: 3 } }}
         >
           <Button variant='wrapper' fullWidth onClick={onCardDetails(item.id)}>
             <CardImage image={item.images[0]} name={item.ru.name} />

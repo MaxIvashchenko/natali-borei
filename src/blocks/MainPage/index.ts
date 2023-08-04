@@ -49,7 +49,8 @@ const Banner = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.down('sm')]: {
     '& img': {
-      height: 120,
+      padding: 0,
+      height: 60,
       width: 260
     }
   }
@@ -111,7 +112,7 @@ const CategoryButton = styled(Button)(({ theme }) => ({
   },
   [theme.breakpoints.down('sm')]: {
     width: 84,
-    padding: '10px 0',
+    padding: 0,
     justifyContent: 'flex-start',
 
     '.imgWrapper': {

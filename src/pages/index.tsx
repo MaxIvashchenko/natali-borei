@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Box } from '@mui/material';
 import {
   Banner,
   Carousel,
@@ -9,12 +10,12 @@ import {
   Modal,
   PopularItems
 } from '@src/componets';
-import { useLoaderContext, useMobile } from '@src/hooks';
+import { useLoaderContext, useTouchDevice } from '@src/hooks';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { isLoading, setLoading } = useLoaderContext();
-  const isMobile = useMobile();
+  const isTouchDevice = useTouchDevice();
 
   const modalHandler = () => setIsOpen((prev) => !prev);
 
@@ -30,8 +31,10 @@ const Home = () => {
     <>
       {isLoading && <Loader isFullPage fill='#b99765' />}
       <Carousel />
+      <Box mt={3}>
+        {isTouchDevice ? <CategorySlider /> : <InfiniteScrollLoop />}
+      </Box>
       <Banner />
-      {isMobile ? <CategorySlider /> : <InfiniteScrollLoop />}
       <PopularItems />
       {/* <InfoLine /> */}
 

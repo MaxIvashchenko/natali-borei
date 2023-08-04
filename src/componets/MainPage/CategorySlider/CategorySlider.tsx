@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Slider from 'react-slick';
 import Image from 'next/image';
@@ -7,6 +7,7 @@ import { Box, Typography } from '@mui/material';
 import { MainPage } from '@src/blocks';
 import { GLOBAL_STYLES, paths } from '@src/constants';
 import { CATEGORIES } from '@src/content';
+import { useWindowSize } from '@src/hooks';
 import { ICategory } from '@src/types';
 import { imgLoader } from '@src/utils';
 
@@ -30,6 +31,8 @@ const settings = {
 const CategorySlider = (): JSX.Element => {
   const router = useRouter();
   const { t } = useTranslation('common');
+  const width = useWindowSize();
+  const qty = width > 415 ? 4 : 3;
 
   const redirectHandler = useCallback(
     ({ tag }: ICategory) =>
@@ -41,11 +44,13 @@ const CategorySlider = (): JSX.Element => {
     [router]
   );
 
+  const list = useMemo(() => Array(qty).fill(CATEGORIES).flat(1), [qty]);
+
   const renderRows = useCallback(
     (clickHandler: (category: ICategory) => () => void) =>
-      CATEGORIES.map((item) => (
+      list.map((item, idx) => (
         <MainPage.CategoryButton
-          key={item.tag}
+          key={item.tag + idx}
           variant='text'
           onClick={clickHandler(item)}
         >

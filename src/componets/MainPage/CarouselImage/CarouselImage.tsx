@@ -9,12 +9,17 @@ const path = STORAGE_URL + '/public/common/carousel';
 
 interface CarouselImageProps {
   num: number;
+  isMobile: boolean;
 }
 
-const CarouselImage = ({ num }: CarouselImageProps) => {
+const maxHeight = 1920;
+
+const CarouselImage = ({ num, isMobile = false }: CarouselImageProps) => {
   const width = useWindowSize();
   const src = path + `/carousel_${num}.jpg`;
-  const height = width > 1920 ? (1920 / 16) * 5 : (width / 16) * 5;
+  const ratio = (isMobile ? 8 : 5) / 16;
+
+  const height = width > maxHeight ? maxHeight * ratio : width * ratio;
 
   return (
     <Box
@@ -30,9 +35,7 @@ const CarouselImage = ({ num }: CarouselImageProps) => {
         alt={`carousel-photo-${num}`}
         fill
         style={{ objectFit: 'cover' }}
-        sizes='(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw'
+        // sizes='100vw'
       />
     </Box>
   );
