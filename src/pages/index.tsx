@@ -2,17 +2,19 @@ import React, { useEffect, useState } from 'react';
 import {
   Banner,
   Carousel,
+  CategorySlider,
   ContactForm,
   InfiniteScrollLoop,
   Loader,
   Modal,
   PopularItems
 } from '@src/componets';
-import { useLoaderContext } from '@src/hooks';
+import { useLoaderContext, useMobile } from '@src/hooks';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { isLoading, setLoading } = useLoaderContext();
+  const isMobile = useMobile();
 
   const modalHandler = () => setIsOpen((prev) => !prev);
 
@@ -29,7 +31,7 @@ const Home = () => {
       {isLoading && <Loader isFullPage fill='#b99765' />}
       <Carousel />
       <Banner />
-      <InfiniteScrollLoop />
+      {isMobile ? <CategorySlider /> : <InfiniteScrollLoop />}
       <PopularItems />
       {/* <InfoLine /> */}
 

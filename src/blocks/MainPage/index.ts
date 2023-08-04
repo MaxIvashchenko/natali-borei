@@ -109,7 +109,7 @@ const CategoryButton = styled(Button)(({ theme }) => ({
       height: 100
     }
   },
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.down('sm')]: {
     width: 84,
     padding: '10px 0',
     justifyContent: 'flex-start',

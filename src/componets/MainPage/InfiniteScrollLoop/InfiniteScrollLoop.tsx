@@ -10,13 +10,16 @@ import { useMobile } from '@src/hooks';
 import { ICategory } from '@src/types';
 import { imgLoader } from '@src/utils';
 
-const InfiniteScrollLoop = (): JSX.Element => {
-  const router = useRouter();
+const InfiniteScrollLoop = ({
+  backup = 1
+}: {
+  backup?: number;
+}): JSX.Element => {
   const isMobile = useMobile();
+  const router = useRouter();
   const { t } = useTranslation('common');
   const scrollRef = React.useRef<HTMLDivElement | null>(null);
   const width = (isMobile ? 94 : 140) * CATEGORIES.length;
-  const backup = isMobile ? 3 : 1;
   const backupWidth = width * backup;
 
   const handleScroll = useCallback(() => {
@@ -76,9 +79,9 @@ const InfiniteScrollLoop = (): JSX.Element => {
   );
 
   return (
-    <MainPage.OuterLoopWrapper style={{ maxWidth: 140 * CATEGORIES.length }}>
+    <MainPage.OuterLoopWrapper style={{ maxWidth: width }}>
       <MainPage.InnerLoopWrapper
-        style={{ width: 140 * CATEGORIES.length }}
+        style={{ width }}
         ref={scrollRef}
         onScroll={handleScroll}
       >
