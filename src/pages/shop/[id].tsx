@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Box, Breadcrumbs, Button, Grid, Typography } from '@mui/material';
@@ -10,22 +11,18 @@ import { useWindowSize } from '@src/hooks';
 import { getPriceFormat, imgLoader } from '@src/utils';
 import _get from 'lodash/get';
 
-const cm = 'cm.';
-
 const Wrapper = styled(Box)(({ theme }) => ({
-  // padding: '16px 0',
   borderBottom: '1px solid grey',
 
   [theme.breakpoints.down('sm')]: {}
 }));
 
 const ItemDetails = () => {
+  const { t } = useTranslation('common');
   const router = useRouter();
   const { id } = router.query;
 
   const item = data.find((items) => items.id === id);
-  const getStatus = (isAvailable?: boolean) =>
-    isAvailable ? 'Available' : 'Sold';
 
   const getColor = (isAvailable?: boolean) =>
     isAvailable ? GLOBAL_COLORS.green : GLOBAL_COLORS.red;
@@ -64,7 +61,7 @@ const ItemDetails = () => {
           style={{ padding: 0, minWidth: 0 }}
           onClick={onShopRedirect}
         >
-          {item?.title}
+          {t(`categories.${item?.tag}`)}
         </Button>
         <Typography color='text.primary'>{item?.ru.name}</Typography>
       </Breadcrumbs>
@@ -83,7 +80,7 @@ const ItemDetails = () => {
           </Wrapper>
           <Wrapper py={2}>
             <Typography variant='h2' mb={1}>
-              Price:
+              {t('shop.showItem.price')}
             </Typography>
             <Box
               style={{
@@ -91,31 +88,33 @@ const ItemDetails = () => {
                 justifyContent: 'space-between'
               }}
             >
-              <Typography color={getColor(item?.available)} variant='h2'>
+              <Typography color={getColor(item?.available)} variant='h3'>
                 {getPriceFormat(item?.price)}
               </Typography>
-              <Typography color={getColor(item?.available)} variant='h2'>
-                {getStatus(item?.available)}
+              <Typography color={getColor(item?.available)} variant='h3'>
+                {t(`shop.filter.${item?.available ? 'available' : 'sold'}`)}
               </Typography>
             </Box>
           </Wrapper>
           <Wrapper py={2}>
             <Typography variant='h2' mb={1}>
-              Description:
+              {t('shop.showItem.description')}
             </Typography>
-            <Typography variant='h4'>{item?.ru?.description}</Typography>
+            <Typography variant='h5'>{item?.ru?.description}</Typography>
           </Wrapper>
           <Wrapper py={2}>
             <Typography variant='h2' mb={1}>
-              Material:
+              {t('shop.showItem.material')}
             </Typography>
-            <Typography variant='h4'>{item?.ru?.material}</Typography>
+            <Typography variant='h5'>{item?.ru?.material}</Typography>
           </Wrapper>
           <Box py={1}>
             <Typography variant='h2' mb={1}>
-              Measurements:
+              {t('shop.showItem.measurements')}
             </Typography>
-            <Typography variant='h4'>{`${item?.dimensions} ${cm}`}</Typography>
+            <Typography variant='h5'>{`${item?.dimensions} ${t(
+              'shop.filter.dimension'
+            )}`}</Typography>
           </Box>
         </Grid>
         <Grid item xs={12} md={6} sx={{}}>

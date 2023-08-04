@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { useRouter } from 'next/router';
-import { Button, Grid, Typography } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import { MainPage } from '@src/blocks';
 import { ShopPage as ShopPageBlock } from '@src/blocks';
 import { CardImage, ShopNavigation } from '@src/componets';
@@ -45,9 +45,9 @@ const ShopPage = () => {
                     image={_get(item, 'images[0]', '')}
                     name={item.ru.name}
                   />
-                  <Typography pt={2} textAlign='center' variant='h3'>
+                  {/* <Typography pt={2} textAlign='center' variant='h5'>
                     {item.ru.name}
-                  </Typography>
+                  </Typography> */}
                 </Button>
               </Grid>
             ))}

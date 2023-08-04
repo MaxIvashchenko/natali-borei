@@ -67,8 +67,8 @@
       "instock": "in stock",
       "priceUp": "price ↑",
       "priceDown": "price ↓",
-      "available": "Available",
-      "sold": "Sold",
+      "available": "available",
+      "sold": "sold",
       "from": "from",
       "dimension": "cm.",
       "outOfStock": "Out of stock"
@@ -76,7 +76,7 @@
     "showItem": {
       "chooseColor": "Choose color:",
       "price": "Price:",
-      "description": "Description",
+      "description": "Description:",
       "material": "Material:",
       "measurements": "Measurements:"
     }

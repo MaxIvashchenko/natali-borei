@@ -36,6 +36,10 @@ const PageContainer = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.down('sm')]: {
     padding: '8px'
+  },
+
+  '&::-webkit-scrollbar': {
+    display: 'none'
   }
 }));
 

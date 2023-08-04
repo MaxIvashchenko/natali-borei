@@ -78,8 +78,8 @@
       "instock": "В наличии",
       "priceUp": "цена ↑",
       "priceDown": "цена ↓",
-      "available": "Есть в наличии",
-      "sold": "Продано",
+      "available": "в наличии",
+      "sold": "продано",
       "from": "от",
       "dimension": "см.",
       "outOfStock": "Нет в наличии"
@@ -87,7 +87,7 @@
     "showItem": {
       "chooseColor": "Выберите цвет:",
       "price": "Цена:",
-      "description": "Описание",
+      "description": "Описание:",
       "material": "Материалы:",
       "measurements": "Размер:"
     }
