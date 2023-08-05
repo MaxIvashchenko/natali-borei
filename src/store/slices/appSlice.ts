@@ -1,6 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import { ShopItem } from '@src/types';
+import { LangEnum, ShopItem } from '@src/types';
 
 import { AppThunk, RootState } from '..';
 
@@ -8,12 +8,14 @@ export type appSliceStateType = {
   isLoading: boolean;
   error: string;
   favoritesList: ShopItem[];
+  language: LangEnum;
 };
 
 const initialState: appSliceStateType = {
   isLoading: false,
   error: '',
-  favoritesList: []
+  favoritesList: [],
+  language: 'ru'
 };
 
 export const appSlice = createSlice({
@@ -31,6 +33,9 @@ export const appSlice = createSlice({
     },
     addFavoriteItem: (state, action: PayloadAction<ShopItem>) => {
       state.favoritesList = [...state.favoritesList, action.payload];
+    },
+    setLanguage: (state, action: PayloadAction<LangEnum>) => {
+      state.language = action.payload;
     }
   }
 });
@@ -44,8 +49,13 @@ export const deleteFavoriteItem =
     dispatch(setFavoriteItems(list));
   };
 
-export const { setLoading, setError, setFavoriteItems, addFavoriteItem } =
-  appSlice.actions;
+export const {
+  setLoading,
+  setError,
+  setFavoriteItems,
+  addFavoriteItem,
+  setLanguage
+} = appSlice.actions;
 
 export const appSelector = (state: RootState) => state.app;
 

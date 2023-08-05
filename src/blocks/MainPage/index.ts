@@ -3,6 +3,10 @@ import { styled } from '@mui/material/styles';
 import { GLOBAL_COLORS, IMAGES } from '@src/constants';
 
 const PageContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flex: 1,
+  flexDirection: 'column',
+  width: '100%',
   padding: '32px 48px',
 
   [theme.breakpoints.up('lg')]: {

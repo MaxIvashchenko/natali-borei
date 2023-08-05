@@ -25,7 +25,8 @@
   "common": {
     "notFound": "No Results Found",
     "text": "The page you requested could not be found. Try to use the navigation above to locate the post.",
-    "back": "Back to Home"
+    "back": "Back to Home",
+    "favoriteEmptyText": "You can bring your favorite products together under this list by clicking on 'Add to My Likes' link on product pages."
   },
   "footer": {
     "contactUs": "Contact us",

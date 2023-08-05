@@ -22,7 +22,10 @@ const ContentWrapper = styled(Box)({
 });
 
 const LayoutWrapper = styled(Box)({
-  height: '100%'
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%'
 });
 
 const PageContainer = styled(Box)(({ theme }) => ({
