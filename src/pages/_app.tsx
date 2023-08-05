@@ -1,10 +1,11 @@
 import { I18nextProvider } from 'react-i18next';
+import { Provider } from 'react-redux';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import { Footer, Header, Layout } from '@src/componets';
-import { LoaderProvider } from '@src/context';
+import store from '@src/store';
 import i18next from 'i18next';
 
 import { Layout as LayoutBlocks } from 'blocks';
@@ -34,10 +35,10 @@ const App = ({ Component, pageProps: { ...pageProps } }: AppProps) => (
       <title>Natali Borei</title>
       <meta name='viewport' content='initial-scale=1, width=device-width' />
     </Head>
-    <ThemeProvider theme={theme}>
-      <I18nextProvider i18n={i18next}>
-        <CssBaseline />
-        <LoaderProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <I18nextProvider i18n={i18next}>
+          <CssBaseline />
           <AppWrapper component='main'>
             <Header />
             <ContentWrapper>
@@ -46,9 +47,9 @@ const App = ({ Component, pageProps: { ...pageProps } }: AppProps) => (
             <Footer />
             {/* <CookiesAlert /> */}
           </AppWrapper>
-        </LoaderProvider>
-      </I18nextProvider>
-    </ThemeProvider>
+        </I18nextProvider>
+      </ThemeProvider>
+    </Provider>
   </>
 );
 

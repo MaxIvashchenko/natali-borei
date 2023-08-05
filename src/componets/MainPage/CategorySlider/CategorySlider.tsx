@@ -67,7 +67,7 @@ const CategorySlider = (): JSX.Element => {
           <Typography mt={1}>{t(`categories.${item.tag}`)}</Typography>
         </MainPage.CategoryButton>
       )),
-    [t]
+    [t, list]
   );
 
   return (

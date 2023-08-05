@@ -41,6 +41,7 @@ const Header = () => {
   };
 
   const toMainPage = () => router.push(paths.main);
+  const toFavotiresPage = () => router.push(paths.favorites);
 
   const showMobileMenu = () => {
     if (router.route === paths.main) {
@@ -127,7 +128,7 @@ const Header = () => {
             <Stack direction='row'>
               <SearchInput />
               <Divider orientation='vertical' variant='middle' flexItem />
-              <FavoriteIcon />
+              <FavoriteIcon onClick={toFavotiresPage} />
               <Divider orientation='vertical' variant='middle' flexItem />
               <Language />
             </Stack>

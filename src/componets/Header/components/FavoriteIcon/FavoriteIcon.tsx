@@ -5,9 +5,13 @@ import { GLOBAL_COLORS } from '@src/constants';
 
 const qty = 0;
 
-const FavoriteIcon = () => (
+interface FavoriteIconProps {
+  onClick: () => void;
+}
+
+const FavoriteIcon = ({ onClick }: FavoriteIconProps) => (
   <Badge badgeContent={qty} color='primary'>
-    <IconButton>
+    <IconButton onClick={onClick}>
       <IconComponent
         name={qty ? 'favoriteFill' : 'favorite'}
         fill={GLOBAL_COLORS.gold}

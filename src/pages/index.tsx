@@ -10,22 +10,26 @@ import {
   Modal,
   PopularItems
 } from '@src/componets';
-import { useLoaderContext, useTouchDevice } from '@src/hooks';
+import { useTouchDevice } from '@src/hooks';
+import { useAppDispatch, useAppSelector } from '@src/store/hooks';
+import { appSelector, setLoading } from '@src/store/slices/appSlice';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { isLoading, setLoading } = useLoaderContext();
+  const { isLoading } = useAppSelector(appSelector);
+  const dispatch = useAppDispatch();
+
   const isTouchDevice = useTouchDevice();
 
   const modalHandler = () => setIsOpen((prev) => !prev);
 
   useEffect(() => {
-    setLoading(false);
+    dispatch(setLoading(false));
 
     return () => {
-      setLoading(false);
+      dispatch(setLoading(false));
     };
-  }, [setLoading]);
+  }, [dispatch]);
 
   return (
     <>
