@@ -5,12 +5,14 @@ import {
   Box,
   Button,
   Divider,
-  IconButton as MuiIconButton,
+  // IconButton as MuiIconButton,
   Menu,
   Stack
 } from '@mui/material';
 import { paths } from '@src/constants';
 import { useMobile, useScroll } from '@src/hooks';
+import { useAppSelector } from '@src/store/hooks';
+import { appSelector } from '@src/store/slices/appSlice';
 
 import { Header as HeadersBlocks } from 'blocks';
 import { IconComponent } from '../Common';
@@ -27,15 +29,16 @@ const headerList: { link: string; name: string }[] = [
 ];
 
 const Header = () => {
+  const { favoritesList } = useAppSelector(appSelector);
   const router = useRouter();
   const isScrolled = useScroll();
   const isMobile = useMobile();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+  // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -43,15 +46,15 @@ const Header = () => {
   const toMainPage = () => router.push(paths.main);
   const toFavotiresPage = () => router.push(paths.favorites);
 
-  const showMobileMenu = () => {
-    if (router.route === paths.main) {
-      return (
-        <MuiIconButton sx={{ p: 2 }} onClick={handleClick}>
-          <IconComponent name='menu' />
-        </MuiIconButton>
-      );
-    }
-  };
+  // const showMobileMenu = () => {
+  //   if (router.route === paths.main) {
+  //     return (
+  //       <MuiIconButton sx={{ p: 2 }} onClick={handleClick}>
+  //         <IconComponent name='menu' />
+  //       </MuiIconButton>
+  //     );
+  //   }
+  // };
 
   const showMenu = () => {
     if (router.route === paths.main) {
@@ -87,7 +90,15 @@ const Header = () => {
       <PaddingWrapper>
         {isMobile ? (
           <>
-            {showMobileMenu()}
+            <FavoriteIcon
+              isActive={Boolean(favoritesList.length)}
+              onClick={toFavotiresPage}
+              qty={favoritesList.length}
+            />
+            {/* <MuiIconButton sx={{ p: 2 }} onClick={handleClick}>
+              <IconComponent name='menu' />
+            </MuiIconButton> */}
+
             <Menu
               id='links-menu'
               anchorEl={anchorEl}
@@ -128,7 +139,11 @@ const Header = () => {
             <Stack direction='row'>
               <SearchInput />
               <Divider orientation='vertical' variant='middle' flexItem />
-              <FavoriteIcon onClick={toFavotiresPage} />
+              <FavoriteIcon
+                isActive={Boolean(favoritesList.length)}
+                onClick={toFavotiresPage}
+                qty={favoritesList.length}
+              />
               <Divider orientation='vertical' variant='middle' flexItem />
               <Language />
             </Stack>

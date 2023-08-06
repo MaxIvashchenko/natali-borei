@@ -10,7 +10,7 @@ const MuiBadge: MuiBadgeType = {
       background: theme.palette.primary.main,
       color: '#fff',
       fontWeight: 'bold',
-      padding: '4px 0px 8px',
+      padding: '4px 0px 4px',
       margin: 0,
       borderRadius: '100%',
       top: 6,

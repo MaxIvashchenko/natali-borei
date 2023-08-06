@@ -26,7 +26,6 @@ const CardImage = ({ image, name }: CardImageProps) => {
       sx={{
         position: 'relative',
         height,
-
         border: `1px solid ${GLOBAL_COLORS.gold}`
       }}
     >

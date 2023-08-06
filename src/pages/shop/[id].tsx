@@ -1,13 +1,23 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { Box, Breadcrumbs, Button, Grid, Typography } from '@mui/material';
+import {
+  Box,
+  Breadcrumbs,
+  Button,
+  Grid,
+  Stack,
+  Typography
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { MainPage } from '@src/blocks';
+import { FavoriteIcon } from '@src/componets/Header';
 import { GLOBAL_COLORS, paths } from '@src/constants';
 import { data } from '@src/content';
 import { useWindowSize } from '@src/hooks';
+import { useAppDispatch, useAppSelector } from '@src/store/hooks';
+import { appSelector, handleFavoriteItem } from '@src/store/slices/appSlice';
 import { getPriceFormat, imgLoader } from '@src/utils';
 import _get from 'lodash/get';
 
@@ -18,6 +28,8 @@ const Wrapper = styled(Box)(({ theme }) => ({
 }));
 
 const ItemDetails = () => {
+  const { favoritesList } = useAppSelector(appSelector);
+  const dispatch = useAppDispatch();
   const { t } = useTranslation('common');
   const router = useRouter();
   const { id } = router.query;
@@ -46,25 +58,40 @@ const ItemDetails = () => {
     }
   }, [size]);
 
+  const isActive = useMemo(
+    () => favoritesList.some((existId) => existId === id),
+    [favoritesList, id]
+  );
+  const favIconHandler = () => dispatch(handleFavoriteItem(id as string));
+
   return (
     <MainPage.PageContainer>
-      <Breadcrumbs aria-label='breadcrumb' sx={{ mb: { xs: 2, md: 3 } }}>
-        <Button
-          variant='text'
-          style={{ padding: 0, minWidth: 0 }}
-          onClick={onMainRedirect}
-        >
-          Главная
-        </Button>
-        <Button
-          variant='text'
-          style={{ padding: 0, minWidth: 0 }}
-          onClick={onShopRedirect}
-        >
-          {t(`categories.${item?.tag}`)}
-        </Button>
-        <Typography color='text.primary'>{item?.ru.name}</Typography>
-      </Breadcrumbs>
+      <Stack
+        direction='row'
+        justifyContent='space-between'
+        alignItems='center'
+        sx={{ mb: { xs: 2, md: 3 } }}
+      >
+        <Breadcrumbs aria-label='breadcrumb'>
+          <Button
+            variant='text'
+            style={{ padding: 0, minWidth: 0 }}
+            onClick={onMainRedirect}
+          >
+            Главная
+          </Button>
+          <Button
+            variant='text'
+            style={{ padding: 0, minWidth: 0 }}
+            onClick={onShopRedirect}
+          >
+            {t(`categories.${item?.tag}`)}
+          </Button>
+          <Typography color='text.primary'>{item?.ru.name}</Typography>
+        </Breadcrumbs>
+        <FavoriteIcon isActive={isActive} onClick={favIconHandler} />
+      </Stack>
+
       <Grid container>
         <Grid item xs={12} md={6} sx={{ pr: { xs: 0, md: 3 } }}>
           <Wrapper

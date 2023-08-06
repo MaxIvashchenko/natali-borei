@@ -5,6 +5,7 @@ import { Box, Button, Grid, Typography } from '@mui/material';
 import { MainPage } from '@src/blocks';
 import { CardImage } from '@src/componets';
 import { paths } from '@src/constants';
+import { data } from '@src/content';
 import { useAppSelector } from '@src/store/hooks';
 import { appSelector } from '@src/store/slices/appSlice';
 import _get from 'lodash/get';
@@ -29,11 +30,18 @@ const FavoritesPage = () => {
     [router]
   );
 
+  const list = data.filter(({ id }) => favoritesList.includes(id));
+
   return (
     <MainPage.PageContainer sx={{ maxWidth: 1220, margin: '0 auto' }}>
-      {_isEmpty(favoritesList) ? (
+      {_isEmpty(list) ? (
         <EmptyWrapper>
-          <Typography variant='h4' py={2}>
+          <Typography
+            variant='h4'
+            textAlign='center'
+            py={2}
+            sx={{ py: 2, px: { xs: 1, sm: 8, md: 12 } }}
+          >
             {t('common.favoriteEmptyText')}
           </Typography>
         </EmptyWrapper>
@@ -44,7 +52,7 @@ const FavoritesPage = () => {
           rowSpacing={{ xs: 1, sm: 3, md: 4 }}
           columnSpacing={{ xs: 1, sm: 2, md: 3 }}
         >
-          {favoritesList.map((item) => (
+          {list.map((item) => (
             <Grid item xs={6} sm={4} md={4} lg={3} xl={3} key={item.id}>
               <Button
                 variant='wrapper'
