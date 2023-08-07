@@ -1,5 +1,6 @@
 export type {
   IconTypes,
+  IPaths,
   ISnackbarState,
   IUserDetails,
   LangEnum

@@ -1,155 +1,79 @@
 import React, { useState } from 'react';
-import { Link } from 'react-scroll/modules';
 import { useRouter } from 'next/router';
-import {
-  Box,
-  Button,
-  Divider,
-  // IconButton as MuiIconButton,
-  Menu,
-  Stack
-} from '@mui/material';
-import { paths } from '@src/constants';
-import { useMobile, useScroll } from '@src/hooks';
+import { Divider, IconButton as MuiIconButton, Stack } from '@mui/material';
+import { GLOBAL_COLORS, paths } from '@src/constants';
+import { useScroll } from '@src/hooks';
 import { useAppSelector } from '@src/store/hooks';
 import { appSelector } from '@src/store/slices/appSlice';
 
 import { Header as HeadersBlocks } from 'blocks';
 import { IconComponent } from '../Common';
-import { FavoriteIcon, Language, SearchInput } from './components';
+import { Drawer, FavoriteIcon, Language, SearchInput } from './components';
 
-const { HeaderWrapper, PaddingWrapper, IconWrapper, LogoButton } =
+const { HeaderWrapper, IconWrapper, LogoButton, PaddingWrapper } =
   HeadersBlocks;
-
-const headerList: { link: string; name: string }[] = [
-  // {
-  //   link: 'speakers',
-  //   name: 'Об авторе'
-  // },
-];
 
 const Header = () => {
   const { favoritesList } = useAppSelector(appSelector);
   const router = useRouter();
   const isScrolled = useScroll();
-  const isMobile = useMobile();
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
 
-  // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
+  const [isOpen, setOpen] = useState<boolean>(false);
+
+  const handleClick =
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event.type === 'keydown' &&
+        ((event as React.KeyboardEvent).key === 'Tab' ||
+          (event as React.KeyboardEvent).key === 'Shift')
+      ) {
+        return;
+      }
+
+      setOpen(open);
+    };
+
   const handleClose = () => {
-    setAnchorEl(null);
+    setOpen(false);
   };
 
   const toMainPage = () => router.push(paths.main);
   const toFavotiresPage = () => router.push(paths.favorites);
 
-  // const showMobileMenu = () => {
-  //   if (router.route === paths.main) {
-  //     return (
-  //       <MuiIconButton sx={{ p: 2 }} onClick={handleClick}>
-  //         <IconComponent name='menu' />
-  //       </MuiIconButton>
-  //     );
-  //   }
-  // };
-
-  const showMenu = () => {
-    if (router.route === paths.main) {
-      return headerList.map(({ link, name }) => (
-        <Box
-          key={link}
-          sx={{
-            marginRight: { xs: 1, md: 2 },
-            textTransform: 'uppercase',
-            cursor: 'pointer',
-            textAlign: 'center'
-          }}
-        >
-          <Button variant='text'>
-            <Link
-              activeClass='active'
-              to={link}
-              spy={true}
-              smooth={true}
-              offset={-88}
-              duration={500}
-            >
-              {name}
-            </Link>
-          </Button>
-        </Box>
-      ));
-    }
-  };
-
   return (
     <HeaderWrapper scrolled={Number(isScrolled)} component='header'>
-      <PaddingWrapper>
-        {isMobile ? (
-          <>
-            <FavoriteIcon
-              isActive={Boolean(favoritesList.length)}
-              onClick={toFavotiresPage}
-              qty={favoritesList.length}
-            />
-            {/* <MuiIconButton sx={{ p: 2 }} onClick={handleClick}>
-              <IconComponent name='menu' />
-            </MuiIconButton> */}
+      <PaddingWrapper className='mobile'>
+        <FavoriteIcon
+          isActive={Boolean(favoritesList.length)}
+          onClick={toFavotiresPage}
+          qty={favoritesList.length}
+        />
+        <MuiIconButton sx={{ p: 2 }} onClick={handleClick(true)}>
+          <IconComponent name='menu' fill={GLOBAL_COLORS.gold} />
+        </MuiIconButton>
 
-            <Menu
-              id='links-menu'
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button'
-              }}
-            >
-              {headerList.map(({ link, name }) => (
-                <Box
-                  key={link}
-                  sx={{
-                    cursor: 'pointer',
-                    textAlign: 'center'
-                  }}
-                >
-                  <Button variant='text'>
-                    <Link
-                      onClick={handleClose}
-                      activeClass='active'
-                      to={link}
-                      spy={true}
-                      smooth={true}
-                      offset={-88}
-                      duration={500}
-                    >
-                      {name}
-                    </Link>
-                  </Button>
-                </Box>
-              ))}
-            </Menu>
-          </>
-        ) : (
-          <>
-            <Box sx={{ display: 'flex', minHeight: 56 }}>{showMenu()}</Box>
-            <Stack direction='row'>
-              <SearchInput />
-              <Divider orientation='vertical' variant='middle' flexItem />
-              <FavoriteIcon
-                isActive={Boolean(favoritesList.length)}
-                onClick={toFavotiresPage}
-                qty={favoritesList.length}
-              />
-              <Divider orientation='vertical' variant='middle' flexItem />
-              <Language />
-            </Stack>
-          </>
-        )}
+        <Drawer
+          isOpen={isOpen}
+          handleClick={handleClick}
+          handleClose={handleClose}
+        />
       </PaddingWrapper>
+
+      <PaddingWrapper className='desktop'>
+        <Stack direction='row'></Stack>
+        <Stack direction='row'>
+          <SearchInput />
+          <Divider orientation='vertical' variant='middle' flexItem />
+          <FavoriteIcon
+            isActive={Boolean(favoritesList.length)}
+            onClick={toFavotiresPage}
+            qty={favoritesList.length}
+          />
+          <Divider orientation='vertical' variant='middle' flexItem />
+          <Language />
+        </Stack>
+      </PaddingWrapper>
+
       <IconWrapper>
         <LogoButton onClick={toMainPage}>
           <IconComponent fill='#404040' name='logo' width={100} height={100} />

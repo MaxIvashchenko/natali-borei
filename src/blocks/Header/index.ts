@@ -31,7 +31,16 @@ const PaddingWrapper = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.down('sm')]: {
     padding: '8px 16px',
-    justifyContent: 'end'
+    justifyContent: 'end',
+
+    '&.desktop': {
+      display: 'none'
+    }
+  },
+  [theme.breakpoints.up('sm')]: {
+    '&.mobile': {
+      display: 'none'
+    }
   }
 }));
 

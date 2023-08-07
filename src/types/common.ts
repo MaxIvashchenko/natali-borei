@@ -61,6 +61,14 @@ export type IconTypes = {
   favorite: ElementType;
   favoriteFill: ElementType;
   globe: ElementType;
+  up: ElementType;
 };
 
 export type LangEnum = 'ru' | 'en' | 'pl';
+
+export interface IPaths {
+  main: string;
+  shop: string;
+  about: string;
+  favorites: string;
+}
