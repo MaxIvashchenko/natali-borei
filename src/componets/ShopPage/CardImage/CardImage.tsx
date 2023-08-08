@@ -8,9 +8,16 @@ import { imgLoader } from '@src/utils';
 interface CardImageProps {
   image: string;
   name: string;
+  heightProportion?: number;
+  withBorder?: boolean;
 }
 
-const CardImage = ({ image, name }: CardImageProps) => {
+const CardImage = ({
+  image,
+  name,
+  heightProportion = 1,
+  withBorder = false
+}: CardImageProps) => {
   const [height, setHeight] = useState<number>(0);
   const size = useWindowSize();
   const imageRef = useRef<HTMLImageElement | null>(null);
@@ -25,8 +32,9 @@ const CardImage = ({ image, name }: CardImageProps) => {
     <Box
       sx={{
         position: 'relative',
-        height,
-        border: `1px solid ${GLOBAL_COLORS.gold}`
+        height: height * heightProportion,
+        border: withBorder ? `1px solid ${GLOBAL_COLORS.gold}` : '',
+        boxSizing: 'border-box'
       }}
     >
       <Image
@@ -36,9 +44,7 @@ const CardImage = ({ image, name }: CardImageProps) => {
         alt={name + '-photo'}
         fill
         style={{ objectFit: 'cover' }}
-        sizes='(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw'
+        sizes='100vw'
       />
     </Box>
   );

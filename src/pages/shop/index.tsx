@@ -44,6 +44,7 @@ const ShopPage = () => {
                   <CardImage
                     image={_get(item, 'images[0]', '')}
                     name={item.ru.name}
+                    withBorder
                   />
                   {/* <Typography pt={2} textAlign='center' variant='h5'>
                     {item.ru.name}
