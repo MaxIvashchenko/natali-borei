@@ -16,7 +16,7 @@ const maxHeight = 1920;
 
 const CarouselImage = ({ num, isMobile = false }: CarouselImageProps) => {
   const width = useWindowSize();
-  const src = path + `/carousel_${num}.jpg`;
+  const src = path + `/carousel_${num}.JPG`;
   const ratio = (isMobile ? 8 : 5) / 16;
 
   const height = width > maxHeight ? maxHeight * ratio : width * ratio;

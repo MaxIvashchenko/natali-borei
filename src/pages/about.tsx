@@ -1,8 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import { Grid, Typography } from '@mui/material';
 import { MainPage } from '@src/blocks';
 import { CardImage } from '@src/componets';
 import { IMAGES } from '@src/constants';
-import { useTranslation } from 'react-i18next';
 
 const AboutPage = () => {
   const { t } = useTranslation('common');
