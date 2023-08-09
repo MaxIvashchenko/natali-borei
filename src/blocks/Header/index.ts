@@ -22,6 +22,8 @@ const PaddingWrapper = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   zIndex: 90,
   minHeight: 88,
+  maxWidth: 1920,
+  margin: '0 auto',
 
   [theme.breakpoints.up('lg')]: {
     padding: '16px 48px'
