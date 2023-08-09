@@ -36,7 +36,7 @@ const Carousel = () => {
   return (
     <Box sx={GLOBAL_STYLES.relative}>
       <Slider ref={slider} {...settings}>
-        {[1, 4].map((key) => (
+        {[1, 2, 4].map((key) => (
           <CarouselImage
             isMobile={isMobile}
             num={key}

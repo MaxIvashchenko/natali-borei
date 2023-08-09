@@ -23,11 +23,6 @@ export const CATEGORIES: ICategory[] = [
     label: 'Lavalier brooch'
   },
   {
-    tag: 'bags',
-    imgSrc: CATEGORIES_IMAGES.bags,
-    label: 'Bags'
-  },
-  {
     tag: 'pendant',
     imgSrc: CATEGORIES_IMAGES.pendant,
     label: 'Pendant'

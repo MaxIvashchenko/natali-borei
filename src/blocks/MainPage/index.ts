@@ -84,7 +84,7 @@ const InnerLoopWrapper = styled(Box)({
     height: '100%',
     pointerEvents: 'none',
     background:
-      'linear-gradient(90deg, white 0%, rgba(242, 242, 194, 0) 10%, rgba(242, 242, 194, 0) 90%, white 100%)'
+      'linear-gradient(90deg, white 0%, rgba(242, 242, 194, 0) 5%, rgba(242, 242, 194, 0) 95%, white 100%)'
   }
 });
 
@@ -101,7 +101,7 @@ const CategoryButton = styled(Button)(({ theme }) => ({
 
   '.imgWrapper': {
     borderRadius: '50%',
-    border: `1px solid ${GLOBAL_COLORS.gold}`,
+    // border: `1px solid ${GLOBAL_COLORS.gold}`,
     width: 130,
     height: 130,
     display: 'flex',
@@ -136,7 +136,7 @@ const CarouselButton = styled(IconButton, {
   position: 'absolute',
   [position]: 30,
   top: '45%',
-  backgroundColor: 'rgba(0,0,0,0.7)',
+  backgroundColor: 'rgba(0,0,0,0.8)',
   borderRadius: 8,
 
   [theme.breakpoints.down('md')]: {
