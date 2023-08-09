@@ -1,6 +1,6 @@
 import { Box, Button, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { GLOBAL_COLORS, IMAGES } from '@src/constants';
+import { IMAGES } from '@src/constants';
 
 const PageContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
