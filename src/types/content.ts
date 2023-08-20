@@ -1,14 +1,16 @@
-export type TAG =
-  | 'brooch'
-  | 'bracelets'
-  | 'rings'
-  | 'lavBrooch'
-  | 'bags'
-  | 'pendant'
-  | 'necklace';
+export enum CategoryType {
+  BROOCH = 'brooch',
+  BRACELETS = 'bracelets',
+  RINGS = 'rings',
+  LABVBROOCH = 'lavBrooch',
+  BAGS = 'bags',
+  PENDANT = 'pendant',
+  NECKLACE = 'necklace',
+  ETHNIC = 'ethnic'
+}
 
 export interface ICategory {
-  tag: TAG;
+  tag: CategoryType;
   imgSrc: string;
   label: string;
 }
@@ -22,7 +24,7 @@ type LangDetails = {
 export interface ShopItem {
   title: string;
   collection?: string;
-  tag: TAG;
+  tag: CategoryType;
   id: string;
   price: number;
   images: string[];

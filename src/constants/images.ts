@@ -17,5 +17,6 @@ export const CATEGORIES_IMAGES = {
   lavBrooch: STORAGE_URL + '/public/common/categories/lavBrooch.png',
   bags: STORAGE_URL + '/public/common/categories/bags.png',
   pendant: STORAGE_URL + '/public/common/categories/pendant.png',
-  necklace: STORAGE_URL + '/public/common/categories/necklace.png'
+  necklace: STORAGE_URL + '/public/common/categories/necklace.png',
+  ethnic: STORAGE_URL + '/public/common/categories/ethnic.png'
 };
