@@ -8,6 +8,11 @@ export const CATEGORIES: ICategory[] = [
     label: 'Brooch'
   },
   {
+    tag: CategoryType.EARRINGS,
+    imgSrc: CATEGORIES_IMAGES.earrings,
+    label: 'Earrings'
+  },
+  {
     tag: CategoryType.BRACELETS,
     imgSrc: CATEGORIES_IMAGES.bracelet,
     label: 'Bracelets'

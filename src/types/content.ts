@@ -6,7 +6,8 @@ export enum CategoryType {
   BAGS = 'bags',
   PENDANT = 'pendant',
   NECKLACE = 'necklace',
-  ETHNIC = 'ethnic'
+  ETHNIC = 'ethnic',
+  EARRINGS = 'earrings'
 }
 
 export interface ICategory {

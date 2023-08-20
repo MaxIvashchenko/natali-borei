@@ -18,7 +18,8 @@
     "lavBrooch": "Брошь-кулон",
     "pendant": "Кулон",
     "necklace": "Колье",
-    "ethnic": "Этника"
+    "ethnic": "Этника",
+    "earrings": "Серьги"
   },
   "main": {
     "poularTitle": "Популярные модели",
@@ -93,7 +94,8 @@
       "description": "Описание:",
       "material": "Материалы:",
       "measurements": "Размер:"
-    }
+    },
+    "emptyList": "Категория не доступна или товар еще не добавлен"
   },
   "aboutAuthor": {
     "autor": {

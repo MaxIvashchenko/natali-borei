@@ -18,7 +18,8 @@
     "lavBrooch": "Lavalier brooch",
     "pendant": "Pendant",
     "necklace": "Necklace",
-    "ethnic": "Ethnic"
+    "ethnic": "Ethnic",
+    "earrings": "Earrings"
   },
   "main": {
     "poularTitle": "Popular models",
@@ -82,7 +83,8 @@
       "description": "Description:",
       "material": "Material:",
       "measurements": "Measurements:"
-    }
+    },
+    "emptyList": "The category is not available or the product has not been added yet"
   },
   "aboutAuthor": {
     "autor": {

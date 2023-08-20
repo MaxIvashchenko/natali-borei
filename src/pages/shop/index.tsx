@@ -1,16 +1,19 @@
 import React, { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
-import { Button, Grid } from '@mui/material';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import { MainPage } from '@src/blocks';
 import { ShopPage as ShopPageBlock } from '@src/blocks';
 import { CardImage, ShopNavigation } from '@src/componets';
 import { paths } from '@src/constants';
 import { CATEGORIES, data } from '@src/content';
 import _get from 'lodash/get';
+import _isEmpty from 'lodash/isEmpty';
 
 const { NavContainer } = ShopPageBlock;
 
 const ShopPage = () => {
+  const { t } = useTranslation('common');
   const router = useRouter();
   const tag = _get(router, 'query.tag', CATEGORIES[0].tag);
 
@@ -34,24 +37,40 @@ const ShopPage = () => {
             rowSpacing={{ xs: 1, sm: 3, md: 4 }}
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           >
-            {list.map((item) => (
-              <Grid item xs={6} sm={4} md={4} lg={3} xl={3} key={item.id}>
-                <Button
-                  variant='wrapper'
-                  onClick={onCardDetails(item?.id)}
-                  fullWidth
-                >
-                  <CardImage
-                    image={_get(item, 'images[0]', '')}
-                    name={item.ru.name}
-                    withBorder
-                  />
-                  {/* <Typography pt={2} textAlign='center' variant='h5'>
+            {_isEmpty(list) ? (
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  minHeight: 400,
+                  width: '100%'
+                }}
+              >
+                <Typography pt={2} textAlign='center' variant='h5'>
+                  {t('shop.emptyList')}
+                </Typography>
+              </Box>
+            ) : (
+              list.map((item) => (
+                <Grid item xs={6} sm={4} md={4} lg={3} xl={3} key={item.id}>
+                  <Button
+                    variant='wrapper'
+                    onClick={onCardDetails(item?.id)}
+                    fullWidth
+                  >
+                    <CardImage
+                      image={_get(item, 'images[0]', '')}
+                      name={item.ru.name}
+                      withBorder
+                    />
+                    {/* <Typography pt={2} textAlign='center' variant='h5'>
                     {item.ru.name}
                   </Typography> */}
-                </Button>
-              </Grid>
-            ))}
+                  </Button>
+                </Grid>
+              ))
+            )}
           </Grid>
         </Grid>
       </Grid>

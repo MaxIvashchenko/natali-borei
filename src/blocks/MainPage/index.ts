@@ -100,7 +100,6 @@ const CategoryButton = styled(Button)(({ theme }) => ({
   width: 130,
 
   '.imgWrapper': {
-    borderRadius: '50%',
     width: 130,
     height: 130,
     display: 'flex',

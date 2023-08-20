@@ -18,5 +18,6 @@ export const CATEGORIES_IMAGES = {
   bags: STORAGE_URL + '/public/common/categories/bags.png',
   pendant: STORAGE_URL + '/public/common/categories/pendant.png',
   necklace: STORAGE_URL + '/public/common/categories/necklace.png',
-  ethnic: STORAGE_URL + '/public/common/categories/ethnic.png'
+  ethnic: STORAGE_URL + '/public/common/categories/ethnic.png',
+  earrings: STORAGE_URL + '/public/common/categories/earrings.png'
 };
