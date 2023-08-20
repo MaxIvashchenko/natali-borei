@@ -100,8 +100,6 @@ const CategoryButton = styled(Button)(({ theme }) => ({
   width: 130,
 
   '.imgWrapper': {
-    borderRadius: '50%',
-    // border: `1px solid ${GLOBAL_COLORS.gold}`,
     width: 130,
     height: 130,
     display: 'flex',
@@ -110,8 +108,8 @@ const CategoryButton = styled(Button)(({ theme }) => ({
     overflow: 'hidden',
 
     '& img': {
-      width: 100,
-      height: 100
+      width: 120,
+      height: 120
     }
   },
   [theme.breakpoints.down('sm')]: {
@@ -123,8 +121,8 @@ const CategoryButton = styled(Button)(({ theme }) => ({
       width: 85,
       height: 85,
       '& img': {
-        width: 50,
-        height: 50
+        width:75,
+        height: 75
       }
     }
   }

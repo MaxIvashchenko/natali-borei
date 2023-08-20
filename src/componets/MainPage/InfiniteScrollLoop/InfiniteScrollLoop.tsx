@@ -55,8 +55,8 @@ const InfiniteScrollLoop = ({
           <Box className='imgWrapper'>
             <Image
               src={item.imgSrc}
-              width={100}
-              height={100}
+              width={130}
+              height={130}
               loader={imgLoader}
               quality={50}
               alt='category'
