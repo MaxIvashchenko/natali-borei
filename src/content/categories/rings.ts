@@ -1,9 +1,9 @@
-import { CategoryType } from "@src/types";
+import { CategoryType } from '@src/types';
 
 const STORAGE_URL = process.env.STORAGE_URL;
 const path = STORAGE_URL + '/public/common/items';
 
-export default [
+export const rings = [
   {
     id: 'RIN001',
     title: 'Rings',
@@ -27,4 +27,4 @@ export default [
     images: [path + '/rings/Molecula__1.jpg', path + '/rings/Molecula__2.jpg'],
     available: false
   }
-]
+];

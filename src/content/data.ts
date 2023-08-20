@@ -1,12 +1,13 @@
 import { ShopItem } from '@src/types';
+
 import {
-  rings,
   bags,
   bracelets,
   brooch,
-  necklace,
   lavBrooch,
-  pendant
+  necklace,
+  pendant,
+  rings
 } from './categories';
 
 export const items: ShopItem[] = [

@@ -1,9 +1,9 @@
-import { CategoryType } from "@src/types";
+import { CategoryType } from '@src/types';
 
 const STORAGE_URL = process.env.STORAGE_URL;
 const path = STORAGE_URL + '/public/common/items';
 
-export default [
+export const pendant = [
   {
     id: 'PEN004',
     title: 'Pendant',
@@ -56,5 +56,5 @@ export default [
       path + '/pendant/EdelweissPurple__2.jpg'
     ],
     available: true
-  },
-]
+  }
+];

@@ -122,7 +122,7 @@ const CategoryButton = styled(Button)(({ theme }) => ({
       width: 85,
       height: 85,
       '& img': {
-        width:75,
+        width: 75,
         height: 75
       }
     }

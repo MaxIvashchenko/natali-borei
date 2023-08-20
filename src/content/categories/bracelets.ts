@@ -1,9 +1,9 @@
-import { CategoryType } from "@src/types";
+import { CategoryType } from '@src/types';
 
 const STORAGE_URL = process.env.STORAGE_URL;
 const path = STORAGE_URL + '/public/common/items';
 
-export default [
+export const bracelets = [
   {
     id: 'BRA001',
     title: 'Bracelets',
@@ -76,4 +76,4 @@ export default [
     images: [path + '/bracelets/FairyOfTheNight.jpg'],
     available: true
   }
-]
+];

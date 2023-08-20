@@ -1,9 +1,9 @@
-import { CategoryType } from "@src/types";
+import { CategoryType } from '@src/types';
 
 const STORAGE_URL = process.env.STORAGE_URL;
 const path = STORAGE_URL + '/public/common/items';
 
-export default [
+export const brooch = [
   {
     id: 'BRC001',
     title: 'Brooch',
@@ -554,7 +554,5 @@ export default [
     price: 120,
     images: [path + '/brooch/Cicada__1.jpg'],
     available: true
-  },
-
-
+  }
 ];

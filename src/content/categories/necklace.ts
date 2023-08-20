@@ -1,9 +1,9 @@
-import { CategoryType } from "@src/types";
+import { CategoryType } from '@src/types';
 
 const STORAGE_URL = process.env.STORAGE_URL;
 const path = STORAGE_URL + '/public/common/items';
 
-export default [
+export const necklace = [
   {
     id: 'NEC001',
     title: 'Necklace',
@@ -134,4 +134,4 @@ export default [
     ],
     available: true
   }
-]
+];
