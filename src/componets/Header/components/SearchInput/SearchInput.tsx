@@ -16,6 +16,7 @@ const SearchInput = () => {
   const { language } = useAppSelector(appSelector);
   const { t } = useTranslation('common');
   const [checked, setChecked] = useState<boolean>(false);
+  const [searchValue, setSearchValue] = useState<string>('');
 
   const openHandler = () => {
     setChecked((prev) => !prev);
@@ -25,7 +26,7 @@ const SearchInput = () => {
     (_: SyntheticEvent<Element, Event>, id: string | null, status: string) => {
       if (status !== 'clear') {
         router.push(paths.shop + '/' + id);
-        setA('');
+        setSearchValue('');
         setChecked(false);
       }
     },
@@ -58,14 +59,13 @@ const SearchInput = () => {
     [getItemsKey, t]
   );
 
-  const [a, setA] = useState<string>('');
-
   return (
     <Stack direction='row'>
       <Collapse orientation='horizontal' in={checked}>
         <Autocomplete
-          value={a}
+          value={searchValue}
           freeSolo
+          clearOnBlur
           id='find-item'
           options={options}
           defaultValue={options[0]}
