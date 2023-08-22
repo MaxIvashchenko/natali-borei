@@ -15,7 +15,7 @@ const initialState: appSliceStateType = {
   isLoading: false,
   error: '',
   favoritesList: [],
-  language: 'ru'
+  language: LangEnum.RU
 };
 
 export const appSlice = createSlice({
