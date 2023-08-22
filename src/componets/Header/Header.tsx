@@ -7,7 +7,6 @@ import {
   Collapse,
   Divider,
   IconButton,
-  IconButton as MuiIconButton,
   Stack
 } from '@mui/material';
 import { GLOBAL_COLORS, paths } from '@src/constants';
@@ -113,6 +112,7 @@ const Header = () => {
           aria-label='close'
           color='inherit'
           onClick={openMobileHandler}
+          className={isMobileMenuOpen ? 'activeIcon' : ''}
         >
           <IconComponent name='search' fill={GLOBAL_COLORS.gold} />
         </IconButton>
@@ -122,9 +122,9 @@ const Header = () => {
           onClick={toFavotiresPage}
           qty={favoritesList.length}
         />
-        <MuiIconButton sx={{ p: 2 }} onClick={handleClick(true)}>
+        <IconButton sx={{ p: 2 }} onClick={handleClick(true)}>
           <IconComponent name='menu' fill={GLOBAL_COLORS.gold} />
-        </MuiIconButton>
+        </IconButton>
 
         <Drawer
           isOpen={isOpen}

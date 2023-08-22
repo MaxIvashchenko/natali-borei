@@ -25,6 +25,14 @@ const PaddingWrapper = styled(Box)(({ theme }) => ({
   maxWidth: 1920,
   margin: '0 auto',
 
+  '& .activeIcon, & .activeIcon:hover': {
+    backgroundColor: GLOBAL_COLORS.gold,
+
+    '& path': {
+      fill: 'white'
+    }
+  },
+
   [theme.breakpoints.up('lg')]: {
     padding: '16px 48px'
   },
