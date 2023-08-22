@@ -6,6 +6,7 @@ import {
   Button,
   Collapse,
   Divider,
+  Fade,
   IconButton,
   Stack
 } from '@mui/material';
@@ -23,7 +24,8 @@ const {
   IconWrapper,
   LogoButton,
   PaddingWrapper,
-  MobileSearchWrapper
+  MobileSearchWrapper,
+  MobileSearchOuter
 } = HeadersBlocks;
 
 const headerList: { link: string; name: string }[] = [
@@ -134,6 +136,9 @@ const Header = () => {
         <MobileSearchWrapper in={isMobileMenuOpen}>
           <SearchInput fullWidth closeHandler={openMobileHandler} />
         </MobileSearchWrapper>
+        <Fade in={isMobileMenuOpen}>
+          <MobileSearchOuter variant='text' onClick={openMobileHandler} />
+        </Fade>
       </PaddingWrapper>
 
       <PaddingWrapper className='desktop'>

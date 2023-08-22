@@ -1,4 +1,9 @@
-import { Box, Collapse, IconButton as MuiIconButton } from '@mui/material';
+import {
+  Box,
+  Button,
+  Collapse,
+  IconButton as MuiIconButton
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { GLOBAL_COLORS } from '@src/constants';
 
@@ -123,12 +128,23 @@ const MobileSearchWrapper = styled(Collapse)({
   left: 0
 });
 
+const MobileSearchOuter = styled(Button)({
+  width: '100%',
+  height: '100vh',
+  position: 'absolute',
+  top: 146,
+  left: 0,
+  borderRadius: 0,
+  background: '#8080804a'
+});
+
 const Header = {
   HeaderWrapper,
   PaddingWrapper,
   IconWrapper,
   LogoButton,
-  MobileSearchWrapper
+  MobileSearchWrapper,
+  MobileSearchOuter
 };
 
 export default Header;
