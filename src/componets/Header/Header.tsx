@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
 import {
   Box,
   Button,
+  Collapse,
   Divider,
+  IconButton,
   IconButton as MuiIconButton,
   Stack
 } from '@mui/material';
@@ -17,8 +19,13 @@ import { Header as HeadersBlocks } from 'blocks';
 import { IconComponent } from '../Common';
 import { Drawer, FavoriteIcon, Language, SearchInput } from './components';
 
-const { HeaderWrapper, IconWrapper, LogoButton, PaddingWrapper } =
-  HeadersBlocks;
+const {
+  HeaderWrapper,
+  IconWrapper,
+  LogoButton,
+  PaddingWrapper,
+  MobileSearchWrapper
+} = HeadersBlocks;
 
 const headerList: { link: string; name: string }[] = [
   {
@@ -38,6 +45,17 @@ const Header = () => {
   const isScrolled = useScroll();
 
   const [isOpen, setOpen] = useState<boolean>(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [isDesktopMenuOpen, setDeesktopMenuOpen] = useState<boolean>(false);
+
+  const openMobileHandler = useCallback(
+    () => setMobileMenuOpen((prev) => !prev),
+    []
+  );
+  const openDesktopHandler = useCallback(
+    () => setDeesktopMenuOpen((prev) => !prev),
+    []
+  );
 
   const handleClick =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -84,7 +102,21 @@ const Header = () => {
 
   return (
     <HeaderWrapper scrolled={Number(isScrolled)} component='header'>
-      <PaddingWrapper className='mobile'>
+      <IconWrapper>
+        <LogoButton onClick={toMainPage}>
+          <IconComponent fill='#404040' name='logo' width={100} height={100} />
+        </LogoButton>
+      </IconWrapper>
+
+      <PaddingWrapper className='mobile' sx={{ position: 'relative' }}>
+        <IconButton
+          aria-label='close'
+          color='inherit'
+          onClick={openMobileHandler}
+        >
+          <IconComponent name='search' fill={GLOBAL_COLORS.gold} />
+        </IconButton>
+
         <FavoriteIcon
           isActive={Boolean(favoritesList.length)}
           onClick={toFavotiresPage}
@@ -99,18 +131,14 @@ const Header = () => {
           handleClick={handleClick}
           handleClose={handleClose}
         />
+        <MobileSearchWrapper in={isMobileMenuOpen}>
+          <SearchInput fullWidth closeHandler={openMobileHandler} />
+        </MobileSearchWrapper>
       </PaddingWrapper>
 
       <PaddingWrapper className='desktop'>
         <Stack direction='row'>{showLinks()}</Stack>
         <Stack direction='row'>
-          <SearchInput />
-          <Divider
-            orientation='vertical'
-            variant='middle'
-            flexItem
-            sx={{ mx: 1 }}
-          />
           <FavoriteIcon
             isActive={Boolean(favoritesList.length)}
             onClick={toFavotiresPage}
@@ -123,14 +151,25 @@ const Header = () => {
             sx={{ mx: 1 }}
           />
           <Language />
+          <Divider
+            orientation='vertical'
+            variant='middle'
+            flexItem
+            sx={{ mx: 1 }}
+          />
+          <Collapse orientation='horizontal' in={isDesktopMenuOpen}>
+            <SearchInput closeHandler={openDesktopHandler} />
+          </Collapse>
+
+          <IconButton
+            aria-label='close'
+            color='inherit'
+            onClick={openDesktopHandler}
+          >
+            <IconComponent name='search' fill={GLOBAL_COLORS.gold} />
+          </IconButton>
         </Stack>
       </PaddingWrapper>
-
-      <IconWrapper>
-        <LogoButton onClick={toMainPage}>
-          <IconComponent fill='#404040' name='logo' width={100} height={100} />
-        </LogoButton>
-      </IconWrapper>
     </HeaderWrapper>
   );
 };

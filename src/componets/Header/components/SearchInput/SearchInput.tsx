@@ -1,36 +1,35 @@
 import React, { SyntheticEvent, useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
-import { Autocomplete, IconButton, Stack, TextField } from '@mui/material';
-import Collapse from '@mui/material/Collapse';
-import { IconComponent } from '@src/componets';
-import { GLOBAL_COLORS, paths } from '@src/constants';
+import { Autocomplete, Box, TextField } from '@mui/material';
+import { paths } from '@src/constants';
 import { data } from '@src/content';
 import { useAppSelector } from '@src/store/hooks';
 import { appSelector } from '@src/store/slices/appSlice';
 import { ShopItem } from '@src/types';
 import _get from 'lodash/get';
 
-const SearchInput = () => {
+interface SearchInputProps {
+  fullWidth?: boolean;
+  closeHandler: () => void;
+}
+
+const SearchInput = ({ fullWidth, closeHandler }: SearchInputProps) => {
   const router = useRouter();
   const { language } = useAppSelector(appSelector);
   const { t } = useTranslation('common');
-  const [checked, setChecked] = useState<boolean>(false);
-  const [searchValue, setSearchValue] = useState<string>('');
 
-  const openHandler = () => {
-    setChecked((prev) => !prev);
-  };
+  const [searchValue, setSearchValue] = useState<string>('');
 
   const reedirectHandler = useCallback(
     (_: SyntheticEvent<Element, Event>, id: string | null, status: string) => {
       if (status !== 'clear') {
         router.push(paths.shop + '/' + id);
         setSearchValue('');
-        setChecked(false);
+        closeHandler();
       }
     },
-    [router]
+    [router, closeHandler]
   );
 
   const options = useMemo(() => data.map(({ id }) => id), []);
@@ -60,32 +59,26 @@ const SearchInput = () => {
   );
 
   return (
-    <Stack direction='row'>
-      <Collapse orientation='horizontal' in={checked}>
-        <Autocomplete
-          value={searchValue}
-          freeSolo
-          clearOnBlur
-          id='find-item'
-          options={options}
-          defaultValue={options[0]}
-          getOptionLabel={(id) => getItemsKey(id, `${language}.name`)}
-          renderOption={(props, id) => (
-            <li {...props} key={id}>
-              {getItemsKey(id, `${language}.name`)}
-            </li>
-          )}
-          groupBy={getGroup}
-          sx={{ width: 179 }}
-          renderInput={(params) => <TextField {...params} />}
-          onChange={reedirectHandler}
-        />
-      </Collapse>
-
-      <IconButton aria-label='close' color='inherit' onClick={openHandler}>
-        <IconComponent name='search' fill={GLOBAL_COLORS.gold} />
-      </IconButton>
-    </Stack>
+    <Box p={1}>
+      <Autocomplete
+        value={searchValue}
+        freeSolo
+        clearOnBlur
+        id='find-item'
+        options={options}
+        defaultValue={options[0]}
+        getOptionLabel={(id) => getItemsKey(id, `${language}.name`)}
+        renderOption={(props, id) => (
+          <li {...props} key={id}>
+            {getItemsKey(id, `${language}.name`)}
+          </li>
+        )}
+        groupBy={getGroup}
+        sx={{ width: fullWidth ? '100%' : 180 }}
+        renderInput={(params) => <TextField {...params} />}
+        onChange={reedirectHandler}
+      />
+    </Box>
   );
 };
 

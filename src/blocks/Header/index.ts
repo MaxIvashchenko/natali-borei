@@ -1,4 +1,4 @@
-import { Box, IconButton as MuiIconButton } from '@mui/material';
+import { Box, Collapse, IconButton as MuiIconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { GLOBAL_COLORS } from '@src/constants';
 
@@ -50,7 +50,6 @@ const IconWrapper = styled(Box)(({ theme }) => ({
   position: 'absolute',
   width: '100%',
   display: 'flex',
-
   justifyContent: 'center',
   alignItems: 'center',
   cursor: 'pointer',
@@ -64,26 +63,30 @@ const IconWrapper = styled(Box)(({ theme }) => ({
 }));
 
 const LogoButton = styled(MuiIconButton)(({ theme }) => ({
+  padding: 0,
+  borderRadius: 0,
+
   [theme.breakpoints.up('md')]: {
     position: 'absolute',
     zIndex: 91,
     transform: 'scale(0.8)',
 
     '& svg': {
-      width: 110,
-      height: 110,
+      width: 102,
+      height: 102,
       transition: 'all 0.2s ease-out'
     },
     '&:hover': {
       background: 'none',
       '& svg': {
-        width: 125,
-        height: 125,
+        width: 120,
+        height: 120,
         transition: 'all 0.2s ease-out'
       }
     }
   },
   [theme.breakpoints.down('md')]: {
+    background: 'white',
     position: 'absolute',
     zIndex: 91,
     transform: 'scale(0.7)',
@@ -104,11 +107,20 @@ const LogoButton = styled(MuiIconButton)(({ theme }) => ({
   }
 }));
 
+const MobileSearchWrapper = styled(Collapse)({
+  width: '100%',
+  backgroundColor: 'rgba(255,255,255,0.75)',
+  position: 'absolute',
+  top: 92,
+  left: 0
+});
+
 const Header = {
   HeaderWrapper,
   PaddingWrapper,
   IconWrapper,
-  LogoButton
+  LogoButton,
+  MobileSearchWrapper
 };
 
 export default Header;

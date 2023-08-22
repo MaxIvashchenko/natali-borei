@@ -8,6 +8,9 @@ type MuiAutocompleteType = {
 const MuiAutocomplete: MuiAutocompleteType = {
   styleOverrides: {
     root: {
+      maxWidth: 300,
+      margin: '0 auto',
+
       '& .MuiOutlinedInput-root': {
         '& fieldset': {
           borderColor: GLOBAL_COLORS.gold
@@ -21,7 +24,8 @@ const MuiAutocomplete: MuiAutocompleteType = {
       }
     },
     inputRoot: {
-      padding: '0 8px'
+      padding: '0 8px',
+      backgroundColor: 'white'
     }
   }
 };

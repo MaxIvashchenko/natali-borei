@@ -8,7 +8,7 @@ import { paths } from '@src/constants';
 import { data } from '@src/content';
 import { ShopItem } from '@src/types';
 
-const popularIds: string[] = ['LB007', 'BR002', 'BR011', 'LB003'];
+const popularIds: string[] = ['BRC002', 'NEC001', 'PEN004', 'NEC005'];
 
 const PopularItems = () => {
   const router = useRouter();
