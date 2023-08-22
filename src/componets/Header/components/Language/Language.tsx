@@ -1,16 +1,25 @@
 import React, { MouseEvent, useState } from 'react';
 import { IconButton, Menu, MenuItem, Stack } from '@mui/material';
 import { IconComponent } from '@src/componets';
-import { GLOBAL_COLORS } from '@src/constants';
+import { GLOBAL_COLORS, LANGUAGES } from '@src/constants';
+import { useAppDispatch } from '@src/store/hooks';
+import { setLanguage } from '@src/store/slices/appSlice';
+import { LangEnum } from '@src/types';
 
 const Language = () => {
+  const dispatch = useAppDispatch();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => setAnchorEl(null);
+  const handleClose = (type?: LangEnum) => () => {
+    if (type) {
+      dispatch(setLanguage(type));
+    }
+    setAnchorEl(null);
+  };
 
   return (
     <Stack direction='row'>
@@ -18,7 +27,7 @@ const Language = () => {
         id='basic-menu'
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClose}
+        onClose={handleClose()}
         MenuListProps={{
           'aria-labelledby': 'basic-button'
         }}
@@ -52,11 +61,11 @@ const Language = () => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        {['Русский', 'English', 'Polska'].map((name) => (
+        {LANGUAGES.map(({ name, type }) => (
           <MenuItem
             key={name}
             value={name}
-            onClick={handleClose}
+            onClick={handleClose(type)}
             selected={name === 'Русский'}
           >
             {name}
@@ -64,7 +73,14 @@ const Language = () => {
         ))}
       </Menu>
 
-      <IconButton aria-label='close' color='inherit' onClick={handleClick}>
+      <IconButton
+        aria-label='close'
+        color='inherit'
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup='true'
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
+      >
         <IconComponent name='globe' fill={GLOBAL_COLORS.gold} />
       </IconButton>
     </Stack>

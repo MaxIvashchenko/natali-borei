@@ -1,6 +1,11 @@
 import { createTheme, Theme } from '@mui/material/styles';
 
-import { MuiBadge, MuiButton, MuiTypography } from './components';
+import {
+  MuiAutocomplete,
+  MuiBadge,
+  MuiButton,
+  MuiTypography
+} from './components';
 import palette from './palette';
 
 const theme: Theme = createTheme({
@@ -8,7 +13,8 @@ const theme: Theme = createTheme({
   components: {
     MuiButton,
     MuiTypography,
-    MuiBadge
+    MuiBadge,
+    MuiAutocomplete
   },
   typography: {
     fontFamily: ['Cormorant Garamond', 'sans-serif'].join(',')

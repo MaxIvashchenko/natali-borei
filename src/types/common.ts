@@ -64,7 +64,11 @@ export type IconTypes = {
   up: ElementType;
 };
 
-export type LangEnum = 'ru' | 'en' | 'pl';
+export enum LangEnum {
+  RU = 'ru',
+  EN = 'en'
+  // PL = 'pl'
+}
 
 export interface IPaths {
   main: string;
