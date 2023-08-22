@@ -131,11 +131,17 @@ const MobileSearchWrapper = styled(Collapse)({
 const MobileSearchOuter = styled(Button)({
   width: '100%',
   height: '100vh',
-  position: 'absolute',
+  position: 'fixed',
   top: 146,
   left: 0,
   borderRadius: 0,
-  background: '#8080804a'
+  background: '#8080804a',
+  zIndex: 92,
+  overflow: 'hidden',
+
+  '&:hover': {
+    background: '#8080804a'
+  }
 });
 
 const Header = {

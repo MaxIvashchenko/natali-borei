@@ -53,6 +53,9 @@ const Header = () => {
     () => setMobileMenuOpen((prev) => !prev),
     []
   );
+
+  const closeMobileHandler = useCallback(() => setMobileMenuOpen(false), []);
+
   const openDesktopHandler = useCallback(
     () => setDeesktopMenuOpen((prev) => !prev),
     []
@@ -137,7 +140,11 @@ const Header = () => {
           <SearchInput fullWidth closeHandler={openMobileHandler} />
         </MobileSearchWrapper>
         <Fade in={isMobileMenuOpen}>
-          <MobileSearchOuter variant='text' onClick={openMobileHandler} />
+          <MobileSearchOuter
+            variant='text'
+            onTouchStart={closeMobileHandler}
+            onClick={closeMobileHandler}
+          />
         </Fade>
       </PaddingWrapper>
 
