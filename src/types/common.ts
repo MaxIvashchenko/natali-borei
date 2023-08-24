@@ -62,6 +62,7 @@ export type IconTypes = {
   favoriteFill: ElementType;
   globe: ElementType;
   up: ElementType;
+  plus: ElementType;
 };
 
 export enum LangEnum {
@@ -75,4 +76,6 @@ export interface IPaths {
   shop: string;
   about: string;
   favorites: string;
+  admin: string;
+  addItem: string;
 }
