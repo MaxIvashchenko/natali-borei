@@ -5,7 +5,7 @@ const path = STORAGE_URL + '/public/common/items';
 
 export const pendant = [
   {
-    id: 'PEN004',
+    id: 'PEN001',
     title: 'Pendant',
     tag: CategoryType.PENDANT,
     ru: {
@@ -31,7 +31,7 @@ export const pendant = [
     available: true
   },
   {
-    id: 'PEN012',
+    id: 'PEN002',
     title: 'Pendant',
     tag: CategoryType.PENDANT,
     collection: 'Edelweiss',
@@ -56,5 +56,86 @@ export const pendant = [
       path + '/pendant/EdelweissPurple__2.jpg'
     ],
     available: true
-  }
+  },
+  {
+    title: 'Lavalier brooch',
+    tag: CategoryType.PENDANT,
+    collection: 'Molecula',
+    id: 'PEN003',
+    ru: {
+      name: 'Подвеска Молекула',
+      description:
+        'Conjunction, as a framework, is unique and inimitable that brings to life something new. The brooch is made by technique of embroidery and beads wickerwork.',
+      material:
+        'Состоит из разнообразного натурального жемчуга, кристаллов, жемчуга Сваровски и японского бисера.'
+    },
+    en: {
+      name: 'Lavalier Molecula',
+      description:
+        'Conjunction, as a framework, is unique and inimitable that brings to life something new. The brooch is made by technique of embroidery and beads wickerwork.',
+      material:
+        'Consists of various natural pearls, crystals and pearls Swarovski, Japanese beads.'
+    },
+    dimensions: '6-7',
+    price: 90,
+    images: [
+      path + '/pendant/Molecula__1.jpg',
+      path + '/pendant/Molecula__2.jpg'
+    ],
+    available: false
+  },
+  {
+    id: 'PEN004',
+    tag: CategoryType.PENDANT,
+    title: 'Lavalier brooch',
+    collection: 'Aquaworld',
+    ru: {
+      name: 'Aquaworld',
+      description:
+        'Подвеска изготовлена в технике вышивки, плетения бисером и сутажной вышивки.',
+      material:
+        'Натуральный камень, детали Савровски, японский бисер и сутажный шнур.'
+    },
+    en: {
+      name: 'Aquaworld',
+      description:
+        'The lavaliere is made by technique of embroidery, beads wickerwork and soutache embroidery.',
+      material:
+        'Natural stone, Swarovski components, Japanese beads and soutache cord.'
+    },
+    dimensions: '7-9',
+    price: 190,
+    images: [
+      path + '/pendant/Aquaworld__1.jpg',
+      path + '/pendant/Aquaworld__2.jpg'
+    ],
+    available: true
+  },
+  {
+    id: 'PEN005',
+    tag: CategoryType.PENDANT,
+    title: 'Lavalier brooch',
+    collection: 'Aquaworld',
+    ru: {
+      name: 'Aquaworld small',
+      description:
+        'Подвеска изготовлена в технике вышивки, плетения бисером и сутажной вышивки.',
+      material:
+        'Натуральный камень, детали Савровски, японский бисер и сутажный шнур.'
+    },
+    en: {
+      name: 'Aquaworld small',
+      description:
+        'The lavaliere is made by technique of embroidery, beads wickerwork and soutache embroidery.',
+      material:
+        'Natural stone, Swarovski components, Japanese beads and soutache cord.'
+    },
+    dimensions: '9-5',
+    price: 170,
+    images: [
+      path + '/pendant/AquaworldSmall__1.jpg',
+      path + '/pendant/AquaworldSmall__2.jpg'
+    ],
+    available: true
+  },
 ];

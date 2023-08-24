@@ -142,7 +142,59 @@ export const brooch = [
     images: [path + '/brooch/LavenderBeetle__1.jpg'],
     available: true
   },
-
+  {
+    title: 'Lavalier brooch',
+    tag: CategoryType.BROOCH,
+    id: 'BRC007',
+    price: 180,
+    images: [
+      path + '/brooch/LotusKeepSilent__2.jpg',
+      path + '/brooch/LotusKeepSilent__1.jpg',
+      path + '/brooch/LotusKeepSilent__3.jpg'
+    ],
+    ru: {
+      name: 'Лотос',
+      description: 'Описание на русском',
+      material:
+        'Состоит из кристаллов и жемчуга Сваровски, японского бисера, кожаных переплетов.'
+    },
+    en: {
+      name: 'Lotus',
+      description:
+        'Lotus petals are getting closed at night and going back down into the cloudy pond water, with the sunrise to come they are going up opened and getting back again in bright colors. Lotus is a symbol of virgin beauty and eternal rebirth.',
+      material:
+        'Consists of crystals and pearls Swarovski, Japanese beads, leather binders.'
+    },
+    dimensions: '7-8',
+    available: true
+  },
+  {
+    id: 'LAV003',
+    tag: CategoryType.BROOCH,
+    title: 'Lavalier brooch',
+    ru: {
+      name: 'Шелкопряд',
+      description:
+        'The article is made by technique of beads wickerwork and needlework by luvinel hook. Wings are fixed by wire thread carcass.',
+      material:
+        'Кристаллы, жемчуг Сваровски, японские бусины с золотым напылением, французские пайетки и натуральный мех.'
+    },
+    en: {
+      name: 'Silkmoth',
+      description:
+        'The article is made by technique of beads wickerwork and needlework by luvinel hook. Wings are fixed by wire thread carcass.',
+      material:
+        'Crystals and pearls Swarovski, Japanese gold coated beads and French sequins, natural fur.'
+    },
+    dimensions: '9-10',
+    price: 150,
+    images: [
+      path + '/brooch/Silkmoth__1.jpg',
+      path + '/brooch/Silkmoth__2.jpg',
+      path + '/brooch/Silkmoth__3.jpg'
+    ],
+    available: false
+  },
   {
     id: 'BRC003',
     title: 'Brooch',
@@ -351,7 +403,7 @@ export const brooch = [
     available: false
   },
   {
-    id: 'BRC007',
+    id: 'BRC024',
     title: 'Brooch',
     tag: CategoryType.BROOCH,
     ru: {

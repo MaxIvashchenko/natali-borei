@@ -133,5 +133,32 @@ export const necklace = [
       path + '/necklace/SecretGarden__3.jpg'
     ],
     available: true
+  },
+  {
+    id: 'LAV006',
+    tag: CategoryType.NECKLACE,
+    title: 'Lavalier brooch',
+    collection: '',
+    ru: {
+      name: 'Эделвейс',
+      description:
+        'Коллекция “Flowers come to life from stones”. Reaching to the stars through the thorns, cherishing delicate dreams and looking for the right way to achieve the hope the flowers come to life from stones. The lavaliere is made by technique of multilayer beads wickerwork and beads embroidery.',
+      material:
+        'Натуральный камень, компоненты Swarovski, Японский бисер and chain work and French sequins.'
+    },
+    en: {
+      name: 'Edelweiss',
+      description:
+        'Collection “Flowers come to life from stones”. Reaching to the stars through the thorns, cherishing delicate dreams and looking for the right way to achieve the hope the flowers come to life from stones. The lavaliere is made by technique of multilayer beads wickerwork and beads embroidery.',
+      material:
+        'Natural stone, Swarovski components, Japanese beads and chain work and French sequins.'
+    },
+    dimensions: '9-9',
+    price: 220,
+    images: [
+      path + '/necklace/Edelweiss__1.jpg',
+      path + '/necklace/Edelweiss__2.jpg'
+    ],
+    available: true
   }
 ];

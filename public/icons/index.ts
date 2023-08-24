@@ -43,6 +43,7 @@ import youtube from './youtube.svg';
 import logo from './logo.svg';
 import globe from './globe.svg';
 import up from './up.svg';
+import plus from './plus.svg';
 
 import { IconTypes } from '@src/types';
 
@@ -91,7 +92,8 @@ const icons: IconTypes = {
   success,
   search,
   globe,
-  up
+  up,
+  plus
 };
 
 export default icons;

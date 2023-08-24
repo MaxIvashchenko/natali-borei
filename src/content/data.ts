@@ -4,7 +4,6 @@ import {
   bags,
   bracelets,
   brooch,
-  lavBrooch,
   necklace,
   pendant,
   rings
@@ -15,7 +14,6 @@ export const items: ShopItem[] = [
   ...bracelets,
   ...brooch,
   ...necklace,
-  ...lavBrooch,
   ...pendant,
   ...rings
 ];

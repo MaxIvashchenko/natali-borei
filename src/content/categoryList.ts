@@ -23,11 +23,6 @@ export const CATEGORIES: ICategory[] = [
     label: 'Rings'
   },
   {
-    tag: CategoryType.LABVBROOCH,
-    imgSrc: CATEGORIES_IMAGES.lavBrooch,
-    label: 'Lavalier brooch'
-  },
-  {
     tag: CategoryType.PENDANT,
     imgSrc: CATEGORIES_IMAGES.pendant,
     label: 'Pendant'

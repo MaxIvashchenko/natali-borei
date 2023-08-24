@@ -2,7 +2,6 @@ export enum CategoryType {
   BROOCH = 'brooch',
   BRACELETS = 'bracelets',
   RINGS = 'rings',
-  LABVBROOCH = 'lavBrooch',
   BAGS = 'bags',
   PENDANT = 'pendant',
   NECKLACE = 'necklace',
