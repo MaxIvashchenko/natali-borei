@@ -137,5 +137,5 @@ export const pendant = [
       path + '/pendant/AquaworldSmall__2.jpg'
     ],
     available: true
-  },
+  }
 ];
