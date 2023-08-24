@@ -44,6 +44,8 @@ import logo from './logo.svg';
 import globe from './globe.svg';
 import up from './up.svg';
 import plus from './plus.svg';
+import pencil from './pencil.svg';
+import trash from './trash.svg';
 
 import { IconTypes } from '@src/types';
 
@@ -93,7 +95,9 @@ const icons: IconTypes = {
   search,
   globe,
   up,
-  plus
+  plus,
+  trash,
+  pencil
 };
 
 export default icons;

@@ -11,6 +11,7 @@
     "ru": "ru"
   },
   "categories": {
+    "all": "All categories",
     "brooch": "Brooch",
     "bracelets": "Bracelets",
     "rings": "Rings",

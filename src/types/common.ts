@@ -63,6 +63,8 @@ export type IconTypes = {
   globe: ElementType;
   up: ElementType;
   plus: ElementType;
+  trash: ElementType;
+  pencil: ElementType;
 };
 
 export enum LangEnum {
@@ -78,4 +80,5 @@ export interface IPaths {
   favorites: string;
   admin: string;
   addItem: string;
+  editItem: string;
 }

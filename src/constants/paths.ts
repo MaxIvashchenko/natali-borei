@@ -6,7 +6,8 @@ const paths: IPaths = {
   about: '/about',
   favorites: '/favorites',
   admin: '/admin',
-  addItem: '/admin/add'
+  addItem: '/admin/add-item',
+  editItem: '/admin/edit-item'
 };
 
 export default paths;
