@@ -21,11 +21,12 @@ import {
   Typography
 } from '@mui/material';
 import { Box } from '@mui/system';
-import { MainPage } from '@src/blocks';
+import { Common, MainPage } from '@src/blocks';
 import { IconComponent } from '@src/componets/Common';
 import { paths, PRICE_FORMAT } from '@src/constants';
 import { data } from '@src/content';
 import { CategoryType, ShopItem } from '@src/types';
+import _isEmpty from 'lodash/isEmpty';
 
 import { imgLoader } from 'utils';
 
@@ -119,78 +120,91 @@ const AdminPage = ({ items = [] }: MenuTableProps) => {
           </Button>
         </Grid>
       </Grid>
-      <TableContainer component={Box}>
-        <Table sx={{ width: '100%' }} size='small' aria-label='simple table'>
-          <TableHead>
-            <TableRow>
-              <TableCell align='right'></TableCell>
-              <TableCell>Название</TableCell>
-              <TableCell align='center'>Категория</TableCell>
-              <TableCell align='center'>Доступность</TableCell>
-              <TableCell align='center'>Цена</TableCell>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {list.map((row) => (
-              <TableRow
-                key={row.id}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell align='left' component='th' scope='row'>
-                  <Image
-                    src={row.images[0]}
-                    loader={imgLoader}
-                    alt='Picture pizza'
-                    width={100}
-                    height={100}
-                  />
-                </TableCell>
-                <TableCell component='th' scope='row'>
-                  <Stack direction='column'>
-                    <Typography variant='h5'>{row.ru.name}</Typography>
-                    <Typography>{row.en.name}</Typography>
-                  </Stack>
-                </TableCell>
-                <TableCell align='center'>
-                  <Typography variant='h5'>
-                    {t(`categories.${row.tag}`)}
-                  </Typography>
-                </TableCell>
-                <TableCell align='center'>
-                  <Typography variant='h5'>
-                    {row.available ? 'доступно' : 'нет в наличии'}
-                  </Typography>
-                </TableCell>
-                <TableCell align='center'>
-                  <Typography variant='h5'>{`${row.price} ${PRICE_FORMAT}`}</Typography>
-                </TableCell>
-                <TableCell align='center'>
-                  <Tooltip title='Редактировать'>
-                    <IconButton
-                      aria-label='edit'
-                      onClick={() => editHandler(row.id)}
-                    >
-                      <IconComponent name='pencil' />
-                    </IconButton>
-                  </Tooltip>
-                </TableCell>
-                <TableCell align='center'>
-                  <Tooltip title='Удалить'>
-                    <IconButton
-                      aria-label='delete'
-                      onClick={() => deleteItem()}
-                    >
-                      <IconComponent name='trash' />
-                    </IconButton>
-                  </Tooltip>
-                </TableCell>
+      {_isEmpty(list) ? (
+        <Common.EmptyWrapper>
+          <Typography
+            variant='h4'
+            textAlign='center'
+            py={2}
+            sx={{ py: 2, px: { xs: 1, sm: 8, md: 12 } }}
+          >
+            Категория пуста, нужно добавить украшение для данной категории
+          </Typography>
+        </Common.EmptyWrapper>
+      ) : (
+        <TableContainer component={Box}>
+          <Table sx={{ width: '100%' }} size='small' aria-label='simple table'>
+            <TableHead>
+              <TableRow>
+                <TableCell align='right'></TableCell>
+                <TableCell>Название</TableCell>
+                <TableCell align='center'>Категория</TableCell>
+                <TableCell align='center'>Доступность</TableCell>
+                <TableCell align='center'>Цена</TableCell>
+                <TableCell></TableCell>
+                <TableCell></TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {list.map((row) => (
+                <TableRow
+                  key={row.id}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell align='left' component='th' scope='row'>
+                    <Image
+                      src={row.images[0]}
+                      loader={imgLoader}
+                      alt='Picture pizza'
+                      width={100}
+                      height={100}
+                    />
+                  </TableCell>
+                  <TableCell component='th' scope='row'>
+                    <Stack direction='column'>
+                      <Typography variant='h5'>{row.ru.name}</Typography>
+                      <Typography>{row.en.name}</Typography>
+                    </Stack>
+                  </TableCell>
+                  <TableCell align='center'>
+                    <Typography variant='h5'>
+                      {t(`categories.${row.tag}`)}
+                    </Typography>
+                  </TableCell>
+                  <TableCell align='center'>
+                    <Typography variant='h5'>
+                      {row.available ? 'доступно' : 'нет в наличии'}
+                    </Typography>
+                  </TableCell>
+                  <TableCell align='center'>
+                    <Typography variant='h5'>{`${row.price} ${PRICE_FORMAT}`}</Typography>
+                  </TableCell>
+                  <TableCell align='center'>
+                    <Tooltip title='Редактировать'>
+                      <IconButton
+                        aria-label='edit'
+                        onClick={() => editHandler(row.id)}
+                      >
+                        <IconComponent name='pencil' />
+                      </IconButton>
+                    </Tooltip>
+                  </TableCell>
+                  <TableCell align='center'>
+                    <Tooltip title='Удалить'>
+                      <IconButton
+                        aria-label='delete'
+                        onClick={() => deleteItem()}
+                      >
+                        <IconComponent name='trash' />
+                      </IconButton>
+                    </Tooltip>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      )}
     </MainPage.PageContainer>
   );
 };

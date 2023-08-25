@@ -45,10 +45,19 @@ const IconWrapper = styled(Box)(({ theme }) => ({
   }
 }));
 
+const EmptyWrapper = styled(Box)({
+  display: 'flex',
+  flexDirection: 'column',
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center'
+});
+
 const Common = {
   CenteredWrapper,
   CardActionArea,
-  IconWrapper
+  IconWrapper,
+  EmptyWrapper
 };
 
 export default Common;

@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
-import { Box, Button, Grid, Typography } from '@mui/material';
-import { MainPage } from '@src/blocks';
+import { Button, Grid, Typography } from '@mui/material';
+import { Common, MainPage } from '@src/blocks';
 import { CardImage } from '@src/componets';
 import { paths } from '@src/constants';
 import { data } from '@src/content';
@@ -10,15 +10,6 @@ import { useAppSelector } from '@src/store/hooks';
 import { appSelector } from '@src/store/slices/appSlice';
 import _get from 'lodash/get';
 import _isEmpty from 'lodash/isEmpty';
-import styled from 'styled-components';
-
-const EmptyWrapper = styled(Box)({
-  display: 'flex',
-  flexDirection: 'column',
-  flex: 1,
-  justifyContent: 'center',
-  alignItems: 'center'
-});
 
 const FavoritesPage = () => {
   const router = useRouter();
@@ -35,7 +26,7 @@ const FavoritesPage = () => {
   return (
     <MainPage.PageContainer sx={{ maxWidth: 1220, margin: '0 auto' }}>
       {_isEmpty(list) ? (
-        <EmptyWrapper>
+        <Common.EmptyWrapper>
           <Typography
             variant='h4'
             textAlign='center'
@@ -44,7 +35,7 @@ const FavoritesPage = () => {
           >
             {t('common.favoriteEmptyText')}
           </Typography>
-        </EmptyWrapper>
+        </Common.EmptyWrapper>
       ) : (
         <Grid
           container
