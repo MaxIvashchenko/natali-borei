@@ -13,3 +13,14 @@ export interface ItemFormProps {
   en_description: string;
   en_material: string;
 }
+
+export enum CategoryIdName {
+  brooch = 'BRC',
+  bracelets = 'BRA',
+  rings = 'rings',
+  bags = 'BAG',
+  pendant = 'PEN',
+  necklace = 'NEC',
+  ethnic = 'ETH',
+  earrings = 'EAR'
+}

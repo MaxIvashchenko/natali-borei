@@ -135,7 +135,7 @@ export const necklace = [
     available: true
   },
   {
-    id: 'LAV006',
+    id: 'NEC006',
     tag: CategoryType.NECKLACE,
     title: 'Lavalier brooch',
     collection: '',
