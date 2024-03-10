@@ -1,4 +1,5 @@
 import { createTheme, Theme } from '@mui/material/styles';
+import { Cormorant_Garamond } from 'next/font/google';
 
 import {
   MuiAutocomplete,
@@ -7,6 +8,13 @@ import {
   MuiTypography
 } from './components';
 import palette from './palette';
+
+const CormorantGaramond = Cormorant_Garamond({
+  weight: ['400', '600', '700'],
+  subsets: ['latin'],
+  style: ['normal'],
+  fallback: ['sans-serif']
+})
 
 const theme: Theme = createTheme({
   palette,
@@ -17,7 +25,7 @@ const theme: Theme = createTheme({
     MuiAutocomplete
   },
   typography: {
-    fontFamily: ['Cormorant Garamond', 'sans-serif'].join(',')
+    fontFamily: CormorantGaramond.style.fontFamily,
   }
 });
 

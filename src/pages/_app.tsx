@@ -18,7 +18,7 @@ const { AppWrapper, ContentWrapper } = LayoutBlocks;
 
 i18next.init({
   interpolation: { escapeValue: false },
-  lng: 'ru',
+  lng: 'en',
   resources: {
     en: {
       common: common_en

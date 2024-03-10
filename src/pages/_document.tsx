@@ -44,13 +44,6 @@ export default class MyDocument extends Document {
           <meta name='twitter:description' content={description} />
           <meta name='twitter:image' content={image} />
 
-          <link rel='preconnect' href='https://fonts.googleapis.com' />
-          <link rel='preconnect' href='https://fonts.gstatic.com' />
-          <link
-            href='https://fonts.googleapis.com/css?family=Cormorant+Garamond|Fira+Sans|Herr+Von+Muellerhoff&display=optional'
-            rel='stylesheet'
-          />
-
           <link
             rel='stylesheet'
             href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'
