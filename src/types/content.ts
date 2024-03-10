@@ -15,7 +15,7 @@ export interface ICategory {
   label: string;
 }
 
-type LangDetails = {
+export type LangDetails = {
   name: string;
   description: string;
   material: string;

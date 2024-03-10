@@ -1,7 +1,18 @@
 import React, { memo } from 'react';
-import { Badge, IconButton, Typography } from '@mui/material';
+import { IconButton, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { IconComponent } from '@src/componets/Common';
 import { GLOBAL_COLORS } from '@src/constants';
+
+const BadgeText = styled(Typography)({
+  fontSize: 14,
+  position: 'absolute',
+  fontWeight: '600',
+  fontFamily: 'Open-Sans',
+  color: 'white',
+  paddingLeft: 1,
+  paddingTop: 1
+});
 
 interface FavoriteIconProps {
   onClick: () => void;
@@ -19,7 +30,7 @@ const FavoriteIcon = ({
       name={isActive ? 'favoriteFill' : 'favorite'}
       fill={GLOBAL_COLORS.gold}
     />
-    {Boolean(qty) && <Typography color='white' pb={0.5} pl={0.2} style={{ position: 'absolute' }}>{qty}</Typography>}
+    {Boolean(qty) && <BadgeText>{qty}</BadgeText>}
   </IconButton>
 );
 

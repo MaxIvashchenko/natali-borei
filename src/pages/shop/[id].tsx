@@ -19,6 +19,7 @@ import { useWindowSize } from '@src/hooks';
 import { useAppDispatch, useAppSelector } from '@src/store/hooks';
 import { appSelector, handleFavoriteItem } from '@src/store/slices/appSlice';
 import { getPriceFormat, imgLoader } from '@src/utils';
+import cookies from '@src/utils/cookies';
 import _get from 'lodash/get';
 
 const Wrapper = styled(Box)(({ theme }) => ({
@@ -62,7 +63,11 @@ const ItemDetails = () => {
     () => favoritesList.some((existId) => existId === id),
     [favoritesList, id]
   );
-  const favIconHandler = () => dispatch(handleFavoriteItem(id as string));
+
+  const favIconHandler = () => {
+    cookies.setProductToFavorite(id as string);
+    dispatch(handleFavoriteItem(id as string));
+  };
 
   return (
     <MainPage.PageContainer>

@@ -1,4 +1,4 @@
-import { LangEnum } from '@src/types';
+import { LangDetails, LangEnum } from '@src/types';
 
 export const LANGUAGES: Array<{ name: string; type: LangEnum }> = [
   {
@@ -14,3 +14,9 @@ export const LANGUAGES: Array<{ name: string; type: LangEnum }> = [
   //   type: LangEnum.PL
   // }
 ];
+
+export const DEAFULT_LANG_VALUE: LangDetails = {
+  name: '',
+  description: '',
+  material: ''
+};

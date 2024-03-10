@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
 import {
@@ -12,8 +12,9 @@ import {
 } from '@mui/material';
 import { GLOBAL_COLORS, paths } from '@src/constants';
 import { useScroll } from '@src/hooks';
-import { useAppSelector } from '@src/store/hooks';
-import { appSelector } from '@src/store/slices/appSlice';
+import { useAppDispatch, useAppSelector } from '@src/store/hooks';
+import { appSelector, setFavoriteItems } from '@src/store/slices/appSlice';
+import cookies from '@src/utils/cookies';
 
 import { Header as HeadersBlocks } from 'blocks';
 import { IconComponent } from '../Common';
@@ -40,6 +41,7 @@ const headerList: { link: string; name: string }[] = [
 ];
 
 const Header = () => {
+  const dispatch = useAppDispatch();
   const { t } = useTranslation('common');
   const { favoritesList } = useAppSelector(appSelector);
   const router = useRouter();
@@ -48,6 +50,11 @@ const Header = () => {
   const [isOpen, setOpen] = useState<boolean>(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [isDesktopMenuOpen, setDeesktopMenuOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const favItems = cookies.getFavoriteProducts();
+    dispatch(setFavoriteItems(favItems));
+  }, [dispatch]);
 
   const openMobileHandler = useCallback(
     () => setMobileMenuOpen((prev) => !prev),
