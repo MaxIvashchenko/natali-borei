@@ -4,4 +4,3 @@ export { brooch } from './brooch';
 export { ethnic } from './ethnic';
 export { necklace } from './necklace';
 export { pendant } from './pendant';
-export { rings } from './rings';

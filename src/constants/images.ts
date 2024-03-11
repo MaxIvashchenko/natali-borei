@@ -12,7 +12,6 @@ export const IMAGES = {
 export const CATEGORIES_IMAGES = {
   brooch: STORAGE_URL + '/public/common/categories/brooch.png',
   bracelet: STORAGE_URL + '/public/common/categories/bracelets.png',
-  ring: STORAGE_URL + '/public/common/categories/rings.png',
   bags: STORAGE_URL + '/public/common/categories/bags.png',
   pendant: STORAGE_URL + '/public/common/categories/pendant.png',
   necklace: STORAGE_URL + '/public/common/categories/necklace.png',

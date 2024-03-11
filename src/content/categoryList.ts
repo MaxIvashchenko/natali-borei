@@ -18,11 +18,6 @@ export const CATEGORIES: ICategory[] = [
     label: 'Bracelets'
   },
   {
-    tag: CategoryType.RINGS,
-    imgSrc: CATEGORIES_IMAGES.ring,
-    label: 'Rings'
-  },
-  {
     tag: CategoryType.PENDANT,
     imgSrc: CATEGORIES_IMAGES.pendant,
     label: 'Pendant'

@@ -6,7 +6,6 @@ import {
   brooch,
   necklace,
   pendant,
-  rings
 } from './categories';
 
 export const items: ShopItem[] = [
@@ -15,7 +14,7 @@ export const items: ShopItem[] = [
   ...brooch,
   ...necklace,
   ...pendant,
-  ...rings
+
 ];
 
 export default items;
