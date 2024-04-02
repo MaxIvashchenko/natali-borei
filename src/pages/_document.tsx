@@ -12,13 +12,13 @@ const keywords = '';
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang='en' style={{overflow: 'hidden'}}>
+      <Html lang='en'>
         <Head>
           <meta name='viewport' content='width=device-width, initial-scale=1' />
           <meta charSet='utf-8' />
           <link rel='manifest' href='/manifest.json' />
           <meta name='keywords' content={keywords} />
-          <meta name="theme-color" content="#b99765"/>
+          <meta name="theme-color" content="#ffffff"/>
 
           {/*Google / Search Engine Tags*/}
           <meta itemProp='title' content={title} />
