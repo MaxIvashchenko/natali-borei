@@ -1,20 +1,13 @@
 import { ShopItem } from '@src/types';
 
-import {
-  bags,
-  bracelets,
-  brooch,
-  necklace,
-  pendant,
-} from './categories';
+import { bags, bracelets, brooch, necklace, pendant } from './categories';
 
 export const items: ShopItem[] = [
   ...bags,
   ...bracelets,
   ...brooch,
   ...necklace,
-  ...pendant,
-
+  ...pendant
 ];
 
 export default items;

@@ -72,6 +72,7 @@ const CategorySlider = (): JSX.Element => {
 
   return (
     <Box sx={GLOBAL_STYLES.relative}>
+      {/* @ts-ignore */}
       <Slider {...settings}>{renderRows(redirectHandler)}</Slider>
     </Box>
   );

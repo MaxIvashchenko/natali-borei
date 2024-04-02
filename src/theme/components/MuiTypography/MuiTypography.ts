@@ -84,51 +84,6 @@ const MuiTypography: MuiTypographyType = {
       color: theme.palette.grey[700]
     })
   },
-  variants: [
-    {
-      props: { variant: 'landing1' },
-      style: ({ theme }) => ({
-        fontSize: 64,
-        lineHeight: '64px',
-        [theme.breakpoints.down('sm')]: {
-          fontSize: 40,
-          lineHeight: '44px'
-        }
-      })
-    },
-    {
-      props: { variant: 'landing2' },
-      style: ({ theme }) => ({
-        color: theme.palette.common.black,
-        fontSize: 48,
-        lineHeight: '52px',
-        [theme.breakpoints.down('sm')]: {
-          fontSize: 28,
-          lineHeight: '32px'
-        }
-      })
-    },
-    {
-      props: { variant: 'landing3' },
-      style: ({ theme }) => ({
-        fontSize: 40,
-        lineHeight: '40px',
-        [theme.breakpoints.down('sm')]: {
-          fontSize: 24,
-          lineHeight: '28px'
-        }
-      })
-    },
-    {
-      props: { variant: 'body3' },
-      style: ({ theme }) => ({
-        fontWeight: 400,
-        fontSize: 12,
-        lineHeight: '16px',
-        color: theme.palette.grey[700]
-      })
-    }
-  ]
 };
 
 export default MuiTypography;

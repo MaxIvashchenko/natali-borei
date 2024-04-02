@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-scroll';
-import { Box, IconButton } from '@mui/material';
+import { Box } from '@mui/material';
 import { useScroll } from '@src/hooks';
 
 const ToTopButton = () => {
@@ -16,7 +16,7 @@ const ToTopButton = () => {
       offset={-88}
       duration={500}
     >
-      <IconButton
+      {/* <IconButton
         sx={{
           position: 'fixed',
           bottom: { xs: 90, sm: 48 },
@@ -33,8 +33,8 @@ const ToTopButton = () => {
           }
         }}
       >
-        {/* <IconComponent width={32} height={32} fill='#fff' name='downArrow' /> */}
-      </IconButton>
+        <IconComponent width={32} height={32} fill='#fff' name='downArrow' />
+      </IconButton> */}
     </Link>
   ) : (
     <Box />

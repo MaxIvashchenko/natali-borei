@@ -102,7 +102,7 @@ const Header = () => {
         }}
       >
         <Button
-          sx={{ color: GLOBAL_COLORS.gold, px: { xs: 1, md: 3 } }}
+          sx={{ color: GLOBAL_COLORS.gold, px: { xs: 1, md: 3 }, fontSize: 22 }}
           variant='text'
           onClick={redirectHandler(link)}
         >

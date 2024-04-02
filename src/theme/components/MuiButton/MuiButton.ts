@@ -109,21 +109,6 @@ const MuiButton: MuiButtonType = {
   },
   variants: [
     {
-      props: { variant: 'withIcon' },
-      style: ({ theme }) => ({
-        // width: 124,
-        padding: '12px 24px',
-        fontWeight: 500,
-        fontSize: 14,
-        lineHeight: '20px',
-        color: theme.palette.grey[100],
-
-        '&:hover': {
-          background: theme.palette.grey[400]
-        }
-      })
-    },
-    {
       props: { variant: 'wrapper' },
       style: {
         display: 'block',
