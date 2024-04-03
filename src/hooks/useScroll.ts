@@ -4,7 +4,7 @@ const useScroll = (): boolean => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   const changeColor = () => {
-    if (window.scrollY > 88) {
+    if (window.scrollY > 80) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);

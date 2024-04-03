@@ -32,7 +32,7 @@ const NotFound = () => {
   const { t } = useTranslation('common');
 
   return (
-    <MainPage.PageContainer bg={GLOBAL_COLORS.lightBlue}>
+    <MainPage.PageContainer bg={GLOBAL_COLORS.white}>
       <Stack
         spacing={2}
         style={{ flex: 1 }}

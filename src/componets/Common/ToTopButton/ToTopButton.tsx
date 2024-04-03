@@ -13,7 +13,7 @@ const ToTopButton = () => {
       to='top'
       spy={true}
       smooth={true}
-      offset={-88}
+      offset={-80}
       duration={500}
     >
       {/* <IconButton

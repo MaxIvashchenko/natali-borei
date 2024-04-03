@@ -28,7 +28,7 @@ const PaddingWrapper = styled(Box)(({ theme }) => ({
   justifyContent: 'space-between',
   alignItems: 'center',
   zIndex: 90,
-  minHeight: 88,
+  minHeight: 80,
   maxWidth: 1920,
   margin: '0 auto',
 
