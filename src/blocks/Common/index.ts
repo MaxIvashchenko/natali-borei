@@ -1,5 +1,6 @@
 import { Box, CardActionArea as MuiCardActionArea } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { GLOBAL_COLORS } from '@src/constants';
 
 const CenteredWrapper = styled(Box)({
   height: '100%',
@@ -53,11 +54,36 @@ const EmptyWrapper = styled(Box)({
   alignItems: 'center'
 });
 
+const WifiAnimation = styled(Box)({
+  opacity: 0,
+  animation: 'wifiAnimation 3s infinite',
+  'path': {
+    fill: GLOBAL_COLORS.gold,
+  },
+
+  '@keyframes wifiAnimation': {
+    '0%': { opacity: 0.8 },
+    '5%': { opactiy: 1 },
+    '6%': { opactiy: 0.5 },
+    '100%': { opactiy: 0.5 }
+  }
+});
+
+const Dot = styled(Box)({
+  width: 20,
+  height: 20,
+  background: GLOBAL_COLORS.gold,
+  borderRadius: 10,
+  marginTop: 8,
+});
+
 const Common = {
   CenteredWrapper,
   CardActionArea,
   IconWrapper,
-  EmptyWrapper
+  EmptyWrapper,
+  WifiAnimation,
+  Dot
 };
 
 export default Common;

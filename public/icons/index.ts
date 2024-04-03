@@ -46,6 +46,9 @@ import up from './up.svg';
 import plus from './plus.svg';
 import pencil from './pencil.svg';
 import trash from './trash.svg';
+import wifiLine1 from './wifi_line_1.svg';
+import wifiLine2 from './wifi_line_2.svg';
+import wifiLine3 from './wifi_line_3.svg';
 
 import { IconTypes } from '@src/types';
 
@@ -97,7 +100,10 @@ const icons: IconTypes = {
   up,
   plus,
   trash,
-  pencil
+  pencil,
+  wifiLine1,
+  wifiLine2,
+  wifiLine3
 };
 
 export default icons;

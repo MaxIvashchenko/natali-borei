@@ -65,6 +65,9 @@ export type IconTypes = {
   plus: ElementType;
   trash: ElementType;
   pencil: ElementType;
+  wifiLine1: ElementType;
+  wifiLine2: ElementType;
+  wifiLine3: ElementType;
 };
 
 export enum LangEnum {

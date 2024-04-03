@@ -28,7 +28,9 @@
     "notFound": "No Results Found",
     "text": "The page you requested could not be found. Try to use the navigation above to locate the post.",
     "back": "Back to Home",
-    "favoriteEmptyText": "You can bring your favorite products together under this list by clicking on 'Add to My Likes' link on product pages."
+    "favoriteEmptyText": "You can bring your favorite products together under this list by clicking on 'Add to My Likes' link on product pages.",
+    "slowConnection": "Slow or no internet connection,",
+    "checkInternet": "Please check your internet settings and try again"
   },
   "footer": {
     "contactUs": "Contact us",
