@@ -2,12 +2,15 @@ import { Box, Button, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { IMAGES } from '@src/constants';
 
-const PageContainer = styled(Box)(({ theme }) => ({
+const PageContainer = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'bg'
+})<{ bg?: string;  }>(({ theme, bg = 'transparent' }) => ({
   display: 'flex',
   flex: 1,
   flexDirection: 'column',
   width: '100%',
   padding: '32px 48px',
+  background: bg,
 
   [theme.breakpoints.up('lg')]: {
     padding: '32px 64px'

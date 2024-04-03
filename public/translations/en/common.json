@@ -30,7 +30,8 @@
     "back": "Back to Home",
     "favoriteEmptyText": "You can bring your favorite products together under this list by clicking on 'Add to My Likes' link on product pages.",
     "slowConnection": "Slow or no internet connection,",
-    "checkInternet": "Please check your internet settings and try again"
+    "checkInternet": "Please check your internet settings and try again",
+    "notFoundPage": "Something went wrong. Looks like this page doesn't exist anymore."
   },
   "footer": {
     "contactUs": "Contact us",

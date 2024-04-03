@@ -46,10 +46,12 @@ const Header = () => {
   const { favoritesList } = useAppSelector(appSelector);
   const router = useRouter();
   const isScrolled = useScroll();
-
+  console.log('router :>> ', router.pathname);
   const [isOpen, setOpen] = useState<boolean>(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [isDesktopMenuOpen, setDeesktopMenuOpen] = useState<boolean>(false);
+
+  const notFound = router.pathname === paths.notFound;
 
   useEffect(() => {
     const favItems = cookies.getFavoriteProducts();
@@ -112,7 +114,7 @@ const Header = () => {
     ));
 
   return (
-    <HeaderWrapper scrolled={Number(isScrolled)} component='header'>
+    <HeaderWrapper scrolled={Number(isScrolled)} component='header' bg={notFound ? GLOBAL_COLORS.darkBlue : ''}>
       <IconWrapper>
         <LogoButton onClick={toMainPage}>
           <IconComponent fill='#404040' name='logo' width={100} height={100} />

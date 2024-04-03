@@ -13,12 +13,13 @@ import theme from '../theme';
 
 import common_en from 'public/translations/en/common.json';
 import common_ru from 'public/translations/ru/common.json';
+import { LangEnum } from '@src/types';
 
 const { AppWrapper, ContentWrapper } = LayoutBlocks;
 
 i18next.init({
   interpolation: { escapeValue: false },
-  lng: 'en',
+  lng: LangEnum.EN,
   resources: {
     en: {
       common: common_en

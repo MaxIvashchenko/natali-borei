@@ -38,7 +38,7 @@ const ItemDetails = () => {
   const item = data.find((items) => items.id === id);
 
   const getColor = (isAvailable?: boolean) =>
-    isAvailable ? GLOBAL_COLORS.green : GLOBAL_COLORS.red;
+    isAvailable ? GLOBAL_COLORS.greenPrice : GLOBAL_COLORS.redPrice;
 
   const onShopRedirect = () =>
     router.push({

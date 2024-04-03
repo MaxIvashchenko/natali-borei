@@ -1,9 +1,10 @@
 import { Box, IconButton as MuiIconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { GLOBAL_COLORS } from '@src/constants';
 
 const FooterWrapper = styled(Box)(({ theme }) => ({
   padding: '24px 16px',
-  background: '#59585e',
+  background: GLOBAL_COLORS.darkBlue,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',

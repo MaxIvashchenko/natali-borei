@@ -7,7 +7,7 @@ import {
 import { styled } from '@mui/material/styles';
 import { GLOBAL_COLORS } from '@src/constants';
 
-const HeaderWrapper = styled(Box)<{ scrolled: number }>(({ scrolled }) => ({
+const HeaderWrapper = styled(Box)<{ scrolled: number, bg?: string }>(({ scrolled, bg }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -15,7 +15,7 @@ const HeaderWrapper = styled(Box)<{ scrolled: number }>(({ scrolled }) => ({
   zIndex: 10,
   position: 'fixed',
   transition: 'background 0.5s ease-out',
-  background: scrolled ? '#ffffffe6' : '#fff',
+  background: bg ? bg : scrolled ? '#ffffffe6' : '#fff',
   borderBottom: `4px solid ${GLOBAL_COLORS.gold}`,
   boxSizing: 'border-box'
 }));
@@ -99,7 +99,6 @@ const LogoButton = styled(MuiIconButton)(({ theme }) => ({
     }
   },
   [theme.breakpoints.down('md')]: {
-    background: 'white',
     position: 'absolute',
     zIndex: 91,
     transform: 'scale(0.7)',

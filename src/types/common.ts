@@ -84,4 +84,5 @@ export interface IPaths {
   admin: string;
   addItem: string;
   editItem: string;
+  notFound: string;
 }
