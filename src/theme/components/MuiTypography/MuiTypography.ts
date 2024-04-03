@@ -83,7 +83,7 @@ const MuiTypography: MuiTypographyType = {
       lineHeight: '12px',
       color: theme.palette.grey[700]
     })
-  },
+  }
 };
 
 export default MuiTypography;

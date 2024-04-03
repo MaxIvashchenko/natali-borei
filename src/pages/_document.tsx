@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
           <meta charSet='utf-8' />
           <link rel='manifest' href='/manifest.json' />
           <meta name='keywords' content={keywords} />
-          <meta name="theme-color" content="#ffffff"/>
+          <meta name='theme-color' content='#ffffff' />
 
           {/*Google / Search Engine Tags*/}
           <meta itemProp='title' content={title} />

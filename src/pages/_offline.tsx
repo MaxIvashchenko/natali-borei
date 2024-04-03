@@ -10,32 +10,58 @@ type WifiItemLine = {
   width: number;
   height: number;
   styles: SxProps<Theme>;
-}
+};
 
 const wifiConstructor: WifiItemLine[] = [
-  { name: 'wifiLine3', width: 160, height: 42, styles: { 'animation-delay': '800ms' } },
-  { name: 'wifiLine2', width: 140, height: 34, styles: { 'animation-delay': '400ms' } },
-  { name: 'wifiLine1', width: 120, height: 26, styles: {} },
-]
+  {
+    name: 'wifiLine3',
+    width: 160,
+    height: 42,
+    styles: { 'animation-delay': '800ms' }
+  },
+  {
+    name: 'wifiLine2',
+    width: 140,
+    height: 34,
+    styles: { 'animation-delay': '400ms' }
+  },
+  { name: 'wifiLine1', width: 120, height: 26, styles: {} }
+];
 
 const OfflinePage = () => {
   const { t } = useTranslation('common');
 
   return (
     <MainPage.PageContainer>
-      <Stack spacing={2} style={{ flex: 1, }} justifyContent='center' alignItems='center'>
+      <Stack
+        spacing={2}
+        style={{ flex: 1 }}
+        justifyContent='center'
+        alignItems='center'
+      >
         <Stack alignItems='center'>
           {wifiConstructor.map(({ name, width, height, styles }) => (
-            <Common.WifiAnimation height={height} sx={styles}>
+            <Common.WifiAnimation key={name} height={height} sx={styles}>
               <IconComponent name={name} width={width} height={height} />
             </Common.WifiAnimation>
           ))}
           <Common.Dot />
         </Stack>
-        <Typography variant='h2' textAlign='center' px={2} pt={5} color={GLOBAL_COLORS.gold}>
+        <Typography
+          variant='h2'
+          textAlign='center'
+          px={2}
+          pt={5}
+          color={GLOBAL_COLORS.gold}
+        >
           {t('common.slowConnection')}
         </Typography>
-        <Typography variant='h2' textAlign='center' px={2} color={GLOBAL_COLORS.gold}>
+        <Typography
+          variant='h2'
+          textAlign='center'
+          px={2}
+          color={GLOBAL_COLORS.gold}
+        >
           {t('common.checkInternet')}
         </Typography>
       </Stack>

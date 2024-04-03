@@ -57,8 +57,8 @@ const EmptyWrapper = styled(Box)({
 const WifiAnimation = styled(Box)({
   opacity: 0,
   animation: 'wifiAnimation 3s infinite',
-  'path': {
-    fill: GLOBAL_COLORS.gold,
+  path: {
+    fill: GLOBAL_COLORS.gold
   },
 
   '@keyframes wifiAnimation': {
@@ -74,7 +74,7 @@ const Dot = styled(Box)({
   height: 20,
   background: GLOBAL_COLORS.gold,
   borderRadius: 10,
-  marginTop: 8,
+  marginTop: 8
 });
 
 const Common = {
