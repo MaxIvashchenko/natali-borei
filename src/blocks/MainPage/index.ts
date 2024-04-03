@@ -4,7 +4,7 @@ import { IMAGES } from '@src/constants';
 
 const PageContainer = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'bg'
-})<{ bg?: string;  }>(({ theme, bg = 'transparent' }) => ({
+})<{ bg?: string }>(({ theme, bg = 'transparent' }) => ({
   display: 'flex',
   flex: 1,
   flexDirection: 'column',

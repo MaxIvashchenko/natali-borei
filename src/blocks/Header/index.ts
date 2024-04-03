@@ -7,18 +7,20 @@ import {
 import { styled } from '@mui/material/styles';
 import { GLOBAL_COLORS } from '@src/constants';
 
-const HeaderWrapper = styled(Box)<{ scrolled: number, bg?: string }>(({ scrolled, bg }) => ({
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  width: '100%',
-  zIndex: 10,
-  position: 'fixed',
-  transition: 'background 0.5s ease-out',
-  background: bg ? bg : scrolled ? '#ffffffe6' : '#fff',
-  borderBottom: `4px solid ${GLOBAL_COLORS.gold}`,
-  boxSizing: 'border-box'
-}));
+const HeaderWrapper = styled(Box)<{ scrolled: number; bg?: string }>(
+  ({ scrolled, bg }) => ({
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+    zIndex: 10,
+    position: 'fixed',
+    transition: 'background 0.5s ease-out',
+    background: bg ? bg : scrolled ? '#ffffffe6' : '#fff',
+    borderBottom: `4px solid ${GLOBAL_COLORS.gold}`,
+    boxSizing: 'border-box'
+  })
+);
 
 const PaddingWrapper = styled(Box)(({ theme }) => ({
   width: '100%',

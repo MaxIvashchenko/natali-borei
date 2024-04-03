@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { Stack, Typography } from '@mui/material';
-import { MainPage } from '@src/blocks';
 import { styled } from '@mui/material/styles';
+import { MainPage } from '@src/blocks';
 import { GLOBAL_COLORS } from '@src/constants';
 
 const ErrorNumber = styled(Typography)(({ theme }) => ({
-  color: GLOBAL_COLORS.white,
+  color: GLOBAL_COLORS.darkBlue,
   fontSize: 200,
   lineHeight: '200px',
   fontWeight: 400,
@@ -17,7 +17,7 @@ const ErrorNumber = styled(Typography)(({ theme }) => ({
 }));
 
 const ErrorText = styled(Typography)(({ theme }) => ({
-  color: GLOBAL_COLORS.white,
+  color: GLOBAL_COLORS.darkBlue,
   fontSize: 32,
   fontWeight: 700,
   textAlign: 'center',
@@ -28,7 +28,7 @@ const ErrorText = styled(Typography)(({ theme }) => ({
   }
 }));
 
-export default function NotFound() {
+const NotFound = () => {
   const { t } = useTranslation('common');
 
   return (
@@ -40,11 +40,13 @@ export default function NotFound() {
         alignItems='center'
         mb={16}
       >
-        <ErrorNumber variant='h1' pb={{ xs: 0, md: 4 }}>404</ErrorNumber>
-        <ErrorText>
-          {t('common.notFoundPage')}
-        </ErrorText>
+        <ErrorNumber variant='h1' pb={{ xs: 0, md: 4 }}>
+          404
+        </ErrorNumber>
+        <ErrorText>{t('common.notFoundPage')}</ErrorText>
       </Stack>
     </MainPage.PageContainer>
   );
-}
+};
+
+export default NotFound;

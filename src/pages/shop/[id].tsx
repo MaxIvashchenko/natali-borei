@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import {
@@ -18,9 +19,11 @@ import { data } from '@src/content';
 import { useWindowSize } from '@src/hooks';
 import { useAppDispatch, useAppSelector } from '@src/store/hooks';
 import { appSelector, handleFavoriteItem } from '@src/store/slices/appSlice';
+import { ShopItem } from '@src/types';
 import { getPriceFormat, imgLoader } from '@src/utils';
 import cookies from '@src/utils/cookies';
 import _get from 'lodash/get';
+import _isEmpty from 'lodash/isEmpty';
 
 const Wrapper = styled(Box)(({ theme }) => ({
   borderBottom: '1px solid grey',
@@ -28,14 +31,15 @@ const Wrapper = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {}
 }));
 
-const ItemDetails = () => {
+interface ItemDetailsProps {
+  item: ShopItem;
+}
+
+const ItemDetails = ({ item }: ItemDetailsProps) => {
   const { favoritesList } = useAppSelector(appSelector);
   const dispatch = useAppDispatch();
   const { t } = useTranslation('common');
   const router = useRouter();
-  const { id } = router.query;
-
-  const item = data.find((items) => items.id === id);
 
   const getColor = (isAvailable?: boolean) =>
     isAvailable ? GLOBAL_COLORS.greenPrice : GLOBAL_COLORS.redPrice;
@@ -60,13 +64,13 @@ const ItemDetails = () => {
   }, [size]);
 
   const isActive = useMemo(
-    () => favoritesList.some((existId) => existId === id),
-    [favoritesList, id]
+    () => favoritesList.some((existId) => existId === item.id),
+    [favoritesList, item.id]
   );
 
   const favIconHandler = () => {
-    cookies.setProductToFavorite(id as string);
-    dispatch(handleFavoriteItem(id as string));
+    cookies.setProductToFavorite(item.id as string);
+    dispatch(handleFavoriteItem(item.id as string));
   };
 
   return (
@@ -176,4 +180,20 @@ const ItemDetails = () => {
   );
 };
 
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const queryId = _get(context, 'query.id');
+  const item = data.find(({ id }) => id === queryId);
+
+  const isEmpty = _isEmpty(item);
+
+  if (isEmpty) {
+    return {
+      notFound: true
+    };
+  }
+
+  return {
+    props: { item }
+  };
+};
 export default ItemDetails;

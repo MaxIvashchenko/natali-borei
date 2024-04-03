@@ -6,6 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import { Footer, Header, Layout } from '@src/componets';
 import store from '@src/store';
+import { LangEnum } from '@src/types';
 import i18next from 'i18next';
 
 import { Layout as LayoutBlocks } from 'blocks';
@@ -13,7 +14,6 @@ import theme from '../theme';
 
 import common_en from 'public/translations/en/common.json';
 import common_ru from 'public/translations/ru/common.json';
-import { LangEnum } from '@src/types';
 
 const { AppWrapper, ContentWrapper } = LayoutBlocks;
 
