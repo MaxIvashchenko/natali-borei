@@ -168,6 +168,7 @@ const ItemDetails = ({ item }: ItemDetailsProps) => {
               src={imageCover}
               alt={item?.ru.name + '-photo'}
               fill
+              priority
               style={{ objectFit: 'cover' }}
               sizes='(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,

@@ -25,7 +25,8 @@ const nextConfig = {
     EMAIL_SERVER_PASSWORD: process.env.EMAIL_SERVER_PASSWORD,
     EMAIL_SERVER_HOST: process.env.EMAIL_SERVER_HOST,
     EMAIL_SERVER_PORT: process.env.EMAIL_SERVER_PORT,
-    EMAIL_FROM: process.env.EMAIL_FROM
+    EMAIL_FROM: process.env.EMAIL_FROM,
+    VERCEL_STORAGE_URL: process.env.VERCEL_STORAGE_URL
   },
   eslint: {
     ignoreDuringBuilds: true

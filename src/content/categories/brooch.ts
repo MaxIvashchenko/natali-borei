@@ -1,7 +1,7 @@
 import { CategoryType } from '@src/types';
 
-const STORAGE_URL = process.env.STORAGE_URL;
-const path = STORAGE_URL + '/public/common/items';
+const VERCEL_STORAGE_URL = process.env.VERCEL_STORAGE_URL;
+const path = VERCEL_STORAGE_URL + '/common/items';
 
 export const brooch = [
   {

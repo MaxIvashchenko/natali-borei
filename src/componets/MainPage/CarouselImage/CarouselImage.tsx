@@ -4,8 +4,8 @@ import { Box } from '@mui/material';
 import { useWindowSize } from '@src/hooks';
 import { imgLoader } from '@src/utils';
 
-const STORAGE_URL = process.env.STORAGE_URL;
-const path = STORAGE_URL + '/public/common/carousel';
+const VERCEL_STORAGE_URL = process.env.VERCEL_STORAGE_URL;
+const path = VERCEL_STORAGE_URL + '/common/carousel';
 
 interface CarouselImageProps {
   num: number;
