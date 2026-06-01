@@ -1,0 +1,91 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+const LANGS = [
+  { code: "ru", label: "Русский" },
+  { code: "en", label: "English" },
+  { code: "de", label: "Deutsch" },
+] as const;
+
+type LangCode = (typeof LANGS)[number]["code"];
+
+export default function LangSwitch() {
+  const [open, setOpen] = useState(false);
+  const [lang, setLang] = useState<LangCode>("ru");
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("nb-lang") as LangCode | null;
+    const initial = saved && LANGS.some((l) => l.code === saved) ? saved : "ru";
+    setLang(initial);
+    document.documentElement.lang = initial;
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    const onOutside = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onOutside);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onOutside);
+    };
+  }, []);
+
+  const select = (code: LangCode) => {
+    setLang(code);
+    setOpen(false);
+    localStorage.setItem("nb-lang", code);
+    document.documentElement.lang = code;
+  };
+
+  return (
+    <div
+      ref={ref}
+      className="lang-switch"
+      data-open={open ? "true" : undefined}
+    >
+      <button
+        className="lang-switch__trigger"
+        type="button"
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        onClick={() => setOpen((v) => !v)}
+      >
+        {lang.toUpperCase()}
+        <svg
+          className="lang-switch__chev"
+          viewBox="0 0 8 8"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.3"
+          aria-hidden="true"
+        >
+          <path d="M1 2.5l3 3 3-3" />
+        </svg>
+      </button>
+
+      <ul className="lang-switch__menu" role="listbox" aria-label="Выбрать язык">
+        {LANGS.map((l) => (
+          <li key={l.code}>
+            <button
+              className={`lang-switch__item${lang === l.code ? " is-active" : ""}`}
+              role="option"
+              aria-selected={lang === l.code}
+              type="button"
+              onClick={() => select(l.code)}
+            >
+              {l.label}
+              <span className="lang-switch__item-code">{l.code.toUpperCase()}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}

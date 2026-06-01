@@ -1,0 +1,184 @@
+/* ============================================================
+   NATALI BOREI — Custom Scrollbar
+   Gold thumb on near-invisible dark track. 6px → 8px on hover.
+   ============================================================ */
+
+/* ---------- Smooth scroll on the page ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ============================================================
+   WEBKIT  (Chrome, Safari, Edge, Opera)
+   ============================================================ */
+
+/* Width / height (vertical + horizontal) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  transition: width .35s ease, height .35s ease;
+}
+
+/* Track — very subtle, blends into the graphite background */
+::-webkit-scrollbar-track {
+  background: rgba(13, 13, 13, 0.4);
+  border-radius: 100px;
+  margin: 4px 0;
+}
+
+::-webkit-scrollbar-track:horizontal {
+  margin: 0 4px;
+}
+
+/* Thumb — golden, low opacity at rest */
+::-webkit-scrollbar-thumb {
+  background: rgba(184, 150, 62, 0.4);          /* var(--gold-mid) @ 40% */
+  border-radius: 100px;
+  transition:
+    background-color .4s ease,
+    box-shadow .4s ease,
+    opacity .4s ease;
+}
+
+/* Hovering the scrollbar area — brighten + widen the thumb */
+::-webkit-scrollbar:hover {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 90, 1);             /* var(--gold-light) */
+  box-shadow:
+    0 0 6px rgba(184, 150, 62, 0.35),
+    inset 0 0 0 1px rgba(240, 208, 128, 0.4);
+}
+
+/* Active state — full gold with soft glow */
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(
+    180deg,
+    #F0D080 0%,
+    #D4AF5A 50%,
+    #B8963E 100%
+  );                                              /* shimmer → light → mid */
+  box-shadow:
+    0 0 10px rgba(240, 208, 128, 0.55),
+    0 0 18px rgba(184, 150, 62, 0.35),
+    inset 0 0 0 1px rgba(240, 208, 128, 0.6);
+}
+
+/* Corner where vertical + horizontal meet */
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Hide the increment/decrement buttons (clean look) */
+::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* ============================================================
+   FIREFOX
+   ============================================================ */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(184, 150, 62, 0.4) rgba(13, 13, 13, 0.4);
+}
+
+/* Brighten on hover (limited Firefox support, but graceful) */
+*:hover {
+  scrollbar-color: rgba(212, 175, 90, 0.85) rgba(13, 13, 13, 0.5);
+}
+
+/* ============================================================
+   INNER SCROLLABLE BLOCKS
+   (mini-cart dropdown, shop sidebar, modals, etc.)
+   Same scrollbar treatment — kept here so any future
+   .has-scroll element inherits the gold feel even if a
+   component overrides ::-webkit-scrollbar locally.
+   ============================================================ */
+
+.minicart,
+.minicart__list,
+.shop-sidebar,
+.shop__sidebar,
+.modal,
+.modal__body,
+.has-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(184, 150, 62, 0.45) rgba(13, 13, 13, 0.35);
+}
+
+.minicart::-webkit-scrollbar,
+.minicart__list::-webkit-scrollbar,
+.shop-sidebar::-webkit-scrollbar,
+.shop__sidebar::-webkit-scrollbar,
+.modal::-webkit-scrollbar,
+.modal__body::-webkit-scrollbar,
+.has-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.minicart::-webkit-scrollbar-track,
+.minicart__list::-webkit-scrollbar-track,
+.shop-sidebar::-webkit-scrollbar-track,
+.shop__sidebar::-webkit-scrollbar-track,
+.modal::-webkit-scrollbar-track,
+.modal__body::-webkit-scrollbar-track,
+.has-scroll::-webkit-scrollbar-track {
+  background: rgba(13, 13, 13, 0.35);
+  border-radius: 100px;
+  margin: 6px 0;
+}
+
+.minicart::-webkit-scrollbar-thumb,
+.minicart__list::-webkit-scrollbar-thumb,
+.shop-sidebar::-webkit-scrollbar-thumb,
+.shop__sidebar::-webkit-scrollbar-thumb,
+.modal::-webkit-scrollbar-thumb,
+.modal__body::-webkit-scrollbar-thumb,
+.has-scroll::-webkit-scrollbar-thumb {
+  background: rgba(184, 150, 62, 0.45);
+  border-radius: 100px;
+  transition: background-color .4s ease, box-shadow .4s ease;
+}
+
+.minicart::-webkit-scrollbar-thumb:hover,
+.minicart__list::-webkit-scrollbar-thumb:hover,
+.shop-sidebar::-webkit-scrollbar-thumb:hover,
+.shop__sidebar::-webkit-scrollbar-thumb:hover,
+.modal::-webkit-scrollbar-thumb:hover,
+.modal__body::-webkit-scrollbar-thumb:hover,
+.has-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 90, 1);
+  box-shadow:
+    0 0 6px rgba(184, 150, 62, 0.35),
+    inset 0 0 0 1px rgba(240, 208, 128, 0.4);
+}
+
+.minicart::-webkit-scrollbar-thumb:active,
+.minicart__list::-webkit-scrollbar-thumb:active,
+.shop-sidebar::-webkit-scrollbar-thumb:active,
+.shop__sidebar::-webkit-scrollbar-thumb:active,
+.modal::-webkit-scrollbar-thumb:active,
+.modal__body::-webkit-scrollbar-thumb:active,
+.has-scroll::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(
+    180deg,
+    #F0D080 0%,
+    #D4AF5A 50%,
+    #B8963E 100%
+  );
+  box-shadow:
+    0 0 10px rgba(240, 208, 128, 0.55),
+    0 0 18px rgba(184, 150, 62, 0.35),
+    inset 0 0 0 1px rgba(240, 208, 128, 0.6);
+}

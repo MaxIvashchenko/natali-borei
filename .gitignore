@@ -16,6 +16,9 @@
 # next.js
 /.next/
 /out/
+/.claude
+/.cursor
+/natali-borei
 
 # production
 /build
