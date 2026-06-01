@@ -42,8 +42,13 @@ export const PRODUCTS: Product[] = [
     ],
     size: "7 × 4,5 см",
     chain: "",
-    materials: ["Матовый чёрный бисер Miyuki", "Перламутр", "Хрустальная капля Swarovski"],
-    closing: "Miraje — украшение для тех, кто ценит спокойную силу и сдержанную красоту.",
+    materials: [
+      "Матовый чёрный бисер Miyuki",
+      "Перламутр",
+      "Хрустальная капля Swarovski",
+    ],
+    closing:
+      "Miraje — украшение для тех, кто ценит спокойную силу и сдержанную красоту.",
   },
   {
     id: "ambra-noir",
@@ -62,8 +67,13 @@ export const PRODUCTS: Product[] = [
     ],
     size: "6 × 4 см",
     chain: "",
-    materials: ["Матовый чёрный бисер", "Балтийский янтарь", "Золотистый рубчик"],
-    closing: "Ambra Noir — украшение-портрет: тёплое сердце под глубокой ночью.",
+    materials: [
+      "Матовый чёрный бисер",
+      "Балтийский янтарь",
+      "Золотистый рубчик",
+    ],
+    closing:
+      "Ambra Noir — украшение-портрет: тёплое сердце под глубокой ночью.",
   },
   {
     id: "shining-river",
@@ -74,15 +84,22 @@ export const PRODUCTS: Product[] = [
     cat: "cuff",
     subCat: "Couture Cuff",
     img: "/photos/shining-river.jpg",
-    media: [{ type: "image", src: "/photos/shining-river.jpg", kind: "product" }],
-    intro: "Браслет в тёплых золотисто-персиковых оттенках с пресноводным жемчугом.",
+    media: [
+      { type: "image", src: "/photos/shining-river.jpg", kind: "product" },
+    ],
+    intro:
+      "Браслет в тёплых золотисто-персиковых оттенках с пресноводным жемчугом.",
     story: [
       "Поток жемчужин течёт по золотой реке бисера — украшение строится на ощущении движения и света.",
       "Ручная вышивка сочетает оттенки от персиковых до медовых, переходящих один в другой.",
     ],
     size: "18 × 3,5 см",
     chain: "",
-    materials: ["Бисер Miyuki золотистых оттенков", "Пресноводный жемчуг", "Декоративные кристаллы"],
+    materials: [
+      "Бисер Miyuki золотистых оттенков",
+      "Пресноводный жемчуг",
+      "Декоративные кристаллы",
+    ],
     closing: "Shining River — золотое течение, остановленное на запястье.",
   },
   {
@@ -122,8 +139,13 @@ export const PRODUCTS: Product[] = [
     ],
     size: "7 × 5,5 см",
     chain: "",
-    materials: ["Бисер медных и бронзовых оттенков", "Чешские кристаллы", "Срез агатовой геоды"],
-    closing: "Mandragora — украшение-объект, в котором природа становится драгоценностью.",
+    materials: [
+      "Бисер медных и бронзовых оттенков",
+      "Чешские кристаллы",
+      "Срез агатовой геоды",
+    ],
+    closing:
+      "Mandragora — украшение-объект, в котором природа становится драгоценностью.",
   },
   {
     id: "hranitel",
@@ -148,7 +170,8 @@ export const PRODUCTS: Product[] = [
       "Кристаллы Swarovski",
       "Тёмный жемчуг",
     ],
-    closing: "Amber Guardian — украшение для тех, кто помнит вес собственной истории.",
+    closing:
+      "Amber Guardian — украшение для тех, кто помнит вес собственной истории.",
   },
   {
     id: "zastyvshaya",
@@ -160,7 +183,8 @@ export const PRODUCTS: Product[] = [
     subCat: "Art Pendant",
     img: "/photos/zastyvshaya.jpg",
     media: [{ type: "image", src: "/photos/zastyvshaya.jpg", kind: "product" }],
-    intro: "Длинный кулон с крупной янтарной каплей в авторской оправе из бисера.",
+    intro:
+      "Длинный кулон с крупной янтарной каплей в авторской оправе из бисера.",
     story: [
       "Янтарь — окаменевшая смола, в которой время остановилось. Украшение строится вокруг этой идеи: спокойный жест, медленный ритм.",
       "Бисер оплетает камень в технике плотной бугорчатой вышивки и оставляет ему главную роль.",
@@ -179,7 +203,9 @@ export const PRODUCTS: Product[] = [
     cat: "bracelet",
     subCat: "Bracelet",
     img: "/photos/rosali-bracelet.jpg",
-    media: [{ type: "image", src: "/photos/rosali-bracelet.jpg", kind: "product" }],
+    media: [
+      { type: "image", src: "/photos/rosali-bracelet.jpg", kind: "product" },
+    ],
     intro: "Браслет с центральным розовым кварцем на основе из чёрного бисера.",
     story: [
       "Мягкий розовый камень в густой графитовой оправе — нежность в строгом обрамлении.",
@@ -187,7 +213,12 @@ export const PRODUCTS: Product[] = [
     ],
     size: "18 × 4 см",
     chain: "",
-    materials: ["Розовый кварц", "Матовый чёрный бисер", "Жемчуг", "Декоративные кристаллы"],
+    materials: [
+      "Розовый кварц",
+      "Матовый чёрный бисер",
+      "Жемчуг",
+      "Декоративные кристаллы",
+    ],
     closing: "Rosali — про женственность, оправленную в характер.",
   },
   {
@@ -199,7 +230,9 @@ export const PRODUCTS: Product[] = [
     cat: "pendant",
     subCat: "Pendant",
     img: "/photos/rosali-pendant.jpg",
-    media: [{ type: "image", src: "/photos/rosali-pendant.jpg", kind: "product" }],
+    media: [
+      { type: "image", src: "/photos/rosali-pendant.jpg", kind: "product" },
+    ],
     intro: "Кулон с розовым кварцем — компактная версия линии Rosali.",
     story: [
       "Камень в овальной оправе, окружённый каскадом мелких кристаллов и жемчуга. Лёгкий, ежедневный, но не тривиальный.",
@@ -243,7 +276,8 @@ export const PRODUCTS: Product[] = [
     subCat: "Necklace",
     img: "/photos/oko.jpg",
     media: [{ type: "image", src: "/photos/oko.jpg", kind: "product" }],
-    intro: "Кулон-медальон с глубокой бирюзовой хрустальной вставкой и веточкой коралла.",
+    intro:
+      "Кулон-медальон с глубокой бирюзовой хрустальной вставкой и веточкой коралла.",
     story: [
       "Большой круглый кристалл цвета морской воды как смотрит в ответ — отсюда название.",
       "Акценты из натурального коралла и пресноводного жемчуга добавляют органики и истории.",

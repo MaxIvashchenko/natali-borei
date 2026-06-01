@@ -31,8 +31,21 @@ const SORT_OPTIONS: { key: SortKey; label: string }[] = [
 ];
 
 const ChevronSvg = () => (
-  <svg className="nb-select__chev" width="9" height="6" viewBox="0 0 9 6" fill="none" aria-hidden="true">
-    <path d="M1 1 L4.5 4.5 L8 1" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
+  <svg
+    className="nb-select__chev"
+    width="9"
+    height="6"
+    viewBox="0 0 9 6"
+    fill="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M1 1 L4.5 4.5 L8 1"
+      stroke="currentColor"
+      strokeWidth="1.1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
@@ -46,9 +59,10 @@ export default function ShopPage() {
     let list = PRODUCTS.filter(
       (p) =>
         (activeColl === "all" || p.coll === activeColl) &&
-        (activeCat === "all" || p.cat === activeCat)
+        (activeCat === "all" || p.cat === activeCat),
     );
-    if (sort === "name") list = [...list].sort((a, b) => a.name.localeCompare(b.name, "ru"));
+    if (sort === "name")
+      list = [...list].sort((a, b) => a.name.localeCompare(b.name, "ru"));
     else if (sort === "coll") {
       const rank: Record<string, number> = { beadwork: 0, contempo: 1 };
       list = [...list].sort((a, b) => rank[a.coll] - rank[b.coll]);
@@ -61,19 +75,30 @@ export default function ShopPage() {
     setActiveCat("all");
   };
 
-  const subCats = activeColl === "beadwork" ? BEADWORK_CATS : activeColl === "contempo" ? CONTEMPO_CATS : null;
+  const subCats =
+    activeColl === "beadwork"
+      ? BEADWORK_CATS
+      : activeColl === "contempo"
+        ? CONTEMPO_CATS
+        : null;
 
-  const currentSortLabel = SORT_OPTIONS.find((o) => o.key === sort)?.label ?? "";
+  const currentSortLabel =
+    SORT_OPTIONS.find((o) => o.key === sort)?.label ?? "";
 
   return (
     <main className="shop">
       <header className="shop__head">
-        <Breadcrumbs crumbs={[{ label: "Главная", href: "/" }, { label: "Каталог" }]} />
+        <Breadcrumbs
+          crumbs={[{ label: "Главная", href: "/" }, { label: "Каталог" }]}
+        />
         <p className="eyebrow shop__eyebrow">Каталог украшений</p>
-        <h1 className="shop__title"><em>Все украшения</em></h1>
+        <h1 className="shop__title">
+          <em>Все украшения</em>
+        </h1>
         <hr className="gold-line gold-line--wide" />
         <p className="shop__sub">
-          Каждое украшение создано вручную в нашей мастерской — в единственном экземпляре, никогда не повторяется.
+          Каждое украшение создано вручную в нашей мастерской — в единственном
+          экземпляре, никогда не повторяется.
         </p>
       </header>
 
@@ -86,7 +111,11 @@ export default function ShopPage() {
               type="button"
               onClick={() => handleColl(key)}
             >
-              {key === "all" ? "Все" : key === "beadwork" ? "Beadwork Art" : "Contemporary"}
+              {key === "all"
+                ? "Все"
+                : key === "beadwork"
+                  ? "Beadwork Art"
+                  : "Contemporary"}
             </button>
           ))}
 
@@ -111,7 +140,10 @@ export default function ShopPage() {
                     className={`nb-select__opt${sort === o.key ? " is-selected" : ""}`}
                     role="option"
                     aria-selected={sort === o.key}
-                    onClick={() => { setSort(o.key); setSortOpen(false); }}
+                    onClick={() => {
+                      setSort(o.key);
+                      setSortOpen(false);
+                    }}
                   >
                     {o.label}
                   </li>

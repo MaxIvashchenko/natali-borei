@@ -1,9 +1,22 @@
 import Link from "next/link";
 
-
 const DividerSVG = () => (
-  <svg width="180" height="14" viewBox="0 0 180 14" fill="none" aria-hidden="true">
-    <line x1="0" y1="7" x2="66" y2="7" stroke="#B8963E" strokeWidth="0.8" opacity="0.55" />
+  <svg
+    width="180"
+    height="14"
+    viewBox="0 0 180 14"
+    fill="none"
+    aria-hidden="true"
+  >
+    <line
+      x1="0"
+      y1="7"
+      x2="66"
+      y2="7"
+      stroke="#B8963E"
+      strokeWidth="0.8"
+      opacity="0.55"
+    />
     <rect
       x="72"
       y="2"
@@ -27,10 +40,17 @@ const DividerSVG = () => (
       opacity="0.7"
       fill="none"
     />
-    <line x1="114" y1="7" x2="180" y2="7" stroke="#B8963E" strokeWidth="0.8" opacity="0.55" />
+    <line
+      x1="114"
+      y1="7"
+      x2="180"
+      y2="7"
+      stroke="#B8963E"
+      strokeWidth="0.8"
+      opacity="0.55"
+    />
   </svg>
 );
-
 
 export default function CollectionDiptych() {
   return (
@@ -52,14 +72,16 @@ export default function CollectionDiptych() {
         </figure>
 
         <div className="diptych__copy">
-          <p className="eyebrow diptych__eyebrow">Collection I &nbsp;·&nbsp; The Atelier</p>
+          <p className="eyebrow diptych__eyebrow">
+            Collection I &nbsp;·&nbsp; The Atelier
+          </p>
           <h2 className="diptych__title">
             Beadwork <em>Art</em>
           </h2>
           <hr className="gold-line" />
           <p className="diptych__lede">
-            Sculptural, one-of-a-kind pieces hand-embroidered in glass beads — slow craft for
-            collectors of objects with soul.
+            Sculptural, one-of-a-kind pieces hand-embroidered in glass beads —
+            slow craft for collectors of objects with soul.
           </p>
 
           <ul className="diptych__index">
@@ -101,14 +123,16 @@ export default function CollectionDiptych() {
         </span>
 
         <div className="diptych__copy">
-          <p className="eyebrow diptych__eyebrow">Collection II &nbsp;·&nbsp; Modern Forms</p>
+          <p className="eyebrow diptych__eyebrow">
+            Collection II &nbsp;·&nbsp; Modern Forms
+          </p>
           <h2 className="diptych__title">
             Contemporary <em>Jewelry</em>
           </h2>
           <hr className="gold-line" />
           <p className="diptych__lede">
-            Restrained silhouettes built from Japanese Miyuki and TOHO beads — precise, modern, and
-            unapologetic.
+            Restrained silhouettes built from Japanese Miyuki and TOHO beads —
+            precise, modern, and unapologetic.
           </p>
 
           <ul className="diptych__index">

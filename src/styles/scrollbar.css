@@ -10,7 +10,9 @@ html {
 
 /* Respect user preference */
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* ============================================================
@@ -21,7 +23,9 @@ html {
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
-  transition: width .35s ease, height .35s ease;
+  transition:
+    width 0.35s ease,
+    height 0.35s ease;
 }
 
 /* Track — very subtle, blends into the graphite background */
@@ -37,12 +41,12 @@ html {
 
 /* Thumb — golden, low opacity at rest */
 ::-webkit-scrollbar-thumb {
-  background: rgba(184, 150, 62, 0.4);          /* var(--gold-mid) @ 40% */
+  background: rgba(184, 150, 62, 0.4); /* var(--gold-mid) @ 40% */
   border-radius: 100px;
   transition:
-    background-color .4s ease,
-    box-shadow .4s ease,
-    opacity .4s ease;
+    background-color 0.4s ease,
+    box-shadow 0.4s ease,
+    opacity 0.4s ease;
 }
 
 /* Hovering the scrollbar area — brighten + widen the thumb */
@@ -52,7 +56,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(212, 175, 90, 1);             /* var(--gold-light) */
+  background: rgba(212, 175, 90, 1); /* var(--gold-light) */
   box-shadow:
     0 0 6px rgba(184, 150, 62, 0.35),
     inset 0 0 0 1px rgba(240, 208, 128, 0.4);
@@ -62,10 +66,10 @@ html {
 ::-webkit-scrollbar-thumb:active {
   background: linear-gradient(
     180deg,
-    #F0D080 0%,
-    #D4AF5A 50%,
-    #B8963E 100%
-  );                                              /* shimmer → light → mid */
+    #f0d080 0%,
+    #d4af5a 50%,
+    #b8963e 100%
+  ); /* shimmer → light → mid */
   box-shadow:
     0 0 10px rgba(240, 208, 128, 0.55),
     0 0 18px rgba(184, 150, 62, 0.35),
@@ -148,7 +152,9 @@ html {
 .has-scroll::-webkit-scrollbar-thumb {
   background: rgba(184, 150, 62, 0.45);
   border-radius: 100px;
-  transition: background-color .4s ease, box-shadow .4s ease;
+  transition:
+    background-color 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .minicart::-webkit-scrollbar-thumb:hover,
@@ -171,12 +177,7 @@ html {
 .modal::-webkit-scrollbar-thumb:active,
 .modal__body::-webkit-scrollbar-thumb:active,
 .has-scroll::-webkit-scrollbar-thumb:active {
-  background: linear-gradient(
-    180deg,
-    #F0D080 0%,
-    #D4AF5A 50%,
-    #B8963E 100%
-  );
+  background: linear-gradient(180deg, #f0d080 0%, #d4af5a 50%, #b8963e 100%);
   box-shadow:
     0 0 10px rgba(240, 208, 128, 0.55),
     0 0 18px rgba(184, 150, 62, 0.35),

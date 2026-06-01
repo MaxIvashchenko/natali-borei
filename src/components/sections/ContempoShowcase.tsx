@@ -54,17 +54,24 @@ export default function ContempoShowcase() {
           </h2>
           <hr className="gold-line contempo__rule" />
           <p className="contempo__body">
-            Sculptural silhouettes shaped from Japanese Miyuki and TOHO beads — restrained,
-            precise, and unapologetically contemporary.
+            Sculptural silhouettes shaped from Japanese Miyuki and TOHO beads —
+            restrained, precise, and unapologetically contemporary.
           </p>
-          <p className="contempo__subs">Necklaces &nbsp;·&nbsp; Bracelets &nbsp;·&nbsp; Pendants</p>
+          <p className="contempo__subs">
+            Necklaces &nbsp;·&nbsp; Bracelets &nbsp;·&nbsp; Pendants
+          </p>
           <Link className="arrow-link contempo__cta" href="/shop">
             Explore Collection <span className="arr">→</span>
           </Link>
         </div>
 
         {products.map((p) => (
-          <Link key={p.name + p.cat} className="prod-card" href={p.href} aria-label={p.name}>
+          <Link
+            key={p.name + p.cat}
+            className="prod-card"
+            href={p.href}
+            aria-label={p.name}
+          >
             <div className="prod-card__media">
               <div className="ph ph--cool">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -38,15 +38,13 @@ export default function AdminLoginPage() {
 
     if (u === ADMIN_USER && p === ADMIN_PASS) {
       const token = btoa(
-        "nb-" + Date.now() + "-" + Math.random().toString(36).slice(2)
+        "nb-" + Date.now() + "-" + Math.random().toString(36).slice(2),
       );
       localStorage.setItem("nb-admin-auth", token);
       setTimeout(() => router.replace("/admin"), 400);
     } else {
       setShake(true);
-      const passInput = form.elements.namedItem(
-        "password"
-      ) as HTMLInputElement;
+      const passInput = form.elements.namedItem("password") as HTMLInputElement;
       passInput.value = "";
       passInput.focus();
       setTimeout(() => setShake(false), 500);
@@ -126,9 +124,7 @@ export default function AdminLoginPage() {
               >
                 <path d="M2 11s3-6 9-6 9 6 9 6-3 6-9 6-9-6-9-6z" />
                 <circle cx="11" cy="11" r="3" />
-                {showPass && (
-                  <path d="M3 3l16 16" strokeLinecap="round" />
-                )}
+                {showPass && <path d="M3 3l16 16" strokeLinecap="round" />}
               </svg>
             </button>
           </div>

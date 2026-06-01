@@ -1,8 +1,22 @@
 import Link from "next/link";
 
 const OrnamentSVG = () => (
-  <svg width="180" height="14" viewBox="0 0 180 14" fill="none" aria-hidden="true">
-    <line x1="0" y1="7" x2="66" y2="7" stroke="#B8963E" strokeWidth="0.8" opacity="0.55" />
+  <svg
+    width="180"
+    height="14"
+    viewBox="0 0 180 14"
+    fill="none"
+    aria-hidden="true"
+  >
+    <line
+      x1="0"
+      y1="7"
+      x2="66"
+      y2="7"
+      stroke="#B8963E"
+      strokeWidth="0.8"
+      opacity="0.55"
+    />
     <rect
       x="72"
       y="2"
@@ -26,7 +40,15 @@ const OrnamentSVG = () => (
       opacity="0.7"
       fill="none"
     />
-    <line x1="114" y1="7" x2="180" y2="7" stroke="#B8963E" strokeWidth="0.8" opacity="0.55" />
+    <line
+      x1="114"
+      y1="7"
+      x2="180"
+      y2="7"
+      stroke="#B8963E"
+      strokeWidth="0.8"
+      opacity="0.55"
+    />
   </svg>
 );
 
@@ -58,7 +80,14 @@ interface ProductCardProps {
   label?: string;
 }
 
-function ProductCard({ href, src, alt, name, cat, label = "View Piece" }: ProductCardProps) {
+function ProductCard({
+  href,
+  src,
+  alt,
+  name,
+  cat,
+  label = "View Piece",
+}: ProductCardProps) {
   return (
     <Link className="prod-card" href={href} aria-label={name}>
       <div className="prod-card__media">

@@ -1,6 +1,11 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useSyncExternalStore,
+} from "react";
 import { formatPrice, PRODUCTS } from "@/lib/products";
 
 interface CartItem {
@@ -27,6 +32,8 @@ const StoreContext = createContext<StoreContextValue | null>(null);
 
 const CART_KEY = "nb-cart";
 const FAV_KEY = "nb-fav";
+const CART_EVENT = "nb:store:cart";
+const FAV_EVENT = "nb:store:fav";
 
 function readLS<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") return fallback;
@@ -44,24 +51,49 @@ function writeLS(key: string, value: unknown) {
   } catch {}
 }
 
+function subscribeStore(event: string) {
+  return (onStoreChange: () => void) => {
+    const handler = () => onStoreChange();
+    window.addEventListener(event, handler);
+    return () => window.removeEventListener(event, handler);
+  };
+}
+
+function useStoreSlice<T>(key: string, event: string, fallback: T) {
+  return useSyncExternalStore(
+    subscribeStore(event),
+    () => readLS(key, fallback),
+    () => fallback,
+  );
+}
+
+function publishStore(event: string) {
+  window.dispatchEvent(new Event(event));
+}
+
 export function StoreProvider({ children }: { children: React.ReactNode }) {
-  const [cart, setCart] = useState<CartItem[]>([]);
-  const [favorites, setFavorites] = useState<string[]>([]);
-  const [hydrated, setHydrated] = useState(false);
+  const cart = useStoreSlice<CartItem[]>(CART_KEY, CART_EVENT, []);
+  const favorites = useStoreSlice<string[]>(FAV_KEY, FAV_EVENT, []);
 
-  useEffect(() => {
-    setCart(readLS<CartItem[]>(CART_KEY, []));
-    setFavorites(readLS<string[]>(FAV_KEY, []));
-    setHydrated(true);
-  }, []);
+  const setCart = useCallback(
+    (updater: CartItem[] | ((prev: CartItem[]) => CartItem[])) => {
+      const prev = readLS<CartItem[]>(CART_KEY, []);
+      const next = typeof updater === "function" ? updater(prev) : updater;
+      writeLS(CART_KEY, next);
+      publishStore(CART_EVENT);
+    },
+    [],
+  );
 
-  useEffect(() => {
-    if (hydrated) writeLS(CART_KEY, cart);
-  }, [cart, hydrated]);
-
-  useEffect(() => {
-    if (hydrated) writeLS(FAV_KEY, favorites);
-  }, [favorites, hydrated]);
+  const setFavorites = useCallback(
+    (updater: string[] | ((prev: string[]) => string[])) => {
+      const prev = readLS<string[]>(FAV_KEY, []);
+      const next = typeof updater === "function" ? updater(prev) : updater;
+      writeLS(FAV_KEY, next);
+      publishStore(FAV_EVENT);
+    },
+    [],
+  );
 
   const cartCount = cart.reduce((s, i) => s + i.qty, 0);
   const cartTotal = cart.reduce((s, i) => {
@@ -73,38 +105,59 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     if (typeof window !== "undefined") window.dispatchEvent(new Event(name));
   };
 
-  const addToCart = useCallback((id: string, qty = 1) => {
-    setCart((prev) => {
-      const existing = prev.find((i) => i.id === id);
-      if (existing) return prev.map((i) => (i.id === id ? { ...i, qty: i.qty + qty } : i));
-      return [...prev, { id, qty }];
-    });
-    dispatch("nb:cart:added");
-  }, []);
+  const addToCart = useCallback(
+    (id: string, qty = 1) => {
+      setCart((prev) => {
+        const existing = prev.find((i) => i.id === id);
+        if (existing)
+          return prev.map((i) =>
+            i.id === id ? { ...i, qty: i.qty + qty } : i,
+          );
+        return [...prev, { id, qty }];
+      });
+      dispatch("nb:cart:added");
+    },
+    [setCart],
+  );
 
-  const removeFromCart = useCallback((id: string) => {
-    setCart((prev) => prev.filter((i) => i.id !== id));
-    dispatch("nb:cart:removed");
-  }, []);
+  const removeFromCart = useCallback(
+    (id: string) => {
+      setCart((prev) => prev.filter((i) => i.id !== id));
+      dispatch("nb:cart:removed");
+    },
+    [setCart],
+  );
 
-  const setQty = useCallback((id: string, qty: number) => {
-    setCart((prev) =>
-      prev.map((i) => (i.id === id ? { ...i, qty: Math.max(1, qty) } : i))
-    );
-  }, []);
+  const setQty = useCallback(
+    (id: string, qty: number) => {
+      setCart((prev) =>
+        prev.map((i) => (i.id === id ? { ...i, qty: Math.max(1, qty) } : i)),
+      );
+    },
+    [setCart],
+  );
 
-  const clearCart = useCallback(() => setCart([]), []);
+  const clearCart = useCallback(() => setCart([]), [setCart]);
 
-  const toggleFav = useCallback((id: string) => {
-    setFavorites((prev) => {
-      const adding = !prev.includes(id);
-      dispatch(adding ? "nb:fav:added" : "nb:fav:removed");
-      return adding ? [...prev, id] : prev.filter((x) => x !== id);
-    });
-  }, []);
+  const toggleFav = useCallback(
+    (id: string) => {
+      setFavorites((prev) => {
+        const adding = !prev.includes(id);
+        dispatch(adding ? "nb:fav:added" : "nb:fav:removed");
+        return adding ? [...prev, id] : prev.filter((x) => x !== id);
+      });
+    },
+    [setFavorites],
+  );
 
-  const inCart = useCallback((id: string) => cart.some((i) => i.id === id), [cart]);
-  const inFav = useCallback((id: string) => favorites.includes(id), [favorites]);
+  const inCart = useCallback(
+    (id: string) => cart.some((i) => i.id === id),
+    [cart],
+  );
+  const inFav = useCallback(
+    (id: string) => favorites.includes(id),
+    [favorites],
+  );
 
   return (
     <StoreContext.Provider

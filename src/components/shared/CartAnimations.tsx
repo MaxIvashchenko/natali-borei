@@ -39,7 +39,11 @@ function orbSvg() {
   `;
 }
 
-function flyTo(originEl: Element, targetEl: Element | null, kind: "cart" | "fav") {
+function flyTo(
+  originEl: Element,
+  targetEl: Element | null,
+  kind: "cart" | "fav",
+) {
   if (!targetEl) return;
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduced) return;
@@ -48,9 +52,9 @@ function flyTo(originEl: Element, targetEl: Element | null, kind: "cart" | "fav"
   const tRect = targetEl.getBoundingClientRect();
   const size = 36;
   const sx = bRect.left + bRect.width / 2 - size / 2;
-  const sy = bRect.top  + bRect.height / 2 - size / 2;
-  const dx = (tRect.left + tRect.width / 2)  - (sx + size / 2);
-  const dy = (tRect.top  + tRect.height / 2) - (sy + size / 2);
+  const sy = bRect.top + bRect.height / 2 - size / 2;
+  const dx = tRect.left + tRect.width / 2 - (sx + size / 2);
+  const dy = tRect.top + tRect.height / 2 - (sy + size / 2);
   const dist = Math.hypot(dx, dy);
   const arcLift = Math.min(60, dist * 0.12);
   const cx = dx * 0.55;
@@ -66,23 +70,60 @@ function flyTo(originEl: Element, targetEl: Element | null, kind: "cart" | "fav"
     `offset-path:path('M 0 0 Q ${cx.toFixed(1)} ${cy.toFixed(1)} ${dx.toFixed(1)} ${dy.toFixed(1)}')`,
     `offset-rotate:0deg`,
   ].join(";");
-  token.style.filter = "drop-shadow(0 0 10px rgba(240,208,128,0.55)) drop-shadow(0 6px 14px rgba(0,0,0,0.35))";
+  token.style.filter =
+    "drop-shadow(0 0 10px rgba(240,208,128,0.55)) drop-shadow(0 6px 14px rgba(0,0,0,0.35))";
   token.innerHTML = kind === "fav" ? heartSvg() : orbSvg();
   document.body.appendChild(token);
 
   const keyframes: Keyframe[] =
     kind === "fav"
       ? [
-          { offsetDistance: "0%",    transform: "scale(0.4) rotate(-8deg)",  opacity: 0 },
-          { offsetDistance: "0.05%", transform: "scale(1) rotate(6deg)",     opacity: 1, offset: 0.12 },
-          { offsetDistance: "70%",   transform: "scale(0.9) rotate(-4deg)",  opacity: 1, offset: 0.7 },
-          { offsetDistance: "100%",  transform: "scale(0.3) rotate(0deg)",   opacity: 0 },
+          {
+            offsetDistance: "0%",
+            transform: "scale(0.4) rotate(-8deg)",
+            opacity: 0,
+          },
+          {
+            offsetDistance: "0.05%",
+            transform: "scale(1) rotate(6deg)",
+            opacity: 1,
+            offset: 0.12,
+          },
+          {
+            offsetDistance: "70%",
+            transform: "scale(0.9) rotate(-4deg)",
+            opacity: 1,
+            offset: 0.7,
+          },
+          {
+            offsetDistance: "100%",
+            transform: "scale(0.3) rotate(0deg)",
+            opacity: 0,
+          },
         ]
       : [
-          { offsetDistance: "0%",    transform: "scale(0.4) rotate(0deg)",   opacity: 0 },
-          { offsetDistance: "0.05%", transform: "scale(1) rotate(20deg)",    opacity: 1, offset: 0.12 },
-          { offsetDistance: "70%",   transform: "scale(0.85) rotate(180deg)", opacity: 1, offset: 0.7 },
-          { offsetDistance: "100%",  transform: "scale(0.25) rotate(360deg)", opacity: 0 },
+          {
+            offsetDistance: "0%",
+            transform: "scale(0.4) rotate(0deg)",
+            opacity: 0,
+          },
+          {
+            offsetDistance: "0.05%",
+            transform: "scale(1) rotate(20deg)",
+            opacity: 1,
+            offset: 0.12,
+          },
+          {
+            offsetDistance: "70%",
+            transform: "scale(0.85) rotate(180deg)",
+            opacity: 1,
+            offset: 0.7,
+          },
+          {
+            offsetDistance: "100%",
+            transform: "scale(0.25) rotate(360deg)",
+            opacity: 0,
+          },
         ];
 
   const anim = token.animate(keyframes, {
@@ -93,7 +134,7 @@ function flyTo(originEl: Element, targetEl: Element | null, kind: "cart" | "fav"
   anim.onfinish = () => {
     token.remove();
     if (kind === "fav") bounceIcon("[data-fav-icon]", "nb-fav-bounce");
-    else                bounceIcon("[data-cart-icon]", "nb-cart-bounce");
+    else bounceIcon("[data-cart-icon]", "nb-cart-bounce");
   };
 }
 
@@ -103,7 +144,9 @@ function bounceIcon(selector: string, cls: string) {
   el.classList.remove(cls);
   void (el as HTMLElement).offsetWidth;
   el.classList.add(cls);
-  el.addEventListener("animationend", () => el.classList.remove(cls), { once: true });
+  el.addEventListener("animationend", () => el.classList.remove(cls), {
+    once: true,
+  });
 }
 
 function animateCounter(el: Element | null, cls: string) {
@@ -111,7 +154,9 @@ function animateCounter(el: Element | null, cls: string) {
   el.classList.remove(cls);
   void (el as HTMLElement).offsetWidth;
   el.classList.add(cls);
-  el.addEventListener("animationend", () => el.classList.remove(cls), { once: true });
+  el.addEventListener("animationend", () => el.classList.remove(cls), {
+    once: true,
+  });
 }
 
 function setButtonAdded(btn: HTMLElement) {
@@ -133,7 +178,9 @@ export default function CartAnimations() {
 
     const onClick = (e: MouseEvent) => {
       // Add to cart
-      const addBtn = (e.target as Element).closest<HTMLElement>("[data-add-cart]");
+      const addBtn = (e.target as Element).closest<HTMLElement>(
+        "[data-add-cart]",
+      );
       if (addBtn) {
         setButtonAdded(addBtn);
         if (!isCoarse) {
@@ -144,13 +191,19 @@ export default function CartAnimations() {
       }
 
       // Fav toggle
-      const heart = (e.target as Element).closest<HTMLElement>("[data-fav-toggle]");
+      const heart = (e.target as Element).closest<HTMLElement>(
+        "[data-fav-toggle]",
+      );
       if (heart) {
         const isAdding = !heart.classList.contains("is-faved");
         heart.classList.remove("nb-fav-pop");
         void heart.offsetWidth;
         heart.classList.add("nb-fav-pop");
-        heart.addEventListener("animationend", () => heart.classList.remove("nb-fav-pop"), { once: true });
+        heart.addEventListener(
+          "animationend",
+          () => heart.classList.remove("nb-fav-pop"),
+          { once: true },
+        );
         if (isAdding && !isCoarse) {
           const favIcon = document.querySelector("[data-fav-icon]");
           flyTo(heart, favIcon, "fav");
@@ -162,31 +215,43 @@ export default function CartAnimations() {
     document.addEventListener("click", onClick, true);
 
     const onCartAdded = () => {
-      animateCounter(document.querySelector("[data-cart-count]"), "nb-counter-pop");
+      animateCounter(
+        document.querySelector("[data-cart-count]"),
+        "nb-counter-pop",
+      );
       if (isCoarse) bounceIcon("[data-cart-icon]", "nb-cart-bounce");
     };
     const onCartRemoved = () => {
-      animateCounter(document.querySelector("[data-cart-count]"), "nb-counter-shake");
+      animateCounter(
+        document.querySelector("[data-cart-count]"),
+        "nb-counter-shake",
+      );
     };
     const onFavAdded = () => {
-      animateCounter(document.querySelector("[data-fav-count]"), "nb-counter-pop");
+      animateCounter(
+        document.querySelector("[data-fav-count]"),
+        "nb-counter-pop",
+      );
       if (isCoarse) bounceIcon("[data-fav-icon]", "nb-fav-bounce");
     };
     const onFavRemoved = () => {
-      animateCounter(document.querySelector("[data-fav-count]"), "nb-counter-shake");
+      animateCounter(
+        document.querySelector("[data-fav-count]"),
+        "nb-counter-shake",
+      );
     };
 
-    document.addEventListener("nb:cart:added",   onCartAdded);
+    document.addEventListener("nb:cart:added", onCartAdded);
     document.addEventListener("nb:cart:removed", onCartRemoved);
-    document.addEventListener("nb:fav:added",    onFavAdded);
-    document.addEventListener("nb:fav:removed",  onFavRemoved);
+    document.addEventListener("nb:fav:added", onFavAdded);
+    document.addEventListener("nb:fav:removed", onFavRemoved);
 
     return () => {
       document.removeEventListener("click", onClick, true);
-      document.removeEventListener("nb:cart:added",   onCartAdded);
+      document.removeEventListener("nb:cart:added", onCartAdded);
       document.removeEventListener("nb:cart:removed", onCartRemoved);
-      document.removeEventListener("nb:fav:added",    onFavAdded);
-      document.removeEventListener("nb:fav:removed",  onFavRemoved);
+      document.removeEventListener("nb:fav:added", onFavAdded);
+      document.removeEventListener("nb:fav:removed", onFavRemoved);
     };
   }, []);
 

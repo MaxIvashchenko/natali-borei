@@ -24,7 +24,9 @@ export default function GoldDust() {
 
   return (
     <div ref={ref} className="gold-dust" aria-hidden="true">
-      {Array.from({ length: 50 }, (_, i) => <i key={i} />)}
+      {Array.from({ length: 50 }, (_, i) => (
+        <i key={i} />
+      ))}
     </div>
   );
 }

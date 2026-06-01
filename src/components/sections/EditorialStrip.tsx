@@ -122,7 +122,11 @@ export default function EditorialStrip() {
 
   return (
     <section className="es" aria-label="Editorial moments">
-      <button className="es__nav es__nav--prev" type="button" aria-label="Previous">
+      <button
+        className="es__nav es__nav--prev"
+        type="button"
+        aria-label="Previous"
+      >
         <svg
           width="14"
           height="14"
@@ -150,7 +154,12 @@ export default function EditorialStrip() {
       <div className="es__viewport" id="esViewport">
         <div className="es__track" id="esTrack" ref={trackRef}>
           {allCards.map((card, i) => (
-            <figure key={i} className="es__card" data-name={card.name} data-cat={card.cat}>
+            <figure
+              key={i}
+              className="es__card"
+              data-name={card.name}
+              data-cat={card.cat}
+            >
               <div className="ph ph--editorial">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img className="ph__img" src={card.src} alt={card.alt} />
@@ -166,7 +175,9 @@ export default function EditorialStrip() {
           ))}
         </div>
       </div>
-      <p className="es__caption">Each piece is handcrafted. Each story is unique.</p>
+      <p className="es__caption">
+        Each piece is handcrafted. Each story is unique.
+      </p>
     </section>
   );
 }

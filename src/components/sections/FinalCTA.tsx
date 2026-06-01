@@ -29,7 +29,7 @@ export default function FinalCTA() {
           obs.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -69,7 +69,9 @@ export default function FinalCTA() {
         <h2 className="final__title">
           Find Your <em>Signature Piece</em>
         </h2>
-        <p className="final__sub">Browse our full catalog of handcrafted beaded jewelry.</p>
+        <p className="final__sub">
+          Browse our full catalog of handcrafted beaded jewelry.
+        </p>
         <div className="final__ctas">
           <Link className="gold-btn gold-btn--filled" href="/shop">
             Beadwork Art <ArrowSVG />

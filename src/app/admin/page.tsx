@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  useState,
-  useEffect,
-  useRef,
-  useCallback,
-} from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
@@ -514,7 +509,7 @@ export default function AdminPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [orders, setOrders] = useState<Order[]>([]);
   const [collections, setCollections] = useState<Collection[]>([]);
-  const [settings, setSettings] = useState<Settings>(SEED_SETTINGS);
+  const [settingsForm, setSettingsForm] = useState<Settings>(SEED_SETTINGS);
 
   // ─ UI state
   const [isLoaded, setIsLoaded] = useState(false);
@@ -559,22 +554,33 @@ export default function AdminPage() {
     notifTimer.current = setTimeout(() => setNotification(null), 3000);
   }, []);
 
+  const closeDrawer = useCallback(() => {
+    setDrawerOpen(false);
+    setEditingId(null);
+    setEditDraft(null);
+  }, []);
+
   // ─ Auth + init
   useEffect(() => {
     if (!localStorage.getItem("nb-admin-auth")) {
       router.replace("/admin/login");
       return;
     }
-    setProducts(loadStore(K_PRODUCTS, SEED_PRODUCTS));
-    setOrders(loadStore(K_ORDERS, SEED_ORDERS));
-    setCollections(loadStore(K_COLLECTIONS, SEED_COLLECTIONS));
-    setSettings(loadStore(K_SETTINGS, SEED_SETTINGS));
-    setIsLoaded(true);
 
-    const hash = window.location.hash.replace("#", "");
-    if (["products", "orders", "collections", "settings"].includes(hash)) {
-      setActiveTab(hash);
-    }
+    queueMicrotask(() => {
+      const loadedSettings = loadStore(K_SETTINGS, SEED_SETTINGS);
+      setProducts(loadStore(K_PRODUCTS, SEED_PRODUCTS));
+      setOrders(loadStore(K_ORDERS, SEED_ORDERS));
+      setCollections(loadStore(K_COLLECTIONS, SEED_COLLECTIONS));
+      setSettingsForm(loadedSettings);
+      setIsLoaded(true);
+
+      const hash = window.location.hash.replace("#", "");
+      if (["products", "orders", "collections", "settings"].includes(hash)) {
+        setActiveTab(hash);
+      }
+    });
+
     const t = setTimeout(() => setSkeletonOn(false), 650);
     return () => clearTimeout(t);
   }, [router]);
@@ -589,7 +595,7 @@ export default function AdminPage() {
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [drawerOpen, deleteModal.open]);
+  }, [drawerOpen, deleteModal.open, closeDrawer]);
 
   // ─ Tab switching
   const setTab = (name: string) => {
@@ -605,13 +611,7 @@ export default function AdminPage() {
     if (filters.status === "off" && p.available) return false;
     if (filters.search) {
       const q = filters.search.toLowerCase();
-      const hay = [
-        p.name.ru,
-        p.name.en,
-        p.name.de,
-        p.sub,
-        ...(p.tags || []),
-      ]
+      const hay = [p.name.ru, p.name.en, p.name.de, p.sub, ...(p.tags || [])]
         .join(" ")
         .toLowerCase();
       if (!hay.includes(q)) return false;
@@ -631,14 +631,14 @@ export default function AdminPage() {
   // ─ Toggle product availability
   const toggleAvailable = (id: string) => {
     const updated = products.map((p) =>
-      p.id === id ? { ...p, available: !p.available } : p
+      p.id === id ? { ...p, available: !p.available } : p,
     );
     setProducts(updated);
     saveStore(K_PRODUCTS, updated);
     const p = updated.find((x) => x.id === id);
     if (p)
       notify(
-        `${p.name.en} set to ${p.available ? "available" : "not available"}`
+        `${p.name.en} set to ${p.available ? "available" : "not available"}`,
       );
   };
 
@@ -673,12 +673,6 @@ export default function AdminPage() {
     setDrawerOpen(true);
   };
 
-  const closeDrawer = () => {
-    setDrawerOpen(false);
-    setEditingId(null);
-    setEditDraft(null);
-  };
-
   const saveDrawer = () => {
     if (!editDraft) return;
     if (!editDraft.name.en && !editDraft.name.ru) {
@@ -691,9 +685,7 @@ export default function AdminPage() {
       saveStore(K_PRODUCTS, updated);
       notify("Piece added to catalog");
     } else {
-      const updated = products.map((p) =>
-        p.id === editingId ? editDraft : p
-      );
+      const updated = products.map((p) => (p.id === editingId ? editDraft : p));
       setProducts(updated);
       saveStore(K_PRODUCTS, updated);
       notify("Changes saved");
@@ -766,7 +758,7 @@ export default function AdminPage() {
     const newStatus = orderStatusDraft[orderId];
     if (!newStatus) return;
     const updated = orders.map((o) =>
-      o.id === orderId ? { ...o, status: newStatus } : o
+      o.id === orderId ? { ...o, status: newStatus } : o,
     );
     setOrders(updated);
     saveStore(K_ORDERS, updated);
@@ -776,7 +768,7 @@ export default function AdminPage() {
   // ─ Collections
   const toggleCollection = (id: string) => {
     const updated = collections.map((c) =>
-      c.id === id ? { ...c, active: !c.active } : c
+      c.id === id ? { ...c, active: !c.active } : c,
     );
     setCollections(updated);
     saveStore(K_COLLECTIONS, updated);
@@ -808,7 +800,7 @@ export default function AdminPage() {
     const nm = window.prompt("Collection name [EN]", c.name.en);
     if (nm === null) return;
     const updated = collections.map((x) =>
-      x.id === id ? { ...x, name: { ...x.name, en: nm } } : x
+      x.id === id ? { ...x, name: { ...x.name, en: nm } } : x,
     );
     setCollections(updated);
     saveStore(K_COLLECTIONS, updated);
@@ -816,14 +808,8 @@ export default function AdminPage() {
   };
 
   // ─ Settings
-  const [settingsForm, setSettingsForm] = useState<Settings>(SEED_SETTINGS);
-  useEffect(() => {
-    if (isLoaded) setSettingsForm(settings);
-  }, [isLoaded, settings]);
-
   const saveSettings = (e: React.FormEvent) => {
     e.preventDefault();
-    setSettings(settingsForm);
     saveStore(K_SETTINGS, settingsForm);
     notify("Settings saved");
   };
@@ -859,13 +845,12 @@ export default function AdminPage() {
     setTimeout(() => router.replace("/admin/login"), 300);
   };
 
-  const deleteName =
-    deleteModal.id
-      ? (() => {
-          const p = products.find((x) => x.id === deleteModal.id);
-          return p ? p.name.en || p.name.ru : "this piece";
-        })()
-      : "this piece";
+  const deleteName = deleteModal.id
+    ? (() => {
+        const p = products.find((x) => x.id === deleteModal.id);
+        return p ? p.name.en || p.name.ru : "this piece";
+      })()
+    : "this piece";
 
   const photoPickerRef = useRef<HTMLInputElement>(null);
 
@@ -928,7 +913,6 @@ export default function AdminPage() {
 
       {/* ── Main */}
       <main className="admin-main">
-
         {/* ════ PRODUCTS ════ */}
         <section
           className={`admin-panel${activeTab === "products" ? " is-active" : ""}`}
@@ -1105,11 +1089,7 @@ export default function AdminPage() {
                       <td className="col-thumb">
                         {p.photos[0] ? (
                           // eslint-disable-next-line @next/next/no-img-element
-                          <img
-                            className="tbl-thumb"
-                            src={p.photos[0]}
-                            alt=""
-                          />
+                          <img className="tbl-thumb" src={p.photos[0]} alt="" />
                         ) : (
                           <div className="tbl-thumb" />
                         )}
@@ -1207,7 +1187,7 @@ export default function AdminPage() {
                       className={`order-row${expandedOrderId === o.id ? " is-expanded" : ""}`}
                       onClick={() =>
                         setExpandedOrderId(
-                          expandedOrderId === o.id ? null : o.id
+                          expandedOrderId === o.id ? null : o.id,
                         )
                       }
                     >
@@ -1269,9 +1249,7 @@ export default function AdminPage() {
                                     )}
                                     <div>
                                       <p className="order-item__name">
-                                        {p
-                                          ? p.name.en || p.name.ru
-                                          : it.id}
+                                        {p ? p.name.en || p.name.ru : it.id}
                                       </p>
                                       <p className="order-item__meta">
                                         {p ? p.sub : "—"} · qty {it.qty}
@@ -1279,10 +1257,7 @@ export default function AdminPage() {
                                     </div>
                                     <span className="order-item__price">
                                       {p
-                                        ? fmtPrice(
-                                            p.price * it.qty,
-                                            p.currency
-                                          )
+                                        ? fmtPrice(p.price * it.qty, p.currency)
                                         : "—"}
                                     </span>
                                   </div>
@@ -1391,7 +1366,9 @@ export default function AdminPage() {
                     <img src={c.cover} alt="" />
                   </div>
                   <div className="coll-card__body">
-                    <h3 className="coll-card__name">{c.name.en || c.name.ru}</h3>
+                    <h3 className="coll-card__name">
+                      {c.name.en || c.name.ru}
+                    </h3>
                     <p className="coll-card__count">
                       {count} piece{count === 1 ? "" : "s"}
                     </p>
@@ -1658,9 +1635,7 @@ export default function AdminPage() {
                     <select
                       className="ed-select"
                       value={editDraft.currency}
-                      onChange={(e) =>
-                        patchDraft({ currency: e.target.value })
-                      }
+                      onChange={(e) => patchDraft({ currency: e.target.value })}
                     >
                       {["€", "$", "₴"].map((c) => (
                         <option key={c} value={c}>
@@ -1820,7 +1795,9 @@ export default function AdminPage() {
 
               {/* ─ Media */}
               <div className="ed-section">
-                <h3 className="ed-section__title">Media — photos &amp; videos</h3>
+                <h3 className="ed-section__title">
+                  Media — photos &amp; videos
+                </h3>
 
                 <p
                   style={{
@@ -1991,8 +1968,8 @@ export default function AdminPage() {
           </div>
           <h3 className="modal__title">Remove from catalog?</h3>
           <p className="modal__msg">
-            You&apos;re about to delete <b>{deleteName}</b>. This action
-            cannot be undone.
+            You&apos;re about to delete <b>{deleteName}</b>. This action cannot
+            be undone.
           </p>
           <div className="modal__actions">
             <button

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 const LANGS = [
   { code: "ru", label: "Русский" },
@@ -10,24 +10,40 @@ const LANGS = [
 
 type LangCode = (typeof LANGS)[number]["code"];
 
+const LANG_EVENT = "nb:lang";
+
+function readLang(): LangCode {
+  if (typeof window === "undefined") return "ru";
+  const saved = localStorage.getItem("nb-lang") as LangCode | null;
+  return saved && LANGS.some((l) => l.code === saved) ? saved : "ru";
+}
+
+function subscribeLang(onStoreChange: () => void) {
+  const handler = () => onStoreChange();
+  window.addEventListener(LANG_EVENT, handler);
+  return () => window.removeEventListener(LANG_EVENT, handler);
+}
+
 export default function LangSwitch() {
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState<LangCode>("ru");
   const ref = useRef<HTMLDivElement>(null);
+  const lang = useSyncExternalStore(
+    subscribeLang,
+    readLang,
+    () => "ru" as LangCode,
+  );
 
   useEffect(() => {
-    const saved = localStorage.getItem("nb-lang") as LangCode | null;
-    const initial = saved && LANGS.some((l) => l.code === saved) ? saved : "ru";
-    setLang(initial);
-    document.documentElement.lang = initial;
-  }, []);
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
     };
     const onOutside = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target as Node))
+        setOpen(false);
     };
     document.addEventListener("keydown", onKey);
     document.addEventListener("mousedown", onOutside);
@@ -38,10 +54,9 @@ export default function LangSwitch() {
   }, []);
 
   const select = (code: LangCode) => {
-    setLang(code);
     setOpen(false);
     localStorage.setItem("nb-lang", code);
-    document.documentElement.lang = code;
+    window.dispatchEvent(new Event(LANG_EVENT));
   };
 
   return (
@@ -70,7 +85,11 @@ export default function LangSwitch() {
         </svg>
       </button>
 
-      <ul className="lang-switch__menu" role="listbox" aria-label="Выбрать язык">
+      <ul
+        className="lang-switch__menu"
+        role="listbox"
+        aria-label="Выбрать язык"
+      >
         {LANGS.map((l) => (
           <li key={l.code}>
             <button
@@ -81,7 +100,9 @@ export default function LangSwitch() {
               onClick={() => select(l.code)}
             >
               {l.label}
-              <span className="lang-switch__item-code">{l.code.toUpperCase()}</span>
+              <span className="lang-switch__item-code">
+                {l.code.toUpperCase()}
+              </span>
             </button>
           </li>
         ))}

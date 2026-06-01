@@ -53,7 +53,9 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
           />
           <span className="mobile-menu__brand">
             Natali Borei
-            <span className="mobile-menu__brand-sub">Exclusive Accessoires</span>
+            <span className="mobile-menu__brand-sub">
+              Exclusive Accessoires
+            </span>
           </span>
           <button
             className="mobile-menu__close"
@@ -76,7 +78,12 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
 
         <nav className="mobile-menu__nav" aria-label="Основная навигация">
           {navItems.map((item) => (
-            <Link key={item.href} className="mm-link" href={item.href} onClick={onClose}>
+            <Link
+              key={item.href}
+              className="mm-link"
+              href={item.href}
+              onClick={onClose}
+            >
               <span className="mm-link__no">{item.no}</span>
               <span className="mm-link__label">{item.label}</span>
             </Link>
@@ -85,10 +92,18 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
 
         <div className="mobile-menu__foot">
           <div className="mobile-menu__util">
-            <Link className="mobile-menu__util-link" href="/favorites" onClick={onClose}>
+            <Link
+              className="mobile-menu__util-link"
+              href="/favorites"
+              onClick={onClose}
+            >
               Избранное
             </Link>
-            <Link className="mobile-menu__util-link" href="/cart" onClick={onClose}>
+            <Link
+              className="mobile-menu__util-link"
+              href="/cart"
+              onClick={onClose}
+            >
               Корзина
             </Link>
           </div>

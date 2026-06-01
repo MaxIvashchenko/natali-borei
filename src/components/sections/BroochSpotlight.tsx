@@ -1,8 +1,22 @@
 import Link from "next/link";
 
 const OrnamentSVG = () => (
-  <svg width="180" height="14" viewBox="0 0 180 14" fill="none" aria-hidden="true">
-    <line x1="0" y1="7" x2="66" y2="7" stroke="#B8963E" strokeWidth="0.8" opacity="0.55" />
+  <svg
+    width="180"
+    height="14"
+    viewBox="0 0 180 14"
+    fill="none"
+    aria-hidden="true"
+  >
+    <line
+      x1="0"
+      y1="7"
+      x2="66"
+      y2="7"
+      stroke="#B8963E"
+      strokeWidth="0.8"
+      opacity="0.55"
+    />
     <rect
       x="72"
       y="2"
@@ -26,7 +40,15 @@ const OrnamentSVG = () => (
       opacity="0.7"
       fill="none"
     />
-    <line x1="114" y1="7" x2="180" y2="7" stroke="#B8963E" strokeWidth="0.8" opacity="0.55" />
+    <line
+      x1="114"
+      y1="7"
+      x2="180"
+      y2="7"
+      stroke="#B8963E"
+      strokeWidth="0.8"
+      opacity="0.55"
+    />
   </svg>
 );
 
@@ -105,8 +127,8 @@ export default function BroochSpotlight() {
       <header className="spotlight__head">
         <p className="eyebrow">The Art of the Brooch</p>
         <h2 className="spotlight__title">
-          Insect <span className="sep">·</span> Order <span className="sep">·</span>{" "}
-          <em>Statement</em>
+          Insect <span className="sep">·</span> Order{" "}
+          <span className="sep">·</span> <em>Statement</em>
         </h2>
         <span className="showcase__ornament">
           <OrnamentSVG />
@@ -115,7 +137,12 @@ export default function BroochSpotlight() {
 
       <div className="spotlight__row">
         {brooches.map((b) => (
-          <Link key={b.name} className="medallion" href={b.href} aria-label={b.alt}>
+          <Link
+            key={b.name}
+            className="medallion"
+            href={b.href}
+            aria-label={b.alt}
+          >
             <div className="medallion__frame">
               <div className="medallion__img">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

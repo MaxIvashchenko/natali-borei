@@ -16,7 +16,8 @@ export default function GalleryWall() {
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const cells = gridRef.current?.querySelectorAll<HTMLElement>(".gallery__cell");
+    const cells =
+      gridRef.current?.querySelectorAll<HTMLElement>(".gallery__cell");
     if (!cells) return;
 
     const obs = new IntersectionObserver(
@@ -27,7 +28,7 @@ export default function GalleryWall() {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     cells.forEach((cell, i) => {

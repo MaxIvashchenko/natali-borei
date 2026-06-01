@@ -15,7 +15,14 @@ const CornerSvg = () => (
 );
 
 const ArrowSvg = () => (
-  <svg width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="currentColor" strokeWidth="1.2">
+  <svg
+    width="14"
+    height="10"
+    viewBox="0 0 14 10"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.2"
+  >
     <path d="M1 5h12M9 1l4 4-4 4" />
   </svg>
 );
@@ -37,12 +44,18 @@ export default function ProductPage({ params }: Props) {
   const media =
     product.media && product.media.length
       ? product.media
-      : [{ type: "image" as const, src: product.img, kind: "product" as const }];
+      : [
+          {
+            type: "image" as const,
+            src: product.img,
+            kind: "product" as const,
+          },
+        ];
 
   const [activeIdx, setActiveIdx] = useState(0);
 
   const related = PRODUCTS.filter(
-    (p) => p.coll === product.coll && p.id !== product.id
+    (p) => p.coll === product.coll && p.id !== product.id,
   ).slice(0, 4);
 
   const collLabel = getCollLabel(product.coll);
@@ -84,10 +97,18 @@ export default function ProductPage({ params }: Props) {
                 />
               )}
             </div>
-            <span className="corner corner--tl"><CornerSvg /></span>
-            <span className="corner corner--tr"><CornerSvg /></span>
-            <span className="corner corner--bl"><CornerSvg /></span>
-            <span className="corner corner--br"><CornerSvg /></span>
+            <span className="corner corner--tl">
+              <CornerSvg />
+            </span>
+            <span className="corner corner--tr">
+              <CornerSvg />
+            </span>
+            <span className="corner corner--bl">
+              <CornerSvg />
+            </span>
+            <span className="corner corner--br">
+              <CornerSvg />
+            </span>
           </div>
 
           {media.length > 1 && (
@@ -102,9 +123,19 @@ export default function ProductPage({ params }: Props) {
                 >
                   {m.type === "video" ? (
                     <>
-                      <video className="product__thumb-vid" src={m.src} muted preload="metadata" />
+                      <video
+                        className="product__thumb-vid"
+                        src={m.src}
+                        muted
+                        preload="metadata"
+                      />
                       <span className="product__thumb-play" aria-hidden="true">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
                           <path d="M8 5v14l11-7L8 5z" />
                         </svg>
                       </span>
@@ -113,8 +144,12 @@ export default function ProductPage({ params }: Props) {
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={m.src} alt="" loading="lazy" />
                   )}
-                  {m.kind === "model" && <span className="product__thumb-tag">Model</span>}
-                  {m.kind === "detail" && <span className="product__thumb-tag">Detail</span>}
+                  {m.kind === "model" && (
+                    <span className="product__thumb-tag">Model</span>
+                  )}
+                  {m.kind === "detail" && (
+                    <span className="product__thumb-tag">Detail</span>
+                  )}
                 </button>
               ))}
             </div>
@@ -212,7 +247,9 @@ export default function ProductPage({ params }: Props) {
           <div className="product__story-inner">
             <p className="eyebrow">История украшения</p>
             {product.story.map((par, i) => (
-              <p key={i} className="product__story-p">{par}</p>
+              <p key={i} className="product__story-p">
+                {par}
+              </p>
             ))}
             {product.closing && (
               <>

@@ -19,7 +19,11 @@ export default function TermsPage() {
           <Link className="legal__tab" href="/privacy">
             Политика конфиденциальности
           </Link>
-          <Link className="legal__tab is-active" href="/terms" aria-current="page">
+          <Link
+            className="legal__tab is-active"
+            href="/terms"
+            aria-current="page"
+          >
             Условия использования
           </Link>
         </div>
@@ -35,40 +39,75 @@ export default function TermsPage() {
 
       {/* BODY */}
       <div className="legal__body">
-
         {/* TOC */}
-        <aside className="legal__toc" id="legalToc" aria-label="Table of contents">
-          <button className="legal__toc-toggle" type="button" id="tocToggle" aria-expanded="false">
+        <aside
+          className="legal__toc"
+          id="legalToc"
+          aria-label="Table of contents"
+        >
+          <button
+            className="legal__toc-toggle"
+            type="button"
+            id="tocToggle"
+            aria-expanded="false"
+          >
             Содержание
             <span className="chev" aria-hidden="true">
-              <svg width="11" height="7" viewBox="0 0 12 8" fill="none" stroke="currentColor" strokeWidth="1.2">
+              <svg
+                width="11"
+                height="7"
+                viewBox="0 0 12 8"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.2"
+              >
                 <path d="M1 1.5 L6 6 L11 1.5" />
               </svg>
             </span>
           </button>
           <p className="legal__toc-label">Содержание</p>
           <div className="legal__toc-list">
-            <a className="legal__toc-link is-active" href="#section-1"><span className="num">01</span>Общие условия</a>
-            <a className="legal__toc-link" href="#section-2"><span className="num">02</span>Продукция</a>
-            <a className="legal__toc-link" href="#section-3"><span className="num">03</span>Оформление заказа</a>
-            <a className="legal__toc-link" href="#section-4"><span className="num">04</span>Доставка</a>
-            <a className="legal__toc-link" href="#section-5"><span className="num">05</span>Возврат и обмен</a>
-            <a className="legal__toc-link" href="#section-6"><span className="num">06</span>Интеллектуальная собственность</a>
-            <a className="legal__toc-link" href="#section-7"><span className="num">07</span>Ограничение ответственности</a>
-            <a className="legal__toc-link" href="#section-8"><span className="num">08</span>Применимое право</a>
-            <a className="legal__toc-link" href="#section-9"><span className="num">09</span>Изменения условий</a>
-            <a className="legal__toc-link" href="#section-10"><span className="num">10</span>Контакты</a>
+            <a className="legal__toc-link is-active" href="#section-1">
+              <span className="num">01</span>Общие условия
+            </a>
+            <a className="legal__toc-link" href="#section-2">
+              <span className="num">02</span>Продукция
+            </a>
+            <a className="legal__toc-link" href="#section-3">
+              <span className="num">03</span>Оформление заказа
+            </a>
+            <a className="legal__toc-link" href="#section-4">
+              <span className="num">04</span>Доставка
+            </a>
+            <a className="legal__toc-link" href="#section-5">
+              <span className="num">05</span>Возврат и обмен
+            </a>
+            <a className="legal__toc-link" href="#section-6">
+              <span className="num">06</span>Интеллектуальная собственность
+            </a>
+            <a className="legal__toc-link" href="#section-7">
+              <span className="num">07</span>Ограничение ответственности
+            </a>
+            <a className="legal__toc-link" href="#section-8">
+              <span className="num">08</span>Применимое право
+            </a>
+            <a className="legal__toc-link" href="#section-9">
+              <span className="num">09</span>Изменения условий
+            </a>
+            <a className="legal__toc-link" href="#section-10">
+              <span className="num">10</span>Контакты
+            </a>
           </div>
         </aside>
 
         {/* CONTENT */}
         <article className="legal__doc is-active">
-
           <section className="legal__section" id="section-1">
             <span className="legal__section-num">01</span>
             <h2 className="legal__h2">Общие условия</h2>
             <p className="legal__p">
-              Использование сайта nataliborei.com означает принятие настоящих условий в полном объёме.
+              Использование сайта nataliborei.com означает принятие настоящих
+              условий в полном объёме.
             </p>
           </section>
 
@@ -76,8 +115,9 @@ export default function TermsPage() {
             <span className="legal__section-num">02</span>
             <h2 className="legal__h2">Продукция</h2>
             <p className="legal__p">
-              Все украшения Natali Borei — авторская ручная работа в единственном экземпляре. Фотографии
-              максимально точно передают цвет и фактуру изделий.
+              Все украшения Natali Borei — авторская ручная работа в
+              единственном экземпляре. Фотографии максимально точно передают
+              цвет и фактуру изделий.
             </p>
           </section>
 
@@ -95,8 +135,14 @@ export default function TermsPage() {
             <span className="legal__section-num">04</span>
             <h2 className="legal__h2">Доставка</h2>
             <ul className="legal__list">
-              <li>Сроки доставки зависят от региона — указаны на странице доставки.</li>
-              <li>Риск утраты товара переходит к покупателю с момента передачи курьерской службе.</li>
+              <li>
+                Сроки доставки зависят от региона — указаны на странице
+                доставки.
+              </li>
+              <li>
+                Риск утраты товара переходит к покупателю с момента передачи
+                курьерской службе.
+              </li>
             </ul>
           </section>
 
@@ -106,7 +152,10 @@ export default function TermsPage() {
             <ul className="legal__list">
               <li>Возврат в течение 14 дней с момента получения.</li>
               <li>Изделие должно быть в оригинальном состоянии.</li>
-              <li>Изделия, изготовленные по индивидуальному заказу, возврату не подлежат.</li>
+              <li>
+                Изделия, изготовленные по индивидуальному заказу, возврату не
+                подлежат.
+              </li>
             </ul>
           </section>
 
@@ -114,8 +163,9 @@ export default function TermsPage() {
             <span className="legal__section-num">06</span>
             <h2 className="legal__h2">Интеллектуальная собственность</h2>
             <p className="legal__p">
-              Все фотографии, тексты, логотип и дизайн сайта являются собственностью Natali Borei.
-              Копирование без письменного разрешения запрещено.
+              Все фотографии, тексты, логотип и дизайн сайта являются
+              собственностью Natali Borei. Копирование без письменного
+              разрешения запрещено.
             </p>
           </section>
 
@@ -123,8 +173,9 @@ export default function TermsPage() {
             <span className="legal__section-num">07</span>
             <h2 className="legal__h2">Ограничение ответственности</h2>
             <p className="legal__p">
-              Natali Borei не несёт ответственности за задержки доставки, вызванные действиями третьих
-              лиц или обстоятельствами непреодолимой силы.
+              Natali Borei не несёт ответственности за задержки доставки,
+              вызванные действиями третьих лиц или обстоятельствами
+              непреодолимой силы.
             </p>
           </section>
 
@@ -132,7 +183,8 @@ export default function TermsPage() {
             <span className="legal__section-num">08</span>
             <h2 className="legal__h2">Применимое право</h2>
             <p className="legal__p">
-              Настоящие условия регулируются законодательством страны регистрации бренда.
+              Настоящие условия регулируются законодательством страны
+              регистрации бренда.
             </p>
           </section>
 
@@ -140,8 +192,8 @@ export default function TermsPage() {
             <span className="legal__section-num">09</span>
             <h2 className="legal__h2">Изменения условий</h2>
             <p className="legal__p">
-              Мы оставляем за собой право изменять условия. Актуальная версия всегда доступна на этой
-              странице.
+              Мы оставляем за собой право изменять условия. Актуальная версия
+              всегда доступна на этой странице.
             </p>
           </section>
 
@@ -156,7 +208,10 @@ export default function TermsPage() {
 
           <div className="legal__doc-end">
             <button className="legal__top" type="button" data-back-to-top="">
-              Наверх <span className="arr" aria-hidden="true">↑</span>
+              Наверх{" "}
+              <span className="arr" aria-hidden="true">
+                ↑
+              </span>
             </button>
             <div className="legal__contact">
               <h3 className="legal__contact-h">Остались вопросы?</h3>
@@ -165,13 +220,19 @@ export default function TermsPage() {
               </p>
               <Link className="gold-btn" href="/contact">
                 Связаться
-                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="currentColor" strokeWidth="1.2">
+                <svg
+                  width="14"
+                  height="10"
+                  viewBox="0 0 14 10"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                >
                   <path d="M1 5h12M9 1l4 4-4 4" />
                 </svg>
               </Link>
             </div>
           </div>
-
         </article>
       </div>
     </main>

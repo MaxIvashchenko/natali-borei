@@ -17,7 +17,7 @@ export default function BrandStory() {
           obs.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -40,10 +40,11 @@ export default function BrandStory() {
         </h2>
         <hr className="gold-line gold-line--wide story__rule" />
         <p className="story__body">
-          Each jewel is made by hand in our studio — in single editions, never replicated. We work
-          only with premium materials: Japanese <em>Miyuki</em> and <em>TOHO</em> seed beads, Czech
-          crystals, freshwater pearls, and natural stones, set onto leather and silk with a slow,
-          patient hand.
+          Each jewel is made by hand in our studio — in single editions, never
+          replicated. We work only with premium materials: Japanese{" "}
+          <em>Miyuki</em> and <em>TOHO</em> seed beads, Czech crystals,
+          freshwater pearls, and natural stones, set onto leather and silk with
+          a slow, patient hand.
         </p>
 
         <div className="story__stats">

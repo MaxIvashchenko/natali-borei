@@ -6,7 +6,12 @@ function Rail({ side }: { side: "left" | "right" }) {
   return (
     <div className={`side-rail side-rail--${side}`} aria-hidden="true">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="side-rail__mono" src="/logo-monogram.png" alt="" aria-hidden="true" />
+      <img
+        className="side-rail__mono"
+        src="/logo-monogram.png"
+        alt=""
+        aria-hidden="true"
+      />
       <span className="side-rail__year side-rail__year--top">MMXXVI</span>
       <span className="side-rail__orn side-rail__orn--top" />
       <span className="side-rail__mark">{MARK}</span>
