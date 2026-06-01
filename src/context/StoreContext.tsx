@@ -4,6 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useSyncExternalStore,
 } from "react";
 import { formatPrice, PRODUCTS } from "@/lib/products";
@@ -35,19 +36,38 @@ const FAV_KEY = "nb-fav";
 const CART_EVENT = "nb:store:cart";
 const FAV_EVENT = "nb:store:fav";
 
+const EMPTY_CART: CartItem[] = [];
+const EMPTY_FAVS: string[] = [];
+
+let storeHydrated = false;
+
+type CacheEntry<T> = { raw: string | null; value: T };
+
+const snapshotCache = new Map<string, CacheEntry<unknown>>();
+
 function readLS<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") return fallback;
+
   try {
-    const v = localStorage.getItem(key);
-    return v ? JSON.parse(v) : fallback;
+    const raw = localStorage.getItem(key);
+    const cached = snapshotCache.get(key) as CacheEntry<T> | undefined;
+    if (cached && cached.raw === raw) return cached.value;
+
+    const value = raw ? (JSON.parse(raw) as T) : fallback;
+    snapshotCache.set(key, { raw, value });
+    return value;
   } catch {
     return fallback;
   }
 }
 
-function writeLS(key: string, value: unknown) {
+function writeLS<T>(key: string, value: T) {
+  if (typeof window === "undefined") return;
+
   try {
-    localStorage.setItem(key, JSON.stringify(value));
+    const raw = JSON.stringify(value);
+    localStorage.setItem(key, raw);
+    snapshotCache.set(key, { raw, value });
   } catch {}
 }
 
@@ -59,25 +79,41 @@ function subscribeStore(event: string) {
   };
 }
 
-function useStoreSlice<T>(key: string, event: string, fallback: T) {
-  return useSyncExternalStore(
-    subscribeStore(event),
-    () => readLS(key, fallback),
-    () => fallback,
-  );
-}
-
 function publishStore(event: string) {
   window.dispatchEvent(new Event(event));
 }
 
+function useStoreSlice<T>(key: string, event: string, fallback: T, empty: T) {
+  return useSyncExternalStore(
+    subscribeStore(event),
+    () => (storeHydrated ? readLS(key, fallback) : empty),
+    () => empty,
+  );
+}
+
 export function StoreProvider({ children }: { children: React.ReactNode }) {
-  const cart = useStoreSlice<CartItem[]>(CART_KEY, CART_EVENT, []);
-  const favorites = useStoreSlice<string[]>(FAV_KEY, FAV_EVENT, []);
+  useEffect(() => {
+    storeHydrated = true;
+    publishStore(CART_EVENT);
+    publishStore(FAV_EVENT);
+  }, []);
+
+  const cart = useStoreSlice<CartItem[]>(
+    CART_KEY,
+    CART_EVENT,
+    EMPTY_CART,
+    EMPTY_CART,
+  );
+  const favorites = useStoreSlice<string[]>(
+    FAV_KEY,
+    FAV_EVENT,
+    EMPTY_FAVS,
+    EMPTY_FAVS,
+  );
 
   const setCart = useCallback(
     (updater: CartItem[] | ((prev: CartItem[]) => CartItem[])) => {
-      const prev = readLS<CartItem[]>(CART_KEY, []);
+      const prev = readLS<CartItem[]>(CART_KEY, EMPTY_CART);
       const next = typeof updater === "function" ? updater(prev) : updater;
       writeLS(CART_KEY, next);
       publishStore(CART_EVENT);
@@ -87,7 +123,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
 
   const setFavorites = useCallback(
     (updater: string[] | ((prev: string[]) => string[])) => {
-      const prev = readLS<string[]>(FAV_KEY, []);
+      const prev = readLS<string[]>(FAV_KEY, EMPTY_FAVS);
       const next = typeof updater === "function" ? updater(prev) : updater;
       writeLS(FAV_KEY, next);
       publishStore(FAV_EVENT);

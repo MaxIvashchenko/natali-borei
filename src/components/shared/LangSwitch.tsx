@@ -11,11 +11,14 @@ const LANGS = [
 type LangCode = (typeof LANGS)[number]["code"];
 
 const LANG_EVENT = "nb:lang";
+const DEFAULT_LANG: LangCode = "ru";
+
+let langHydrated = false;
 
 function readLang(): LangCode {
-  if (typeof window === "undefined") return "ru";
+  if (typeof window === "undefined") return DEFAULT_LANG;
   const saved = localStorage.getItem("nb-lang") as LangCode | null;
-  return saved && LANGS.some((l) => l.code === saved) ? saved : "ru";
+  return saved && LANGS.some((l) => l.code === saved) ? saved : DEFAULT_LANG;
 }
 
 function subscribeLang(onStoreChange: () => void) {
@@ -24,13 +27,23 @@ function subscribeLang(onStoreChange: () => void) {
   return () => window.removeEventListener(LANG_EVENT, handler);
 }
 
+function getLangSnapshot(): LangCode {
+  return langHydrated ? readLang() : DEFAULT_LANG;
+}
+
 export default function LangSwitch() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    langHydrated = true;
+    window.dispatchEvent(new Event(LANG_EVENT));
+  }, []);
+
   const lang = useSyncExternalStore(
     subscribeLang,
-    readLang,
-    () => "ru" as LangCode,
+    getLangSnapshot,
+    () => DEFAULT_LANG,
   );
 
   useEffect(() => {
