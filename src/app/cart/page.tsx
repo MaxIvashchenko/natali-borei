@@ -33,7 +33,7 @@ const ArrowSvg = () => (
 );
 
 export default function CartPage() {
-  const { cart, cartCount, cartTotal, addToCart, removeFromCart, setQty, clearCart, format } =
+  const { cart, cartCount, cartTotal, removeFromCart, setQty, clearCart, format } =
     useStore();
 
   const [step, setStep] = useState<Step>(1);

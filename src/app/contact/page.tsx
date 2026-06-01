@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from "next";
 import { useState } from "react";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 

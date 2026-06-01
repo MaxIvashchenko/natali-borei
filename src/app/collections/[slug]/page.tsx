@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { PRODUCTS } from "@/lib/products";
 import ProductCard from "@/components/shared/ProductCard";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";

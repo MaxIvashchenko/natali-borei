@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import type { Metadata } from "next";
 import { PRODUCTS } from "@/lib/products";
 import ProductCard from "@/components/shared/ProductCard";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
